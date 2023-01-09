@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 
 class LanguageController extends GetxController {
-  /* List<String> flags = [
-    "assets/images/language/turk_bayrak.png",
-    "assets/images/language/eng_bayrak.png",
-    "assets/images/language/eng_bayrak.png",
-    "assets/images/language/portugal_bayrak.png",
+  List<String> flags = [
+    "assets/images/language/english_flag.png",
+    "assets/images/language/turkish_flag.jpg",
+    "assets/images/language/french_flag1.png",
+    "assets/images/language/german_flag.png",
+    "assets/images/language/portugal_flag.png",
     "assets/images/language/romanian_flag.png",
-  ]; */
-  List flags = ["assets/images/language/sdfsdsdf.jpg"];
+  ];
 }

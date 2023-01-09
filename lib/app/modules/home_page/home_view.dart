@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_controller.dart';
+import 'package:sun_ik_app/utils/const.dart';
 
 import '../../widgets/home_widgets/home_menu_card.dart';
 
@@ -18,7 +19,7 @@ class HomeView extends GetView<HomeController> {
         elevation: 0,
         toolbarHeight: 0,
         systemOverlayStyle:
-            const SystemUiOverlayStyle(statusBarColor: Color(0xffEF3E52)),
+            const SystemUiOverlayStyle(statusBarColor: Const.STATUSBARCOLOR),
       ),
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(
@@ -38,8 +39,7 @@ class HomeView extends GetView<HomeController> {
                   child: Row(children: [
                     CircleAvatar(
                       radius: 3.5.h,
-                      backgroundImage:
-                          const AssetImage('assets/images/home_assets/ic_avatar_profile.png'),
+                      backgroundImage: const AssetImage(Const.PROFILEAVATAR),
                     ),
                     IconButton(onPressed: () {}, icon: const Icon(Icons.info)),
                   ]),
@@ -51,11 +51,9 @@ class HomeView extends GetView<HomeController> {
               child: Container(
                 width: 16.w,
                 height: 10.h,
-                decoration: const BoxDecoration(
-                    //color: Colors.red,
+                decoration: const BoxDecoration(                  
                     image: DecorationImage(
-                        image: AssetImage('assets/images/home_assets/ic_sun_logo.PNG'),
-                        fit: BoxFit.fill)),
+                        image: AssetImage(Const.SUNLOGO), fit: BoxFit.fill)),
               ),
             ),
             Align(
@@ -63,7 +61,6 @@ class HomeView extends GetView<HomeController> {
               child: Container(
                 width: 25.w,
                 height: 10.h,
-                //color: Colors.red,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -76,14 +73,14 @@ class HomeView extends GetView<HomeController> {
                               Icon(
                                 Icons.notifications,
                                 size: 3.7.h,
-                                color: Color(0xffFDC330),
+                                color: Const.NOTIFICATIONICONCOLOR,
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 0.2.h),
                                 width: 2.h,
                                 height: 2.h,
                                 decoration: const BoxDecoration(
-                                    color: Colors.red, shape: BoxShape.circle),
+                                    color: Const.NOTIFICATIONCONTAINERCOLOR, shape: BoxShape.circle),
                                 child: Center(
                                     child: Text(
                                   '0',
@@ -100,9 +97,9 @@ class HomeView extends GetView<HomeController> {
                       IconButton(
                           onPressed: () {},
                           icon: Image.asset(
-                            'assets/images/home_assets/ic_cikis_yap.png',
+                            Const.CIKISYAPICON,
                             scale: .3.h,
-                            color: const Color(0xffFF5B5B),
+                            color: Const.CIKISYAPICONCOLOR,
                           )),
                     ]),
               ),
@@ -127,27 +124,27 @@ class HomeView extends GetView<HomeController> {
             children: [
               HomeMenuCard(
                 cardPressed: () {},
-                cardName: 'Taleplerim',
+                cardName: Const.TALEPLERIMTEXT,
                 cardInfo: '19 Notifications',
-                cardIcon: 'assets/images/home_assets/ic_taleplerim.png',
+                cardIcon: Const.TALEPLERIMICON,
                 cardHeight: 20.h,
                 cardWidth: 38.w,
                 isBordro: false,
               ),
               HomeMenuCard(
                 cardPressed: () {},
-                cardName: 'Onaylarım',
+                cardName: Const.ONAYLARIMTEXT,
                 cardInfo: '2 Notifications',
-                cardIcon: 'assets/images/home_assets/ic_onayladiklarim1.png',
+                cardIcon: Const.ONAYLARIMICON,
                 cardHeight: 20.h,
                 cardWidth: 38.w,
                 isBordro: false,
               ),
               HomeMenuCard(
                 cardPressed: () {},
-                cardName: 'İşlerim',
+                cardName: Const.ISLERIMTEXT,
                 cardInfo: '9 Notifications',
-                cardIcon: 'assets/images/home_assets/ic_islerim1.png',
+                cardIcon: Const.ISLERIMICON,
                 cardHeight: 20.h,
                 cardWidth: 38.w,
                 isBordro: false,
@@ -155,9 +152,9 @@ class HomeView extends GetView<HomeController> {
               HomeMenuCard(
                 cardPressed: () {},
                 lastBordroPressed: () {},
-                cardName: 'Bordrolarım',
+                cardName: Const.BORDROLARIMTEXT,
                 cardInfo: '19 Bordro',
-                cardIcon: 'assets/images/home_assets/ic_bordrolarim.png',
+                cardIcon: Const.BORDROLARIMICON,
                 cardHeight: 20.h,
                 cardWidth: 38.w,
                 isBordro: true,
@@ -174,7 +171,7 @@ class HomeView extends GetView<HomeController> {
               height: 20.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
+                  color: Const.MENUCOLOR,
                   boxShadow: const [
                     BoxShadow(
                         blurRadius: 3,
@@ -198,14 +195,14 @@ class HomeView extends GetView<HomeController> {
                                   height: 5.h,
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/home_assets/ic_izinlerim.png'))),
+                                          image:
+                                              AssetImage(Const.IZINLERIMICON))),
                                 ),
                                 Text(
-                                  'İzinlerim',
+                                  Const.IZINLERIMTEXT,
                                   style: GoogleFonts.inter(
                                     color:
-                                        const Color.fromARGB(255, 72, 74, 77),
+                                        Const.BASLIKTEXTCOLOR,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -223,7 +220,7 @@ class HomeView extends GetView<HomeController> {
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: const AssetImage(
-                                          'assets/images/home_assets/ic_izinlerim_ekle.png'),
+                                          Const.IZINLERIMEKLEICON),
                                       scale: .1.h)),
                             ),
                           ),
@@ -244,9 +241,9 @@ class HomeView extends GetView<HomeController> {
                                   alignment: Alignment.centerLeft,
                                   margin: EdgeInsets.only(left: 3.h),
                                   child: Text(
-                                    'İzin\nBakiyesi',
+                                    Const.IZINBAKIYESITEXT,
                                     style: GoogleFonts.inter(
-                                      color: const Color(0xff8F989D),
+                                      color: Const.ACIKLAMATEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -262,7 +259,7 @@ class HomeView extends GetView<HomeController> {
                                     '0.0 Gün',
                                     style: GoogleFonts.inter(
                                       color:
-                                          const Color.fromARGB(255, 72, 74, 77),
+                                          Const.BASLIKTEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -280,9 +277,9 @@ class HomeView extends GetView<HomeController> {
                                   alignment: Alignment.centerLeft,
                                   margin: EdgeInsets.only(left: 1.h),
                                   child: Text(
-                                    'İzin Başlangıç Tarihi',
+                                    Const.IZINBASLANGICTEXT,
                                     style: GoogleFonts.inter(
-                                      color: const Color(0xff8F989D),
+                                      color: Const.ACIKLAMATEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -298,7 +295,7 @@ class HomeView extends GetView<HomeController> {
                                     '08.01.2023',
                                     style: GoogleFonts.inter(
                                       color:
-                                          const Color.fromARGB(255, 72, 74, 77),
+                                          Const.BASLIKTEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -317,9 +314,9 @@ class HomeView extends GetView<HomeController> {
                                   alignment: Alignment.centerLeft,
                                   margin: EdgeInsets.only(left: 2.h),
                                   child: Text(
-                                    'İzin Gün Sayısı',
+                                    Const.IZINGUNTEXT,
                                     style: GoogleFonts.inter(
-                                      color: const Color(0xff8F989D),
+                                      color: Const.ACIKLAMATEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -336,7 +333,7 @@ class HomeView extends GetView<HomeController> {
                                     '28.0 Gün',
                                     style: GoogleFonts.inter(
                                       color:
-                                          const Color.fromARGB(255, 72, 74, 77),
+                                          Const.BASLIKTEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),

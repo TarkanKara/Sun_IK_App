@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:sun_ik_app/utils/const.dart';
 
 class HomeMenuCard extends StatelessWidget {
   double cardWidth;
@@ -37,20 +38,20 @@ class HomeMenuCard extends StatelessWidget {
                 Text(
                   cardName,
                   style: GoogleFonts.inter(
-                    color: const Color.fromARGB(255, 72, 74, 77),
+                    color: Const.BASLIKTEXTCOLOR,
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(cardInfo,
                     style: GoogleFonts.inter(
-                      color: const Color(0xff8F989D),
+                      color: Const.ACIKLAMATEXTCOLOR,
                     )),
                 isBordro
                     ? GestureDetector(
                         onTap: lastBordroPressed,
-                        child: Text('Son Bordro Görüntüle',
-                            style: GoogleFonts.inter(color: Colors.blue)))
+                        child: Text(Const.SONBORDROTEXT,
+                            style: GoogleFonts.inter(color: Const.SONBORDROTEXTCOLOR)))
                     : Container()
               ],
             ),
@@ -76,7 +77,7 @@ class HomeMenuCard extends StatelessWidget {
             height: cardHeight,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
+                color: Const.MENUCOLOR,
                 boxShadow: const [
                   BoxShadow(
                       blurRadius: 3,

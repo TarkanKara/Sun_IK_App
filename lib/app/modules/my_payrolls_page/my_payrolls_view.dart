@@ -1,10 +1,11 @@
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../widgets/last_my_payroll.dart';
+import '../../widgets/my_payroll_list_card.dart';
 import 'my_payrolls_controller.dart';
 
 class MyPayrollsView extends GetView<MyPayrollsController> {
@@ -72,40 +73,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: EdgeInsets.only(bottom: 1.h),
-                              child: Card(
-                                elevation: 1,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(2.w)),
-                                color: const Color(0xffFDFDFD),
-                                child: ListTile(
-                                  leading: CircleAvatar(
-                                    backgroundColor: const Color(0xffFDFDFD),
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: Image.asset(
-                                            "assets/images/pdf.png")),
-                                  ),
-                                  title: Text(
-                                    "25 April 1997",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .caption!
-                                        .copyWith(
-                                            fontSize: 1.8.h,
-                                            fontWeight: FontWeight.bold),
-                                  ),
-                                  subtitle: Text(
-                                    "My Payroll",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .caption!
-                                        .copyWith(fontSize: 1.8.h),
-                                  ),
-                                  trailing: IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.download)),
-                                ),
-                              ),
+                              child: MyPayrollListCard(),
                             );
                           },
                         ),
@@ -120,85 +88,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
             top: 12.h,
             left: 8.w,
             right: 8.w,
-            child: Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.w)),
-              child: Container(
-                height: 15.h,
-                width: 75.w,
-                decoration: BoxDecoration(
-                    color: const Color(0xffFEFEFE),
-                    borderRadius: BorderRadius.all(Radius.circular(5.w))),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 2.w, right: 2.w, top: 3.h),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            height: 5.h,
-                            width: 40.w,
-                            child: Text(
-                              "LAST PAYROLES DOWLAND",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .caption!
-                                  .copyWith(
-                                      fontSize: 2.h,
-                                      fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5.h,
-                            width: 22.w,
-                            child: Text(
-                              "TARKAN\n KARA",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .caption!
-                                  .copyWith(
-                                      fontSize: 2.h,
-                                      fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Obx(
-                            () => InkWell(
-                              onTap: () {},
-                              child: Text(
-                                DateFormat("dd/MM/yyyy")
-                                    .format(controller.selectedDate.value)
-                                    .toString(),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .caption!
-                                    .copyWith(
-                                        fontSize: 2.h,
-                                        fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.download,
-                              size: 2.8.h,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            child: LastMyPayroll(),
           ),
           Positioned(
             top: 8.h,

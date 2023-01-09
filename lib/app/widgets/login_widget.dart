@@ -24,24 +24,24 @@ class LoginTextWidget extends GetView<LoginController> {
         onTap: () {},
         obscureText: controller.isPasswordHidden.value,
         style: GoogleFonts.inter(
-            color: Colors.black, fontWeight: FontWeight.w500, fontSize: 2.h),
+            color: Color(0xff616161),
+            fontWeight: FontWeight.w500,
+            fontSize: 2.h),
         decoration: InputDecoration(
           border: InputBorder.none,
-
-          //labelStyle: GoogleFonts.inter(color: Colors.black),
-          //labelText: labelText,
+          isDense: true,
           fillColor: Colors.white,
           filled: true,
           hintText: hintText,
-          hintStyle: GoogleFonts.inter(color: Colors.black),
+          hintStyle: GoogleFonts.inter(color: Color(0xff616161)),
           suffixIcon: suffixIcon,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(2.w),
-            borderSide: BorderSide(color: Colors.black, width: .6.w),
+            borderSide: BorderSide(color: Color(0xffeeeeee), width: .6.w),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(2.w),
-            borderSide: BorderSide(color: Colors.grey, width: .6.w),
+            borderSide: BorderSide(color: Color(0xffeeeeee), width: .6.w),
           ),
         ),
       ),
@@ -62,15 +62,16 @@ class DropDownMenu extends GetView<LoginController> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(2.w),
-          border: Border.all(color: Colors.black, width: .6.w),
+          border: Border.all(color: Color(0xffeeeeee), width: .6.w),
         ),
         child: DropdownButton<String>(
           value: controller.dropdownvalue.value,
           icon: Padding(
-              padding: EdgeInsets.only(left: 32.w, bottom: .4.h),
-              child: const Icon(
+              padding: EdgeInsets.only(left: 35.w, bottom: .4.h),
+              child: Icon(
                 Icons.arrow_drop_down_sharp,
-                color: Colors.black,
+                size: 3.h,
+                color: const Color(0xff616161),
               )),
           underline: const SizedBox(),
           style: const TextStyle(color: Colors.black),
@@ -86,9 +87,9 @@ class DropDownMenu extends GetView<LoginController> {
                 child: Text(
                   value,
                   style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 2.h,
-                  ),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 2.h,
+                      color: Color(0xff616161)),
                 ),
               ),
             );
@@ -109,8 +110,8 @@ class LoginButton extends StatelessWidget {
     return ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-            elevation: 1.h,
-            minimumSize: Size(100.w, 6.h),
+            elevation: 0,
+            minimumSize: Size(100.w, 5.h),
             backgroundColor: Colors.white),
         child: Center(
           child: Text(
@@ -118,7 +119,7 @@ class LoginButton extends StatelessWidget {
             style: GoogleFonts.inter(
                 color: const Color(0xffcf3842),
                 fontWeight: FontWeight.bold,
-                fontSize: 2.5.h,
+                fontSize: 2.h,
                 letterSpacing: 1.w),
           ),
         ));

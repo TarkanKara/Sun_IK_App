@@ -5,6 +5,7 @@ class LoginController extends GetxController {
   RxString dropdownvalue = "Select Company".obs;
   RxBool isPasswordHidden = false.obs;
   RxString password = "".obs;
+  RxBool switchControl = true.obs;
 
   dropDownValues(String value) {
     dropdownvalue.value = value;

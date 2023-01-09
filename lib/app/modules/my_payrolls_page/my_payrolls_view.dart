@@ -1,5 +1,8 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'my_payrolls_controller.dart';
@@ -10,6 +13,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 5,
         backgroundColor: const Color(0xffEF3E52),
@@ -23,7 +27,9 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
             icon: const Icon(Icons.menu),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              controller.showDatePickerr();
+            },
             icon: const Icon(Icons.date_range_outlined),
           ),
         ],
@@ -125,50 +131,68 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                     color: const Color(0xffFEFEFE),
                     borderRadius: BorderRadius.all(Radius.circular(5.w))),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 2.w, right: 2.w),
-                  child: Row(
+                  padding: EdgeInsets.only(left: 2.w, right: 2.w, top: 3.h),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(
-                        height: 10.h,
-                        width: 25.w,
-                        child: Text(
-                          "Tarkan",
-                          style: Theme.of(context)
-                              .textTheme
-                              .caption!
-                              .copyWith(fontSize: 2.h),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: 5.h,
+                            width: 40.w,
+                            child: Text(
+                              "LAST PAYROLES DOWLAND",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .caption!
+                                  .copyWith(
+                                      fontSize: 2.h,
+                                      fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                            width: 22.w,
+                            child: Text(
+                              "TARKAN\n KARA",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .caption!
+                                  .copyWith(
+                                      fontSize: 2.h,
+                                      fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 12.h,
-                        width: 25.w,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "25",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .caption!
-                                  .copyWith(fontSize: 5.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Obx(
+                            () => InkWell(
+                              onTap: () {},
+                              child: Text(
+                                DateFormat("dd/MM/yyyy")
+                                    .format(controller.selectedDate.value)
+                                    .toString(),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .caption!
+                                    .copyWith(
+                                        fontSize: 2.h,
+                                        fontWeight: FontWeight.bold),
+                              ),
                             ),
-                            Text(
-                              "April",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .caption!
-                                  .copyWith(fontSize: 2.h),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.download,
+                              size: 2.8.h,
                             ),
-                            Text(
-                              "1997",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .caption!
-                                  .copyWith(fontSize: 2.h),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

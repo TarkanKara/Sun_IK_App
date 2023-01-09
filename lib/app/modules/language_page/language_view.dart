@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -31,7 +29,7 @@ class LanguagePage extends GetView<LanguageController> {
                 width: 55.w,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(2.w),
-                    color: const Color(0xffb6072f)),
+                    color: const Color(0xffad0327)),
                 child: Center(
                   child: Text(
                     "Language Menu",
@@ -44,33 +42,30 @@ class LanguagePage extends GetView<LanguageController> {
               ),
             ),
             Container(
-              height: 80.h,
+              height: 54.h,
               width: 100.w,
               margin: EdgeInsets.symmetric(
                 horizontal: 5.w,
               ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(3.w),
-              ),
               child: ListView.builder(
-                itemCount: 6,
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(bottom: 2.h),
                     child: ListTile(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(3.w)),
-                      tileColor: Color(0xffeeeeee),
+                      tileColor: const Color(0xffeeeeee),
                       onTap: () {},
                       title: Text(
-                        "Turkish",
+                        controller.languageTitle[index],
                         style: GoogleFonts.inter(color: Colors.black),
                       ),
-                      subtitle: Text("Turkish", style: GoogleFonts.inter()),
+                      subtitle: Text(controller.languageSubtitle[index],
+                          style: GoogleFonts.inter()),
                       trailing: Checkbox(
-                        onChanged: (value) {},
-                        value: false,
+                        onChanged: (value) {controller.checkBox.value;},
+                        value: controller.checkBox.value,
                       ),
                       leading: Container(
                         height: 15.h,

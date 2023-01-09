@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   RxString dropdownvalue = "Select Company".obs;
-  var isPasswordHidden = false.obs;
+  RxBool isPasswordHidden = false.obs;
   RxString password = "".obs;
 
   dropDownValues(String value) {
@@ -20,7 +20,7 @@ class LoginController extends GetxController {
   }
 
   visibleIcon() {
-    if (isPasswordHidden == true) {
+    if (isPasswordHidden == false) {
       return Icons.visibility;
     } else {
       return Icons.visibility_off;

@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
 
-class LoginTextWidget extends StatelessWidget {
+class LoginTextWidget extends GetView<LoginController> {
   final String hintText;
   //final String labelText;
   final Widget suffixIcon;
+//                                obscureText: controller.isPasswordHidden.value,
 
   const LoginTextWidget({
     Key? key,
@@ -18,26 +19,30 @@ class LoginTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onTap: () {},
-      style: GoogleFonts.inter(
-          color: Colors.black, fontWeight: FontWeight.w500, fontSize: 2.h),
-      decoration: InputDecoration(
-        border: InputBorder.none,
-        //labelStyle: GoogleFonts.inter(color: Colors.black),
-        //labelText: labelText,
-        fillColor: Colors.white,
-        filled: true,
-        hintText: hintText,
-        hintStyle: GoogleFonts.inter(color: Colors.black),
-        suffixIcon: suffixIcon,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(2.w),
-          borderSide: BorderSide(color: Colors.black, width: .6.w),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(2.w),
-          borderSide: BorderSide(color: Colors.grey, width: .6.w),
+    return Obx(
+      () => TextFormField(
+        onTap: () {},
+        obscureText: controller.isPasswordHidden.value,
+        style: GoogleFonts.inter(
+            color: Colors.black, fontWeight: FontWeight.w500, fontSize: 2.h),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+
+          //labelStyle: GoogleFonts.inter(color: Colors.black),
+          //labelText: labelText,
+          fillColor: Colors.white,
+          filled: true,
+          hintText: hintText,
+          hintStyle: GoogleFonts.inter(color: Colors.black),
+          suffixIcon: suffixIcon,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(2.w),
+            borderSide: BorderSide(color: Colors.black, width: .6.w),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(2.w),
+            borderSide: BorderSide(color: Colors.grey, width: .6.w),
+          ),
         ),
       ),
     );

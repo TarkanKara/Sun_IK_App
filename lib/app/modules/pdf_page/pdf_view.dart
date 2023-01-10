@@ -9,14 +9,27 @@ class PdfView extends GetView<PdfController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 5,
+        backgroundColor: const Color(0xffEF3E52),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        ),
+        title: Text(controller
+            .myPayrollController.myPayrollModel.data![controller.myPayrollController.indexfinal.value].documentperiod
+            .toString()),
+      ),
       body: SizedBox(
           child: Obx(
         () => controller.myPayrollController.isLoading.value
             ? SfPdfViewer.memory(
                 controller.myPayrollController.resultPdf!,
-                initialZoomLevel: 2,
+                initialZoomLevel: 2.5,
               )
-            : const CircularProgressIndicator(),
+            : const Center(child: CircularProgressIndicator()),
       )),
     );
   }

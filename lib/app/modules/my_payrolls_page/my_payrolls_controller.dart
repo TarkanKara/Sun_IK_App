@@ -15,6 +15,7 @@ class MyPayrollsController extends GetxController {
   MyPayrollPdfModel myPayrollPdfModel = MyPayrollPdfModel();
   RxBool isLoading = false.obs;
   Uint8List? resultPdf;
+  RxInt indexfinal = 0.obs;
 
   var selectedDate = DateTime.now().obs;
 
@@ -82,7 +83,7 @@ class MyPayrollsController extends GetxController {
         myPayrollModel.data![index].documentmonth,
         myPayrollModel.data![index].uid,
       ))!;
-
+      //indexfinal = index.;
       resultPdf = base64.decode(myPayrollPdfModel.data.toString());
       isLoading.value = true;
     } catch (e) {

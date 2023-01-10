@@ -78,6 +78,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                                     padding: EdgeInsets.only(bottom: 1.4.h),
                                     child: GestureDetector(
                                       onTap: () {
+                                        controller.indexfinal.value = index;
                                         controller.getMyPayrollPdf(index);
                                         Get.toNamed(Routes.PDF_VIEW);
                                       },
@@ -105,7 +106,12 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
             top: 12.h,
             left: 8.w,
             right: 8.w,
-            child: LastMyPayroll(),
+            child: GestureDetector(
+                onTap: () {
+                  controller.getMyPayrollPdf(0);
+                  Get.toNamed(Routes.PDF_VIEW);
+                },
+                child: LastMyPayroll()),
           ),
           Positioned(
             top: 8.h,

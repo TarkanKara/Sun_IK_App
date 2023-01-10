@@ -21,27 +21,27 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
             color: const Color(0xffFEFEFE),
             borderRadius: BorderRadius.all(Radius.circular(5.w))),
         child: Padding(
-          padding: EdgeInsets.only(left: 2.w, right: 2.w, top: 3.h),
+          padding: EdgeInsets.only(left: 10.w, right: 2.w, top: 7.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: 5.h,
-                    width: 20.w,
+                    width: 42.w,
                     child: Text(
-                      "TARKAN",
+                      "TARKAN KARA",
                       style: Theme.of(context)
                           .textTheme
                           .caption!
-                          .copyWith(fontSize: 2.h, fontWeight: FontWeight.bold),
+                          .copyWith(fontSize: 5.w, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(
+                  /* SizedBox(
                     height: 5.h,
-                    width: 16.w,
+                    width: 19.w,
                     child: Text(
                       "KARA",
                       style: Theme.of(context)
@@ -49,10 +49,10 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
                           .caption!
                           .copyWith(fontSize: 2.h, fontWeight: FontWeight.bold),
                     ),
-                  ),
+                  ), */
                 ],
               ),
-              Row(
+              /* Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -83,6 +83,7 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
                   ),
                 ],
               ),
+             */
             ],
           ),
         ),

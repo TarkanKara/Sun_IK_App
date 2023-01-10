@@ -157,7 +157,10 @@ class HomeView extends GetView<HomeController> {
                 cardPressed: () {
                   Get.toNamed(Routes.MY_PAYROLLS);
                 },
-                lastBordroPressed: () {},
+                lastBordroPressed: () {
+                  controller.myPayrollsController.getMyPayrollPdf(0);
+                  Get.toNamed(Routes.PDF_VIEW);
+                },
                 cardName: Const.BORDROLARIMTEXT,
                 cardInfo: '19 Bordro',
                 cardIcon: Const.BORDROLARIMICON,

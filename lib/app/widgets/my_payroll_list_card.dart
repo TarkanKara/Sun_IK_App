@@ -4,6 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class MyPayrollListCard extends StatelessWidget {
   final String titleText;
   final String subTitleText;
+
   const MyPayrollListCard({
     Key? key,
     required this.titleText,

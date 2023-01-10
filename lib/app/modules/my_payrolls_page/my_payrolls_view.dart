@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../routes/app_pages.dart';
 import '../../widgets/last_my_payroll.dart';
 import '../../widgets/my_payroll_list_card.dart';
 import 'my_payrolls_controller.dart';
@@ -75,14 +76,20 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                                 itemBuilder: (context, index) {
                                   return Padding(
                                     padding: EdgeInsets.only(bottom: 1.4.h),
-                                    child: MyPayrollListCard(
-                                        subTitleText: "",
-                                        /* controller.myPayrollModel
-                                            .data![index].documentmonth
-                                            .toString(), */
-                                        titleText: controller.myPayrollModel
-                                            .data![index].documentperiod
-                                            .toString()),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        controller.getMyPayrollPdf(index);
+                                        Get.toNamed(Routes.PDF_VIEW);
+                                      },
+                                      child: MyPayrollListCard(
+                                          subTitleText: "",
+                                          /* controller.myPayrollModel
+                                              .data![index].documentmonth
+                                              .toString(), */
+                                          titleText: controller.myPayrollModel
+                                              .data![index].documentperiod
+                                              .toString()),
+                                    ),
                                   );
                                 },
                               ),
@@ -110,7 +117,8 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
               child: CircleAvatar(
                 radius: 8.5.w,
                 backgroundColor: Colors.white,
-                backgroundImage: const AssetImage("assets/images/profile.png"),
+                backgroundImage: const AssetImage(
+                    "assets/images/home_assets/ic_avatar_profile.png"),
               ),
             ),
           ),

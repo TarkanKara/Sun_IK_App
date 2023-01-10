@@ -26,13 +26,13 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
                     height: 5.h,
-                    width: 40.w,
+                    width: 20.w,
                     child: Text(
-                      "LAST PAYROLES DOWNLOAD",
+                      "TARKAN",
                       style: Theme.of(context)
                           .textTheme
                           .caption!
@@ -41,9 +41,9 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
                   ),
                   SizedBox(
                     height: 5.h,
-                    width: 22.w,
+                    width: 16.w,
                     child: Text(
-                      "TARKAN\n KARA",
+                      "KARA",
                       style: Theme.of(context)
                           .textTheme
                           .caption!

@@ -9,4 +9,5 @@ abstract class Routes {
   static const LOGIN = "/login";
   static const HOME = "/home";
   static const MY_PAYROLLS = "/my_payrolls";
+   static const PDF_VIEW = "/pdf_vieW";
 }

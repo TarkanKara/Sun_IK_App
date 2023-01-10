@@ -52,21 +52,21 @@ class LanguagePage extends GetView<LanguageController> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(bottom: 2.h),
-                    child: Obx(() => ListTile(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(3.w)),
-                          tileColor: const Color(0xffeeeeee),
-                          onTap: () {
-                            // controller.checkBoxControl();
-                          },
-                          title: Text(
-                            controller.languages[index]["name"],
-                            style: GoogleFonts.inter(color: Colors.black),
-                          ),
-                          subtitle: Text(
-                              controller.languages[index]["subTitle"],
-                              style: GoogleFonts.inter()),
-                          trailing: Checkbox(
+                    child: //burada obx olacak checkbox için
+                        ListTile(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(3.w)),
+                      tileColor: const Color(0xffeeeeee),
+                      onTap: () {
+                        // controller.checkBoxControl();
+                      },
+                      title: Text(
+                        controller.languages[index]["name"],
+                        style: GoogleFonts.inter(color: Colors.black),
+                      ),
+                      subtitle: Text(controller.languages[index]["subTitle"],
+                          style: GoogleFonts.inter()),
+                      /* trailing: Checkbox(
                             onChanged: (value) {
                               controller.languages[index]["isCheck"] == true
                                   ? controller.languages[index]["isCheck"] =
@@ -77,19 +77,51 @@ class LanguagePage extends GetView<LanguageController> {
                               //controller.checkBoxControl(index);
                             },
                             value: controller.languages[index]["isCheck"],
-                          ),
-                          leading: Container(
-                            height: 15.h,
-                            width: 22.w,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                        controller.languages[index]["flag"]),
-                                    fit: BoxFit.cover)),
-                          ),
-                        )),
+                          ), */
+                      leading: Container(
+                        height: 15.h,
+                        width: 22.w,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    controller.languages[index]["flag"]),
+                                fit: BoxFit.cover)),
+                      ),
+                    ),
                   );
                 },
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                controller.returnButton();
+              },
+              child: Container(
+                height: 5.5.h,
+                width: 30.w,
+                margin: EdgeInsets.only(top: 2.h),
+                decoration: BoxDecoration(
+                    color: const Color(0xffad0327),
+                    borderRadius: BorderRadius.circular(2.w)),
+                child: Padding(
+                  padding: EdgeInsets.only(left: 5.6.w),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.arrow_back_ios,
+                        size: 2.2.h,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        "Return",
+                        style: GoogleFonts.inter(
+                            fontSize: 2.2.h,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             )
           ],

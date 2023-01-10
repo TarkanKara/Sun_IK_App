@@ -9,35 +9,39 @@ class LanguageController extends GetxController {
       "name": "English",
       "subTitle": "English",
       "flag": "assets/images/language/english_flag.png",
-      "isCheck": false
+      //"isCheck": false
     },
     {
       "name": "Turkish",
       "subTitle": "Türkçe",
       "flag": "assets/images/language/turkish_flag.jpg",
-      "isCheck": false
+      // "isCheck": false
     },
     {
       "name": "French",
       "subTitle": "Français",
       "flag": "assets/images/language/french_flag1.png",
-      "isCheck": false
+      // "isCheck": false
     },
     {
       "name": "German",
       "subTitle": "Deutsch",
       "flag": "assets/images/language/german_flag.png",
-      "isCheck": false
+      //"isCheck": false
     },
     {
       "name": "Portuguese",
       "subTitle": "Português",
       "flag": "assets/images/language/portugal_flag.png",
-      "isCheck": false
+      //"isCheck": false
     }
   ].obs;
 
-  checkBoxControl(index) {
+  /* checkBoxControl(index) {
     checkBox.value = !checkBox.value;
+  } */
+
+  returnButton() {
+    Get.back();
   }
 }

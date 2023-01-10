@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:get/get.dart';
+import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart';
+import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_binding.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_view.dart';
 
@@ -14,6 +16,11 @@ class AppPages {
       name: Routes.START,
       page: () => const StartView(),
       binding: StartBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_PAYROLLS,
+      page: () => const MyPayrollsView(),
+      binding: MyPayrollsBinding(),
     ),
   ];
 }

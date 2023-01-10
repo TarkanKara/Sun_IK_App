@@ -24,7 +24,7 @@ class LoginTextWidget extends GetView<LoginController> {
         onTap: () {},
         obscureText: controller.isPasswordHidden.value,
         style: GoogleFonts.inter(
-            color: Color(0xff616161),
+            color: const Color(0xff616161),
             fontWeight: FontWeight.w500,
             fontSize: 2.h),
         decoration: InputDecoration(
@@ -33,15 +33,15 @@ class LoginTextWidget extends GetView<LoginController> {
           fillColor: Colors.white,
           filled: true,
           hintText: hintText,
-          hintStyle: GoogleFonts.inter(color: Color(0xff616161)),
+          hintStyle: GoogleFonts.inter(color: const Color(0xff616161)),
           suffixIcon: suffixIcon,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(2.w),
-            borderSide: BorderSide(color: Color(0xffeeeeee), width: .6.w),
+            borderSide: BorderSide(color: const Color(0xffeeeeee), width: .6.w),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(2.w),
-            borderSide: BorderSide(color: Color(0xffeeeeee), width: .6.w),
+            borderSide: BorderSide(color: const Color(0xffeeeeee), width: .6.w),
           ),
         ),
       ),
@@ -62,7 +62,7 @@ class DropDownMenu extends GetView<LoginController> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(2.w),
-          border: Border.all(color: Color(0xffeeeeee), width: .6.w),
+          border: Border.all(color: const Color(0xffeeeeee), width: .6.w),
         ),
         child: DropdownButton<String>(
           value: controller.dropdownvalue.value,
@@ -89,7 +89,7 @@ class DropDownMenu extends GetView<LoginController> {
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 2.h,
-                      color: Color(0xff616161)),
+                      color: const Color(0xff616161)),
                 ),
               ),
             );

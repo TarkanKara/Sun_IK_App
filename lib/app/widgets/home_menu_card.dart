@@ -20,7 +20,7 @@ class HomeMenuCard extends StatelessWidget {
     required this.cardIcon,
     required this.isBordro,
     required this.cardPressed,
-     this.lastBordroPressed,
+    this.lastBordroPressed,
     Key? key,
   }) : super(key: key);
 
@@ -29,7 +29,7 @@ class HomeMenuCard extends StatelessWidget {
     return GridTile(
         footer: Padding(
           padding: const EdgeInsets.all(10),
-          child: Container(
+          child: SizedBox(
             width: 100.w,
             height: 6.5.h,
             child: Column(
@@ -51,7 +51,8 @@ class HomeMenuCard extends StatelessWidget {
                     ? GestureDetector(
                         onTap: lastBordroPressed,
                         child: Text(Const.SONBORDROTEXT,
-                            style: GoogleFonts.inter(color: Const.SONBORDROTEXTCOLOR)))
+                            style: GoogleFonts.inter(
+                                color: Const.SONBORDROTEXTCOLOR)))
                     : Container()
               ],
             ),

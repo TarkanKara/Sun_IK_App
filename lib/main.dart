@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (p0, p1, p2) => GetMaterialApp(
-        initialRoute: Routes.START,
+        initialRoute: Routes.HOME,
         getPages: AppPages.routes,
         locale: Get.deviceLocale,
         translations: TranslationLang(),

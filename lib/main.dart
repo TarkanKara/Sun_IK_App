@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (p0, p1, p2) => GetMaterialApp(
-        initialBinding: AppBinding(), //AppBindings
         initialRoute: Routes.START,
         getPages: AppPages.routes,
         locale: Get.deviceLocale,
@@ -24,6 +23,7 @@ class MyApp extends StatelessWidget {
         enableLog: true,
         debugShowCheckedModeBanner: false,
         title: 'Sun IK App',
+        initialBinding: AppBinding(), //AppBindings
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

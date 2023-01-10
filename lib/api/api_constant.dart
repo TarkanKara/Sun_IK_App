@@ -1,3 +1,3 @@
 class ApiConstant {
-  static const baseUrl = "";
+  static const baseUrl = "https://suniktest.suntekstil.com.tr/mobileapi/api/";
 }

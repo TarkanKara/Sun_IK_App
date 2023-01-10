@@ -7,6 +7,21 @@ class StartView extends GetView<StartController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const CircularProgressIndicator(
+          color: Colors.red,
+        ),
+      ),
+      body: Center(
+        child: InkWell(
+            onTap: () {
+              controller.login();
+            },
+            child: Container(
+              child: const Text("data"),
+            )),
+      ),
+    );
   }
 }

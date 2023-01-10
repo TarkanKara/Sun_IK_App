@@ -48,36 +48,46 @@ class LanguagePage extends GetView<LanguageController> {
                 horizontal: 5.w,
               ),
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: controller.languages.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(bottom: 2.h),
-                    child: ListTile(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(3.w)),
-                      tileColor: const Color(0xffeeeeee),
-                      onTap: () {},
-                      title: Text(
-                        controller.languageTitle[index],
-                        style: GoogleFonts.inter(color: Colors.black),
-                      ),
-                      subtitle: Text(controller.languageSubtitle[index],
-                          style: GoogleFonts.inter()),
-                      trailing: Checkbox(
-                        onChanged: (value) {controller.checkBox.value;},
-                        value: controller.checkBox.value,
-                      ),
-                      leading: Container(
-                        height: 15.h,
-                        width: 22.w,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  controller.flags[index],
-                                ),
-                                fit: BoxFit.cover)),
-                      ),
-                    ),
+                    child: Obx(() => ListTile(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(3.w)),
+                          tileColor: const Color(0xffeeeeee),
+                          onTap: () {
+                            // controller.checkBoxControl();
+                          },
+                          title: Text(
+                            controller.languages[index]["name"],
+                            style: GoogleFonts.inter(color: Colors.black),
+                          ),
+                          subtitle: Text(
+                              controller.languages[index]["subTitle"],
+                              style: GoogleFonts.inter()),
+                          trailing: Checkbox(
+                            onChanged: (value) {
+                              controller.languages[index]["isCheck"] == true
+                                  ? controller.languages[index]["isCheck"] =
+                                      false
+                                  : controller.languages[index]["isCheck"] =
+                                      true;
+                              controller.languages.refresh();
+                              //controller.checkBoxControl(index);
+                            },
+                            value: controller.languages[index]["isCheck"],
+                          ),
+                          leading: Container(
+                            height: 15.h,
+                            width: 22.w,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        controller.languages[index]["flag"]),
+                                    fit: BoxFit.cover)),
+                          ),
+                        )),
                   );
                 },
               ),

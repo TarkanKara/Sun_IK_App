@@ -6,6 +6,8 @@ abstract class Routes {
   //
   static const START = "/start";
 
+  static const LANGUAGE = "/language";
+  
   static const LOGIN = "/login";
   
   static const HOME = "/home";
@@ -14,8 +16,10 @@ abstract class Routes {
 }
 
 
+
  
 
   
+
 
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/translation/translation.dart';
+import 'package:sun_ik_app/app_binding.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (p0, p1, p2) => GetMaterialApp(
+        initialBinding: AppBinding(), //AppBindings
         initialRoute: Routes.START,
         getPages: AppPages.routes,
         locale: Get.deviceLocale,

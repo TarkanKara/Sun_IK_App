@@ -2,12 +2,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sun_ik_app/app/models/my_payroll_model.dart';
+import 'package:sun_ik_app/shared/services/my_payroll_service.dart';
 
 class MyPayrollsController extends GetxController {
+  MyPayrollService myPayrolService = MyPayrollService();
+  MyPayrollModel myPayrollModel = MyPayrollModel();
+  RxBool isLoading = false.obs;
+
   var selectedDate = DateTime.now().obs;
 
   @override
   void onInit() {
+    getMyPayrolls();
     print("MyPayrolls View");
     super.onInit();
   }
@@ -45,5 +52,17 @@ class MyPayrollsController extends GetxController {
     }
     return true;
     //return false;
+  }
+
+  //get MyPayroll
+  getMyPayrolls() async {
+    try {
+      isLoading.value = false;
+      myPayrollModel = (await myPayrolService.getMyPayroll())!;
+      print("$myPayrollModel");
+      isLoading.value = true;
+    } catch (e) {
+      print("$e");
+    }
   }
 }

@@ -32,7 +32,7 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
                     height: 5.h,
                     width: 40.w,
                     child: Text(
-                      "LAST PAYROLES DOWLAND",
+                      "LAST PAYROLES DOWNLOAD",
                       style: Theme.of(context)
                           .textTheme
                           .caption!
@@ -56,7 +56,7 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "LAST PAYROLL DOWLAND",
+                    "LAST PAYROLL DOWNLOAD",
                     style: Theme.of(context)
                         .textTheme
                         .caption!

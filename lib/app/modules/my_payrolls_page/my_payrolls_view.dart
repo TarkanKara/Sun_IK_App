@@ -64,20 +64,30 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      SizedBox(
-                        height: 60.h,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          padding: EdgeInsets.zero,
-                          itemCount: 15,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.only(bottom: 1.h),
-                              child: MyPayrollListCard(),
-                            );
-                          },
-                        ),
-                      )
+                      Obx(() => controller.isLoading.value
+                          ? SizedBox(
+                              height: 60.h,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                padding: EdgeInsets.zero,
+                                itemCount:
+                                    controller.myPayrollModel.data!.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(bottom: 1.4.h),
+                                    child: MyPayrollListCard(
+                                        subTitleText: "",
+                                        /* controller.myPayrollModel
+                                            .data![index].documentmonth
+                                            .toString(), */
+                                        titleText: controller.myPayrollModel
+                                            .data![index].documentperiod
+                                            .toString()),
+                                  );
+                                },
+                              ),
+                            )
+                          : CircularProgressIndicator())
                     ],
                   ),
                 ),

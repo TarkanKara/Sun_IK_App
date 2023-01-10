@@ -6,9 +6,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_controller.dart';
-import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
 import 'package:sun_ik_app/utils/const.dart';
 
+import '../../routes/app_pages.dart';
 import '../../widgets/home_menu_card.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -155,7 +155,7 @@ class HomeView extends GetView<HomeController> {
               ),
               HomeMenuCard(
                 cardPressed: () {
-                  Get.to(MyPayrollsView());
+                  Get.toNamed(Routes.MY_PAYROLLS);
                 },
                 lastBordroPressed: () {},
                 cardName: Const.BORDROLARIMTEXT,

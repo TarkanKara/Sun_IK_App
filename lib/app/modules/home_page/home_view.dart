@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -6,7 +8,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_controller.dart';
 import 'package:sun_ik_app/utils/const.dart';
 
-import '../../widgets/home_widgets/home_menu_card.dart';
+import '../../routes/app_pages.dart';
+import '../../widgets/home_menu_card.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -51,7 +54,7 @@ class HomeView extends GetView<HomeController> {
               child: Container(
                 width: 16.w,
                 height: 10.h,
-                decoration: const BoxDecoration(                  
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage(Const.SUNLOGO), fit: BoxFit.fill)),
               ),
@@ -80,7 +83,8 @@ class HomeView extends GetView<HomeController> {
                                 width: 2.h,
                                 height: 2.h,
                                 decoration: const BoxDecoration(
-                                    color: Const.NOTIFICATIONCONTAINERCOLOR, shape: BoxShape.circle),
+                                    color: Const.NOTIFICATIONCONTAINERCOLOR,
+                                    shape: BoxShape.circle),
                                 child: Center(
                                     child: Text(
                                   '0',
@@ -95,7 +99,9 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.LOGIN);
+                          },
                           icon: Image.asset(
                             Const.CIKISYAPICON,
                             scale: .3.h,
@@ -150,8 +156,14 @@ class HomeView extends GetView<HomeController> {
                 isBordro: false,
               ),
               HomeMenuCard(
-                cardPressed: () {},
-                lastBordroPressed: () {},
+                cardPressed: () {
+                  Get.toNamed(Routes.MY_PAYROLLS);
+                },
+                lastBordroPressed: () {
+                  controller.myPayrollsController.indexfinal.value = 0;
+                  controller.myPayrollsController.getMyPayrollPdf(0);
+                  Get.toNamed(Routes.PDF_VIEW);
+                },
                 cardName: Const.BORDROLARIMTEXT,
                 cardInfo: '19 Bordro',
                 cardIcon: Const.BORDROLARIMICON,
@@ -201,8 +213,7 @@ class HomeView extends GetView<HomeController> {
                                 Text(
                                   Const.IZINLERIMTEXT,
                                   style: GoogleFonts.inter(
-                                    color:
-                                        Const.BASLIKTEXTCOLOR,
+                                    color: Const.BASLIKTEXTCOLOR,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -258,8 +269,7 @@ class HomeView extends GetView<HomeController> {
                                   child: Text(
                                     '0.0 Gün',
                                     style: GoogleFonts.inter(
-                                      color:
-                                          Const.BASLIKTEXTCOLOR,
+                                      color: Const.BASLIKTEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -294,8 +304,7 @@ class HomeView extends GetView<HomeController> {
                                   child: Text(
                                     '08.01.2023',
                                     style: GoogleFonts.inter(
-                                      color:
-                                          Const.BASLIKTEXTCOLOR,
+                                      color: Const.BASLIKTEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -332,8 +341,7 @@ class HomeView extends GetView<HomeController> {
                                   child: Text(
                                     '28.0 Gün',
                                     style: GoogleFonts.inter(
-                                      color:
-                                          Const.BASLIKTEXTCOLOR,
+                                      color: Const.BASLIKTEXTCOLOR,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),

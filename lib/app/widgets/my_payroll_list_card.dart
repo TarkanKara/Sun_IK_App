@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyPayrollListCard extends StatelessWidget {
+  final String titleText;
+  final String subTitleText;
+
   const MyPayrollListCard({
     Key? key,
+    required this.titleText,
+    required this.subTitleText,
   }) : super(key: key);
 
   @override
@@ -19,16 +24,16 @@ class MyPayrollListCard extends StatelessWidget {
               onPressed: () {}, icon: Image.asset("assets/images/pdf.png")),
         ),
         title: Text(
-          "25 April 1997",
+          titleText,
           style: Theme.of(context)
               .textTheme
               .caption!
-              .copyWith(fontSize: 1.8.h, fontWeight: FontWeight.bold),
+              .copyWith(fontSize: 2.2.h, fontWeight: FontWeight.bold),
         ),
-        subtitle: Text(
-          "My Payroll",
+        /* subtitle: Text(
+          subTitleText,
           style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 1.8.h),
-        ),
+        ), */
         trailing:
             IconButton(onPressed: () {}, icon: const Icon(Icons.download)),
       ),

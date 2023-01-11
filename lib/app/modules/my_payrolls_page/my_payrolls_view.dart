@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../routes/app_pages.dart';
 import '../../widgets/last_my_payroll.dart';
 import '../../widgets/my_payroll_list_card.dart';
 import 'my_payrolls_controller.dart';
@@ -19,8 +20,10 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
         elevation: 5,
         backgroundColor: const Color(0xffEF3E52),
         leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.menu, color: Colors.white),
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
         actions: [
           IconButton(
@@ -64,20 +67,37 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      SizedBox(
-                        height: 60.h,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          padding: EdgeInsets.zero,
-                          itemCount: 15,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.only(bottom: 1.h),
-                              child: MyPayrollListCard(),
-                            );
-                          },
-                        ),
-                      )
+                      Obx(() => controller.isLoading.value
+                          ? SizedBox(
+                              height: 60.h,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                padding: EdgeInsets.zero,
+                                itemCount:
+                                    controller.myPayrollModel.data!.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(bottom: 1.4.h),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        controller.indexfinal.value = index;
+                                        controller.getMyPayrollPdf(index);
+                                        Get.toNamed(Routes.PDF_VIEW);
+                                      },
+                                      child: MyPayrollListCard(
+                                          subTitleText: "",
+                                          /* controller.myPayrollModel
+                                              .data![index].documentmonth
+                                              .toString(), */
+                                          titleText: controller.myPayrollModel
+                                              .data![index].documentperiod
+                                              .toString()),
+                                    ),
+                                  );
+                                },
+                              ),
+                            )
+                          : CircularProgressIndicator())
                     ],
                   ),
                 ),
@@ -88,7 +108,12 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
             top: 12.h,
             left: 8.w,
             right: 8.w,
-            child: LastMyPayroll(),
+            child: GestureDetector(
+                onTap: () {
+                  controller.getMyPayrollPdf(0);
+                  Get.toNamed(Routes.PDF_VIEW);
+                },
+                child: LastMyPayroll()),
           ),
           Positioned(
             top: 8.h,
@@ -100,7 +125,8 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
               child: CircleAvatar(
                 radius: 8.5.w,
                 backgroundColor: Colors.white,
-                backgroundImage: const AssetImage("assets/images/profile.png"),
+                backgroundImage: const AssetImage(
+                    "assets/images/home_assets/ic_avatar_profile.png"),
               ),
             ),
           ),

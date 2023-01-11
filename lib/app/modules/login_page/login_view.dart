@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -79,7 +81,7 @@ class LoginView extends GetView<LoginController> {
                       left: 2.w,
                       top: 22.h,
                       child: Container(
-                        height: 60.h,
+                        height: 65.h,
                         width: 85.w,
                         decoration: BoxDecoration(
                           color: const Color(0xffef3e52),
@@ -158,7 +160,7 @@ class LoginView extends GetView<LoginController> {
                                   controllers: controller.user,
                                   obscureText: false.obs,
                                   hintText: "Username",
-                                  suffixIcon: Icon(
+                                  suffixIcon: const Icon(
                                     Icons.abc,
                                     color: Colors.white,
                                   ),

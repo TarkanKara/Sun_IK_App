@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:get/get.dart';
 import 'package:sun_ik_app/app/models/my_payroll_pdf_model.dart';
@@ -7,7 +7,7 @@ import '../../app/models/my_payroll_model.dart';
 
 class MyPayrollService extends GetConnect {
   static const token =
-      "N1jyYKpU5veelFbdIPlgEj24jbdx7i/cztlWa12fvE6w7/EyNlkDYlQzySfYbnuU~1~string~638090248846247634";
+      "WrBJt9i1hj6hYPceqTPjTsQDvMpdkOG/GS1svyYOhULKQ39aYTj+EgGi9wAir6fG~1742~string~638090559505914288";
 
   Map<String, String>? headerss = {
     'Content-Type': 'application/json',

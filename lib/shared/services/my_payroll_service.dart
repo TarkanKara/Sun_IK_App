@@ -27,7 +27,7 @@ class MyPayrollService extends GetConnect {
 
       var res = await post(url, data, headers: headerss);
 
-      print(MyPayrollModel.fromJson(res.body).data);
+      //print(MyPayrollModel.fromJson(res.body).data);
 
       return MyPayrollModel.fromJson(res.body);
     } catch (e) {
@@ -53,7 +53,7 @@ class MyPayrollService extends GetConnect {
 
       var res = await post(url, data, headers: headers);
 
-      print(res.body);
+      //print(res.body);
       return MyPayrollPdfModel.fromJson(res.body);
     } catch (e) {
       print("$e");

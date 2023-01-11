@@ -118,60 +118,34 @@ class HomeView extends GetView<HomeController> {
         SizedBox(
           width: double.infinity,
           height: 41.5.h,
-          child: GridView(
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.all(10),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1.2,
-              crossAxisSpacing: 2.h,
-              mainAxisSpacing: 2.h,
-            ),
-            children: [
-              HomeMenuCard(
-                cardPressed: () {},
-                cardName: Const.TALEPLERIMTEXT,
-                cardInfo: '19 Notifications',
-                cardIcon: Const.TALEPLERIMICON,
-                cardHeight: 20.h,
-                cardWidth: 38.w,
-                isBordro: false,
-              ),
-              HomeMenuCard(
-                cardPressed: () {},
-                cardName: Const.ONAYLARIMTEXT,
-                cardInfo: '2 Notifications',
-                cardIcon: Const.ONAYLARIMICON,
-                cardHeight: 20.h,
-                cardWidth: 38.w,
-                isBordro: false,
-              ),
-              HomeMenuCard(
-                cardPressed: () {},
-                cardName: Const.ISLERIMTEXT,
-                cardInfo: '9 Notifications',
-                cardIcon: Const.ISLERIMICON,
-                cardHeight: 20.h,
-                cardWidth: 38.w,
-                isBordro: false,
-              ),
-              HomeMenuCard(
-                cardPressed: () {
-                  Get.toNamed(Routes.MY_PAYROLLS);
-                },
-                lastBordroPressed: () {
-                  controller.myPayrollsController.indexfinal.value = 0;
-                  controller.myPayrollsController.getMyPayrollPdf(0);
-                  Get.toNamed(Routes.PDF_VIEW);
-                },
-                cardName: Const.BORDROLARIMTEXT,
-                cardInfo: '19 Bordro',
-                cardIcon: Const.BORDROLARIMICON,
-                cardHeight: 20.h,
-                cardWidth: 38.w,
-                isBordro: true,
-              ),
-            ],
+          child: Obx(
+            () => controller.isLoading.value
+                ? GridView.builder(
+                    itemCount: controller.infoModel.data!.menuInfo.length,
+                    //physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(10),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1.2,
+                      crossAxisSpacing: 2.h,
+                      mainAxisSpacing: 2.h,
+                    ),
+                    itemBuilder: (context, index) {
+                      return HomeMenuCard(
+                        cardPressed: () {},
+                        cardName:
+                            controller.infoModel.data!.menuInfo[index].MENUNAME,
+                        cardInfo: "${controller.infoModel.data!.GetMyWorks}",
+                        cardIcon: Const.TALEPLERIMICON,
+                        cardHeight: 20.h,
+                        cardWidth: 38.w,
+                        isBordro: false,
+                      );
+                    },
+                  )
+                : Center(
+                    child: CircularProgressIndicator(),
+                  ),
           ),
         ),
         Align(

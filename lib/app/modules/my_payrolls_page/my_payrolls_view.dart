@@ -20,8 +20,10 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
         elevation: 5,
         backgroundColor: const Color(0xffEF3E52),
         leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.menu, color: Colors.white),
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
         actions: [
           IconButton(

@@ -158,6 +158,7 @@ class HomeView extends GetView<HomeController> {
                   Get.toNamed(Routes.MY_PAYROLLS);
                 },
                 lastBordroPressed: () {
+                  controller.myPayrollsController.indexfinal.value = 0;
                   controller.myPayrollsController.getMyPayrollPdf(0);
                   Get.toNamed(Routes.PDF_VIEW);
                 },

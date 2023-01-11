@@ -99,7 +99,9 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.LOGIN);
+                          },
                           icon: Image.asset(
                             Const.CIKISYAPICON,
                             scale: .3.h,

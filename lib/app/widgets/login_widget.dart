@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
 
+import '../routes/app_pages.dart';
+
 class LoginTextWidget extends GetView<LoginController> {
   final String hintText;
   //final String labelText;
@@ -108,7 +110,9 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(Routes.HOME);
+        },
         style: ElevatedButton.styleFrom(
             elevation: 0,
             minimumSize: Size(100.w, 5.h),

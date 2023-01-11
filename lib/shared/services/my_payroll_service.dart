@@ -7,7 +7,7 @@ import '../../app/models/my_payroll_model.dart';
 
 class MyPayrollService extends GetConnect {
   static const token =
-      "s7NI1h36djqvaCBipGJNgs6oOR4gjVXUJcv7dEJG2s/uw0KkkAccbOyH5KrgFvxc~1~string~638090226083926066";
+      "N1jyYKpU5veelFbdIPlgEj24jbdx7i/cztlWa12fvE6w7/EyNlkDYlQzySfYbnuU~1~string~638090248846247634";
 
   Map<String, String>? headerss = {
     'Content-Type': 'application/json',

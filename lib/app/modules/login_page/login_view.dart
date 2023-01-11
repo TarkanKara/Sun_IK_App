@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
+import '../../routes/app_pages.dart';
 import '../../widgets/login_widget.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -32,38 +33,43 @@ class LoginView extends GetView<LoginController> {
                       //dil seçimi
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Container(
-                          height: 3.5.h,
-                          width: 19.52.w,
-                          margin: EdgeInsets.only(left: 6.w, bottom: 30.h),
-                          decoration: BoxDecoration(
-                            color: const Color(0xffbdbdbd),
-                            borderRadius: BorderRadius.circular(1.2.w),
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 1.5.w),
-                                child: Text(
-                                  "EN",
-                                  style: GoogleFonts.inter(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.LANGUAGE);
+                          },
+                          child: Container(
+                            height: 3.5.h,
+                            width: 19.52.w,
+                            margin: EdgeInsets.only(left: 6.w, bottom: 30.h),
+                            decoration: BoxDecoration(
+                              color: const Color(0xffbdbdbd),
+                              borderRadius: BorderRadius.circular(1.2.w),
+                            ),
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 1.5.w),
+                                  child: Text(
+                                    "EN",
+                                    style: GoogleFonts.inter(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 2.1.w,
-                              ),
-                              SizedBox(
-                                height: 3.5.h,
-                                width: 11.w,
-                                child: Image.asset(
-                                  "assets/images/eng_flag.png",
-                                  fit: BoxFit.contain,
+                                SizedBox(
+                                  width: 2.1.w,
                                 ),
-                              ),
-                            ],
+                                SizedBox(
+                                  height: 3.5.h,
+                                  width: 11.w,
+                                  child: Image.asset(
+                                    "assets/images/eng_flag.png",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         )
                       ],
@@ -169,7 +175,7 @@ class LoginView extends GetView<LoginController> {
                                       },
                                       child: Icon(
                                         controller.visibleIcon(),
-                                        color: Color(0xff616161),
+                                        color: const Color(0xff616161),
                                         size: 2.5.h,
                                       ),
                                     ),
@@ -194,7 +200,7 @@ class LoginView extends GetView<LoginController> {
                                   TextSpan(
                                     text: ' v.1.1.3',
                                     style: GoogleFonts.inter(
-                                      color: Color(0xffeceff1),
+                                      color: const Color(0xffeceff1),
                                       fontWeight: FontWeight.w500,
                                     ),
                                   )

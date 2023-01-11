@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
 
 class LoginTextWidget extends GetView<LoginController> {
   final String hintText;
-  //final String labelText;
   final Widget suffixIcon;
-//                                obscureText: controller.isPasswordHidden.value,
+  final TextEditingController controllers;
 
   const LoginTextWidget({
     Key? key,
     required this.hintText,
-    // required this.labelText,
+    required this.controllers,
     required this.suffixIcon,
   }) : super(key: key);
 
@@ -21,7 +21,7 @@ class LoginTextWidget extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Obx(
       () => TextFormField(
-        onTap: () {},
+        controller: controllers,
         obscureText: controller.isPasswordHidden.value,
         style: GoogleFonts.inter(
             color: Color(0xff616161),
@@ -101,14 +101,17 @@ class DropDownMenu extends GetView<LoginController> {
 }
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({
+  LoginButton({
+    required this.callback,
     Key? key,
   }) : super(key: key);
+
+  Callback callback;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: callback,
         style: ElevatedButton.styleFrom(
             elevation: 0,
             minimumSize: Size(100.w, 5.h),

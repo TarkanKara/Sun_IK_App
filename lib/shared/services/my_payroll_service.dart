@@ -2,24 +2,25 @@
 
 import 'package:get/get.dart';
 
+import '../../app/base/token_client.dart';
 import '../../app/models/my_payroll/my_payroll_model.dart';
 import '../../app/models/my_payroll/my_payroll_pdf_model.dart';
 
 class MyPayrollService extends GetConnect {
-  static const token =
-      "WrBJt9i1hj6hYPceqTPjTsQDvMpdkOG/GS1svyYOhULKQ39aYTj+EgGi9wAir6fG~1742~string~638090559505914288";
+  
 
+  //getMyPayroll() - getMyPayrolPdf() - getHomaLandingInfo()
   Map<String, String>? headerss = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'vbtauthorization': token,
+    'vbtauthorization': TokenClient.token,
   };
+
+ 
 
   //getMyPayroll
   Future<MyPayrollModel?> getMyPayroll() async {
     try {
-      var headers = headerss;
-
       var data = {"Date": "2023-01-10T15:06:19.951Z"};
 
       var url =
@@ -40,8 +41,6 @@ class MyPayrollService extends GetConnect {
   Future<MyPayrollPdfModel?> getMyPayrolPdf(
       int? year, month, String? documentId) async {
     try {
-      var headers = headerss;
-
       var data = {
         "YEAR": /* 2021  */ year,
         "MONTH": /* 3 */ month,
@@ -51,7 +50,7 @@ class MyPayrollService extends GetConnect {
       var url =
           'https://suniktest.suntekstil.com.tr/mobileapi/api/EmployeeDocuments/EmployeePayrollDownload';
 
-      var res = await post(url, data, headers: headers);
+      var res = await post(url, data, headers: headerss);
 
       //print(res.body);
       return MyPayrollPdfModel.fromJson(res.body);

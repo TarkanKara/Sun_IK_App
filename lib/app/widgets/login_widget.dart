@@ -5,16 +5,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
 
-import '../routes/app_pages.dart';
-
 class LoginTextWidget extends GetView<LoginController> {
   final String hintText;
   final Widget suffixIcon;
   final TextEditingController controllers;
+  RxBool obscureText;
 
-  const LoginTextWidget({
+  LoginTextWidget({
     Key? key,
     required this.hintText,
+    required this.obscureText,
     required this.controllers,
     required this.suffixIcon,
   }) : super(key: key);
@@ -24,7 +24,7 @@ class LoginTextWidget extends GetView<LoginController> {
     return Obx(
       () => TextFormField(
         controller: controllers,
-        obscureText: controller.isPasswordHidden.value,
+        obscureText: obscureText.value,
         style: GoogleFonts.inter(
             color: const Color(0xff616161),
             fontWeight: FontWeight.w500,
@@ -113,9 +113,7 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-
         onPressed: callback,
-
         style: ElevatedButton.styleFrom(
             elevation: 0,
             minimumSize: Size(100.w, 5.h),

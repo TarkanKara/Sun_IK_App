@@ -108,13 +108,13 @@ class LoginView extends GetView<LoginController> {
                                     style: GoogleFonts.inter(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 1.6.h)),
+                                        fontSize: 2.h)),
                               ),
                               Row(
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                      bottom: 1.7.h,
+                                      bottom: 1.8.h,
                                       left: 1.w,
                                       right: 1.w,
                                     ),
@@ -125,7 +125,7 @@ class LoginView extends GetView<LoginController> {
                                         style: GoogleFonts.inter(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 1.6.h),
+                                            fontSize: 1.7.h),
                                       ),
                                     ),
                                   ),
@@ -156,6 +156,7 @@ class LoginView extends GetView<LoginController> {
                                 padding: EdgeInsets.only(bottom: 2.h),
                                 child: LoginTextWidget(
                                   controllers: controller.user,
+                                  obscureText: false.obs,
                                   hintText: "Username",
                                   suffixIcon: Icon(
                                     Icons.abc,
@@ -167,6 +168,7 @@ class LoginView extends GetView<LoginController> {
                                 padding: EdgeInsets.only(top: 1.h),
                                 child: LoginTextWidget(
                                   controllers: controller.passwordu,
+                                  obscureText: controller.isPasswordHidden,
                                   hintText: "Password",
                                   suffixIcon: Obx(
                                     () => GestureDetector(

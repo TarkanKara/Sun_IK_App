@@ -11,7 +11,7 @@ class LoginController extends GetxController {
   RxString dropdownvalue = "Select Company".obs;
   RxBool isPasswordHidden = false.obs;
   RxString password = "".obs;
-  RxBool switchControl = true.obs;
+  RxBool switchControl = false.obs;
   TextEditingController user = TextEditingController();
   TextEditingController passwordu = TextEditingController();
 
@@ -29,7 +29,7 @@ class LoginController extends GetxController {
   }
 
   visibleIcon() {
-    if (isPasswordHidden == false) {
+    if (isPasswordHidden.value == false) {
       return Icons.visibility;
     } else {
       return Icons.visibility_off;

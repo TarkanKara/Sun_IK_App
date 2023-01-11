@@ -154,9 +154,9 @@ class LoginView extends GetView<LoginController> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(bottom: 2.h),
-                                child: const LoginTextWidget(
+                                child: LoginTextWidget(
+                                  controllers: controller.user,
                                   hintText: "Username",
-                                  //labelText: "UserName",
                                   suffixIcon: Icon(
                                     Icons.abc,
                                     color: Colors.white,
@@ -166,7 +166,7 @@ class LoginView extends GetView<LoginController> {
                               Padding(
                                 padding: EdgeInsets.only(top: 1.h),
                                 child: LoginTextWidget(
-                                  //labelText: "Password",
+                                  controllers: controller.passwordu,
                                   hintText: "Password",
                                   suffixIcon: Obx(
                                     () => GestureDetector(
@@ -183,9 +183,13 @@ class LoginView extends GetView<LoginController> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(top: 3.h),
-                                child: const LoginButton(),
-                              ),
+                                  padding: EdgeInsets.only(top: 3.h),
+                                  child: LoginButton(
+                                    callback: () {
+                                      print("object");
+                                      controller.isAuthCorrect();
+                                    },
+                                  )),
                               Padding(
                                 padding: EdgeInsets.only(top: 1.5.h),
                                 child: RichText(

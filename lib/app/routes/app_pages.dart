@@ -66,7 +66,6 @@ class AppPages {
       binding: PdfBinding(),
     ),
     GetPage(
-
       name: Routes.CREATEPINCODE,
       page: () => const PinCodeCreateView(),
       binding: PinCodeCreateBinding(),

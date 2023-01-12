@@ -12,7 +12,6 @@ abstract class Routes {
   static const PDF_VIEW = "/pdf_vieW";
   static const CREATEPINCODE = "/create_pin_code";
   static const CHANGEPINCODE = "/change_pin_code";
-  static const PDF_VIEW = "/pdf_vieW";
   static const SPLASH = "/splash";
 
 }

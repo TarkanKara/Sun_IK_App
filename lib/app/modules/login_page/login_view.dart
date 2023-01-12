@@ -14,7 +14,7 @@ class LoginView extends GetView<LoginController> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
-        backgroundColor: const Color(0xffcf3842),
+        backgroundColor: const Color(0xffff6c6d),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -87,7 +87,7 @@ class LoginView extends GetView<LoginController> {
                         left: 2.w,
                         top: 22.h,
                         child: Container(
-                          height: 60.h,
+                          height: 63.h,
                           width: 85.w,
                           decoration: BoxDecoration(
                             color: const Color(0xffef3e52),
@@ -200,23 +200,51 @@ class LoginView extends GetView<LoginController> {
                                     )),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.5.h),
-                                  child: RichText(
-                                      text: TextSpan(children: [
-                                    TextSpan(
-                                      text: 'Test',
-                                      style: GoogleFonts.inter(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Get a pin code",
+                                            style: GoogleFonts.inter(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 1.7.h),
+                                          ),
+                                          Text(
+                                            "Forgot the pin code?",
+                                            style: GoogleFonts.inter(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 1.7.h),
+                                          ),
+                                        ],
                                       ),
-                                    ),
-                                    TextSpan(
-                                      text: ' v.1.1.3',
-                                      style: GoogleFonts.inter(
-                                        color: const Color(0xffeceff1),
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    )
-                                  ])),
+                                      RichText(
+                                          text: TextSpan(children: [
+                                        TextSpan(
+                                          text: 'Test',
+                                          style: GoogleFonts.inter(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: ' v.1.1.3',
+                                          style: GoogleFonts.inter(
+                                            color: const Color(0xffeceff1),
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        )
+                                      ])),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),

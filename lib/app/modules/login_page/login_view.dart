@@ -168,10 +168,6 @@ class LoginView extends GetView<LoginController> {
                                     controllers: controller.user,
                                     obscureText: false.obs,
                                     hintText: "Username",
-                                    suffixIcon: const Icon(
-                                      Icons.abc,
-                                      color: Colors.white,
-                                    ),
                                   ),
                                 ),
                                 Padding(

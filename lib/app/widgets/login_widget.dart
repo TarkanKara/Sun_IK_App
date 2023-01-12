@@ -7,7 +7,7 @@ import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
 
 class LoginTextWidget extends GetView<LoginController> {
   final String hintText;
-  final Widget suffixIcon;
+  final Widget? suffixIcon;
   final TextEditingController controllers;
   RxBool obscureText;
 
@@ -16,7 +16,7 @@ class LoginTextWidget extends GetView<LoginController> {
     required this.hintText,
     required this.obscureText,
     required this.controllers,
-    required this.suffixIcon,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override

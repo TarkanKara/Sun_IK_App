@@ -73,6 +73,7 @@ flutter:
     - assets/images/
     - assets/images/language/
     - assets/images/home_assets/
+    - assets/images/pin_assets/
     - assets/images/login/  
     - assets/images/splash/
     

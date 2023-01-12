@@ -10,5 +10,9 @@ abstract class Routes {
   static const HOME = "/home";
   static const MY_PAYROLLS = "/my_payrolls";
   static const PDF_VIEW = "/pdf_vieW";
+  static const CREATEPINCODE = "/create_pin_code";
+  static const CHANGEPINCODE = "/change_pin_code";
+  static const PDF_VIEW = "/pdf_vieW";
   static const SPLASH = "/splash";
+
 }

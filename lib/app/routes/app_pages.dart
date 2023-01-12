@@ -15,11 +15,19 @@ import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
 import 'package:sun_ik_app/app/modules/pdf_page/pdf_binding.dart';
 import 'package:sun_ik_app/app/modules/pdf_page/pdf_view.dart';
+
+import 'package:sun_ik_app/app/modules/pin_code_change_page/pin_code_change_view.dart';
+import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_binding.dart';
+import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_view.dart';
+
 import 'package:sun_ik_app/app/modules/splash_page/splash_binding.dart';
 import 'package:sun_ik_app/app/modules/splash_page/splash_view.dart';
 
+
 import 'package:sun_ik_app/app/modules/start_page/start_binding.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_view.dart';
+
+import '../modules/pin_code_change_page/pin_code_change_binding.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +65,17 @@ class AppPages {
       page: () => const PdfView(),
       binding: PdfBinding(),
     ),
+    GetPage(
+
+      name: Routes.CREATEPINCODE,
+      page: () => const PinCodeCreateView(),
+      binding: PinCodeCreateBinding(),
+    ),
+    GetPage(
+      name: Routes.CHANGEPINCODE,
+      page: () => const PinCodeChangeView(),
+      binding: PinCodeChangeBinding(),
+      ),
     GetPage(
       name: Routes.SPLASH,
       page: () => const SplashView(),

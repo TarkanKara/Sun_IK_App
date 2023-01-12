@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -251,7 +249,6 @@ class LoginView extends GetView<LoginController> {
                               ],
                             ),
                           ),
-
                         ),
                       ),
                       Container(
@@ -259,18 +256,6 @@ class LoginView extends GetView<LoginController> {
                         height: 25.h,
                         width: 37.w,
                         margin: EdgeInsets.only(top: 5.h, left: 26.w),
-
-                        )
-                      ],
-                    ),
-                    Positioned(
-                      //textformfield container
-                      left: 2.w,
-                      top: 22.h,
-                      child: Container(
-                        height: 65.h,
-                        width: 85.w,
-
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.w),
                           boxShadow: [
@@ -284,133 +269,9 @@ class LoginView extends GetView<LoginController> {
                           border: Border.all(
                               color: const Color(0xffebeae8), width: .7.w),
                         ),
-
                         child: Image.asset(
                           "assets/images/ic_sun_logo.PNG",
                           fit: BoxFit.fill,
-
-                        child: Padding(
-                          padding:
-                              EdgeInsets.only(left: 3.w, top: 8.h, right: 3.w),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    bottom: .5.h, top: 1.7.h, right: 10.w),
-                                child: Text(
-                                    "Please login to use the mobile application",
-                                    style: GoogleFonts.inter(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 2.h)),
-                              ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 1.8.h,
-                                      left: 1.w,
-                                      right: 1.w,
-                                    ),
-                                    child: SizedBox(
-                                      width: 60.w,
-                                      child: Text(
-                                        "I don't have a computer password. I want to get a password via SMS",
-                                        style: GoogleFonts.inter(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 1.7.h),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(top: .5.h),
-                                    child: Obx(() => Switch(
-                                          value: controller.switchControl.value,
-                                          activeColor: const Color(0xff00c853),
-                                          activeTrackColor:
-                                              const Color(0xff00c853),
-                                          inactiveThumbColor:
-                                              const Color(0xffeeeeee),
-                                          inactiveTrackColor:
-                                              const Color(0xffc2c2c2),
-                                          onChanged: (value) {
-                                            controller.switchControl.value =
-                                                value;
-                                          },
-                                        )),
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(vertical: 1.h),
-                                child: const DropDownMenu(),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(bottom: 2.h),
-                                child: LoginTextWidget(
-                                  controllers: controller.user,
-                                  obscureText: false.obs,
-                                  hintText: "Username",
-                                  suffixIcon: const Icon(
-                                    Icons.abc,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 1.h),
-                                child: LoginTextWidget(
-                                  controllers: controller.passwordu,
-                                  obscureText: controller.isPasswordHidden,
-                                  hintText: "Password",
-                                  suffixIcon: Obx(
-                                    () => GestureDetector(
-                                      onTap: () {
-                                        controller.visible();
-                                      },
-                                      child: Icon(
-                                        controller.visibleIcon(),
-                                        color: const Color(0xff616161),
-                                        size: 2.5.h,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.only(top: 3.h),
-                                  child: LoginButton(
-                                    callback: () {
-                                      print("object");
-                                      controller.isAuthCorrect();
-                                    },
-                                  )),
-                              Padding(
-                                padding: EdgeInsets.only(top: 1.5.h),
-                                child: RichText(
-                                    text: TextSpan(children: [
-                                  TextSpan(
-                                    text: 'Test',
-                                    style: GoogleFonts.inter(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: ' v.1.1.3',
-                                    style: GoogleFonts.inter(
-                                      color: const Color(0xffeceff1),
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  )
-                                ])),
-                              ),
-                            ],
-                          ),
-
                         ),
                       ),
                     ],

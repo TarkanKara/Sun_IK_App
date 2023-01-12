@@ -15,6 +15,8 @@ import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
 import 'package:sun_ik_app/app/modules/pdf_page/pdf_binding.dart';
 import 'package:sun_ik_app/app/modules/pdf_page/pdf_view.dart';
+import 'package:sun_ik_app/app/modules/splash_page/splash_binding.dart';
+import 'package:sun_ik_app/app/modules/splash_page/splash_view.dart';
 
 import 'package:sun_ik_app/app/modules/start_page/start_binding.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_view.dart';
@@ -54,6 +56,11 @@ class AppPages {
       name: Routes.PDF_VIEW,
       page: () => const PdfView(),
       binding: PdfBinding(),
+    ),
+    GetPage(
+      name: Routes.SPLASH,
+      page: () => const SplashView(),
+      binding: SplashBinding(),
     ),
   ];
 }

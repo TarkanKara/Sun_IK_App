@@ -5,9 +5,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:sun_ik_app/app/models/my_payroll_model.dart';
-import 'package:sun_ik_app/app/models/my_payroll_pdf_model.dart';
+
 import 'package:sun_ik_app/shared/services/my_payroll_service.dart';
+
+import '../../models/my_payroll/my_payroll_model.dart';
+import '../../models/my_payroll/my_payroll_pdf_model.dart';
 
 class MyPayrollsController extends GetxController {
   MyPayrollService myPayrolService = MyPayrollService();

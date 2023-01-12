@@ -4,14 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:sun_ik_app/app/models/login/login_model.dart';
+import 'package:sun_ik_app/shared/services/login_service.dart';
 
 import '../../routes/app_pages.dart';
 
 class LoginController extends GetxController {
+  //
+  LoginService loginService = LoginService();
+  LoginModel loginModel = LoginModel();
+
+  //
   RxString dropdownvalue = "Select Company".obs;
   RxBool isPasswordHidden = false.obs;
   RxString password = "".obs;
   RxBool switchControl = false.obs;
+
+  //
   TextEditingController user = TextEditingController();
   TextEditingController passwordu = TextEditingController();
 
@@ -36,7 +45,13 @@ class LoginController extends GetxController {
     }
   }
 
-  isAuthCorrect() {
+  /*  currentLogin() async {
+    loginModel = (await loginService.getLogin(user.text, passwordu.text))!;
+    Get.toNamed(Routes.HOME); 
+    */
+
+  //
+  isAuthCorrect() async {
     if (user.text == "user" && passwordu.text == "Vbt1993.") {
       return Get.toNamed(Routes.HOME);
     } else {

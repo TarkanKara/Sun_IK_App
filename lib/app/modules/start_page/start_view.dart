@@ -16,11 +16,16 @@ class StartView extends GetView<StartController> {
       body: Center(
         child: InkWell(
             onTap: () {
-              controller.login();
+              //controller.login();
             },
-            child: Container(
-              child: const Text("data"),
-            )),
+            child: Obx(() => controller.status.value.isLoading
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Container(
+                    child: Text(controller.pictureModel.data!.profilePicture
+                        .toString()),
+                  ))),
       ),
     );
   }

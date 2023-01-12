@@ -5,11 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:sun_ik_app/app/modules/home_page/home_controller.dart';
-import 'package:sun_ik_app/utils/const.dart';
 
+import '../../../utils/const.dart';
 import '../../routes/app_pages.dart';
 import '../../widgets/home_menu_card.dart';
+import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -119,7 +119,7 @@ class HomeView extends GetView<HomeController> {
           width: double.infinity,
           height: 41.5.h,
           child: Obx(
-            () => controller.isLoading.value
+            () => controller.status.value.isSuccess
                 ? GridView.builder(
                     itemCount: controller.infoModel.data!.menuInfo.length,
                     //physics: const NeverScrollableScrollPhysics(),

@@ -1,12 +1,15 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:sun_ik_app/app/modules/pin_code_change_page/pin_code_change_controller.dart';
-import 'package:sun_ik_app/app/widgets/pin_widgets/pin_button.dart';
-import 'package:sun_ik_app/app/widgets/pin_widgets/pin_textformfield.dart';
-import 'package:sun_ik_app/utils/const.dart';
+
+import '../../../utils/const.dart';
+import '../../widgets/pin_widgets/pin_button.dart';
+import '../../widgets/pin_widgets/pin_textformfield.dart';
+import 'pin_code_change_controller.dart';
 
 class PinCodeChangeView extends GetView<PinCodeChangeController> {
   const PinCodeChangeView({super.key});

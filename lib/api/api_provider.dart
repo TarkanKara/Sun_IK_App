@@ -3,13 +3,14 @@ import 'package:sun_ik_app/api/base_provider.dart';
 
 class ApiProvider extends BaseProvider {
   //
-  Future<Response> urlPost(
-      String path, Object data, Map<String, String> header) {
-    return post(path, data, headers: header);
+  Future<Response> postMethod(String? url, Object body,
+      {Map<String, String>? headers,}) {
+    return post(url, body, headers: headers);
   }
 
   //
-  Future<Response> urlGet(String path) {
-    return get(path);
+  Future<Response> getMethod(String url,
+      {Map<String, String>? headers, Map<String, dynamic>? query}) {
+    return get(url);
   }
 }

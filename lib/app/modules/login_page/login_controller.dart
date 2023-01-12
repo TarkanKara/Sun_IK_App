@@ -4,14 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:sun_ik_app/app/models/login/login_model.dart';
-import 'package:sun_ik_app/shared/services/login_service.dart';
 
+import '../../../api/api_repository.dart';
+import '../../models/login/login_model.dart';
 import '../../routes/app_pages.dart';
 
+
 class LoginController extends GetxController {
-  //
-  LoginService loginService = LoginService();
+  ApiRepository apiRepository;
+  LoginController({required this.apiRepository});
+
+  //Model
   LoginModel loginModel = LoginModel();
 
   //
@@ -19,8 +22,9 @@ class LoginController extends GetxController {
   RxBool isPasswordHidden = false.obs;
   RxString password = "".obs;
   RxBool switchControl = false.obs;
+  Rx<RxStatus> status = RxStatus.empty().obs;
 
-  //
+  //TextEditingController
   TextEditingController user = TextEditingController();
   TextEditingController passwordu = TextEditingController();
 
@@ -45,10 +49,12 @@ class LoginController extends GetxController {
     }
   }
 
-  /*  currentLogin() async {
-    loginModel = (await loginService.getLogin(user.text, passwordu.text))!;
-    Get.toNamed(Routes.HOME); 
-    */
+  /* //currentLogin
+  currentLogin() async {
+    status.value = RxStatus.loading();
+    loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
+    status.value = RxStatus.success();
+  } */
 
   //
   isAuthCorrect() async {

@@ -67,7 +67,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Obx(() => controller.isLoading.value
+                      Obx(() => controller.status.value.isSuccess
                           ? SizedBox(
                               height: 60.h,
                               child: ListView.builder(

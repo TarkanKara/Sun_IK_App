@@ -19,12 +19,15 @@ class PdfView extends GetView<PdfController> {
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
         title: Text(controller
-            .myPayrollController.myPayrollModel.data![controller.myPayrollController.indexfinal.value].documentperiod
+            .myPayrollController
+            .myPayrollModel
+            .data![controller.myPayrollController.indexfinal.value]
+            .documentperiod
             .toString()),
       ),
       body: SizedBox(
           child: Obx(
-        () => controller.myPayrollController.isLoading.value
+        () => controller.myPayrollController.status.value.isSuccess
             ? SfPdfViewer.memory(
                 controller.myPayrollController.resultPdf!,
                 initialZoomLevel: 2.5,

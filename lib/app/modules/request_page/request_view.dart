@@ -7,6 +7,8 @@ import 'package:sun_ik_app/app/modules/request_page/request_controller.dart';
 import 'package:sun_ik_app/app/widgets/request_widgets/request_list_item.dart';
 import 'package:sun_ik_app/utils/const.dart';
 
+import '../../../utils/date_convert.dart';
+
 class RequestView extends GetView<RequestController> {
   const RequestView({super.key});
 
@@ -80,7 +82,7 @@ class RequestView extends GetView<RequestController> {
                           imageAsset:
                               'assets/images/request_assets/ic_devam_ediyor.png',
                           tarihVeSaat:
-                              "${controller.compareToDateTime(controller.myRequestModel.data!.myRequestList![0].rEQDATE.toString())}",
+                              "${DateTimeConverTo.compareToDateTime(controller.myRequestModel.data!.myRequestList![0].rEQDATE.toString())}",
                           tur:
                               "${controller.myRequestModel.data!.myRequestList![0].rEQNAME}",
                           talepNo:

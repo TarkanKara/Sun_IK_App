@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -163,19 +163,7 @@ class RequestController extends GetxController {
     status.value = RxStatus.success();
   }
 
-  //compareToDateTime
-  compareToDateTime(String formattedString) {
-    DateTime currentTime = DateTime.parse(formattedString);
-
-    // the "dd/MM/yyyy HH:mm" format
-    var res1 = DateFormat.yMd().add_jm().format(currentTime);
-
-    // just the date
-    var res2 = DateFormat.yMd().format(currentTime);
-
-    return res1;
-  }
-
+  
   /*  //myRequestIcon
   myRequestIcon(int index) {
     switch (myRequestModel.data!.myRequestList![index].sTATUNAME) {

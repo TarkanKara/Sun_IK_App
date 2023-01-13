@@ -1,8 +1,20 @@
+// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables, avoid_print
+
 import 'package:get/get.dart';
 
+import '../../../api/api_repository.dart';
+import '../../models/language/my_app_language_model.dart';
+
 class LanguageController extends GetxController {
+  final ApiRepository apiRepository;
+  LanguageController({required this.apiRepository});
+  //Model
+  MyAppLanguage myAppLanguage = MyAppLanguage();
+
+  //
   RxBool checkBox = false.obs;
   RxBool checkBoxState = false.obs;
+  Rx<RxStatus> status = RxStatus.empty().obs;
 
   RxList languages = [
     {
@@ -43,5 +55,19 @@ class LanguageController extends GetxController {
 
   returnButton() {
     Get.back();
+  }
+
+  @override
+  void onInit() {
+    getMyAppLanguage();
+    print('Login View başlatıldı');
+    super.onInit();
+  }
+
+  //getMyAppLanguage
+  getMyAppLanguage() async {
+    status.value = RxStatus.loading();
+    myAppLanguage = (await apiRepository.getAllLanguage())!;
+    status.value = RxStatus.success();
   }
 }

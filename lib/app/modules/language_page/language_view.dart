@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,8 +31,8 @@ class LanguagePage extends GetView<LanguageController> {
           backgroundColor: const Color(0xff94A3B8)),
       body: SingleChildScrollView(
         child: Container(
-          height: 100.h,
           width: 100.w,
+          height: 100.h,
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image:
@@ -43,12 +45,12 @@ class LanguagePage extends GetView<LanguageController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 86.h,
+                  height: 100.h,
                   width: 100.w,
                   // margin: EdgeInsets.only(top: 2.h),
                   child: ListView.builder(
                     padding: EdgeInsets.only(top: 3.h),
-                    itemCount: controller.languages.length,
+                    itemCount: controller.myAppLanguage.data!.length,
                     itemBuilder: (context, index) {
                       return Container(
                         height: 9.h,
@@ -64,14 +66,17 @@ class LanguagePage extends GetView<LanguageController> {
                             )),
                         child: Row(
                           children: [
-                            Container(
+                            SizedBox(
                               height: 15.h,
                               width: 30.w,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          controller.languages[index]["flag"]),
-                                      fit: BoxFit.cover)),
+                              child: Image.memory(
+                                const Base64Decoder().convert(
+                                  controller
+                                      .myAppLanguage.data![index].lANGUAGELOGO
+                                      .toString(),
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 4.w, top: 1.2.h),
@@ -80,7 +85,10 @@ class LanguagePage extends GetView<LanguageController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    controller.languages[index]["name"],
+                                    controller
+                                        .myAppLanguage.data![index].lANGUAGENAME
+                                        .toString(),
+                                    /* controller.languages[index]["name"], */
                                     style: GoogleFonts.inter(
                                         color: Colors.black,
                                         fontSize: 2.7.h,
@@ -90,7 +98,10 @@ class LanguagePage extends GetView<LanguageController> {
                                     height: .3.h,
                                   ),
                                   Text(
-                                    controller.languages[index]["subTitle"],
+                                    controller
+                                        .myAppLanguage.data![index].lANGUAGECODE
+                                        .toString(),
+                                    /* controller.languages[index]["subTitle"], */
                                     style: GoogleFonts.inter(
                                         color: Colors.black,
                                         fontSize: 1.7.h,
@@ -216,6 +227,7 @@ class LanguagePage extends GetView<LanguageController> {
                       },
                       title: Text(
                         controller.languages[index]["name"],
+                        
                         style: GoogleFonts.inter(color: Colors.black),
                       ),
                       subtitle: Text(controller.languages[index]["subTitle"],

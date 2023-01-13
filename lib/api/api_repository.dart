@@ -7,7 +7,7 @@ import 'package:sun_ik_app/app/models/my_payroll/my_payroll_pdf_model.dart';
 
 import '../app/models/home/my_profile_model.dart';
 
-
+import '../app/models/language/my_app_language_model.dart';
 import 'api_provider.dart';
 
 class ApiRepository {
@@ -112,6 +112,21 @@ class ApiRepository {
       }
     } catch (e) {
       print("e");
+    }
+    return null;
+  }
+
+  //getAllLanguage
+  Future<MyAppLanguage?> getAllLanguage() async {
+    try {
+      var response = await apiProvider.getMethod("Language/GetAllLanguage");
+
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyAppLanguage.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
     }
     return null;
   }

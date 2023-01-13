@@ -51,28 +51,68 @@ class MyLeavesView extends GetView<MyLeavesController> {
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: TabBarView(
                   children: [
-                    const Center(
-                      child: Text("PAGE 1"),
-                    ),
+                    //TabBarView Page 1
                     Column(
                       children: [
                         Card(
                           elevation: 2,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(2.w)),
-                          child: SizedBox(
-                            width: 90.w,
-                            height: 15.w,
-                            child: Center(
-                                child: Text(
-                              "BURAK ŞEKER \nSenior Flutter Dev",
+                          color: const Color(0xffFDFDFD),
+                          child: ListTile(
+                            title: Text(
+                              " titleText",
                               style: Theme.of(context)
                                   .textTheme
                                   .caption!
                                   .copyWith(
-                                      fontSize: 5.w,
+                                      fontSize: 2.2.h,
                                       fontWeight: FontWeight.bold),
-                            )),
+                            ),
+                            subtitle: Text(
+                              " titleText",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .caption!
+                                  .copyWith(
+                                      fontSize: 1.9.h,
+                                      fontWeight: FontWeight.bold),
+                            ),
+                            /* trailing: Container(
+                              height: 3.w,
+                              width: 5.w,
+                              decoration: Box,
+                            ), */
+                          ),
+                        )
+                      ],
+                    ),
+                    //TabBarView Page 2
+                    Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 1.h),
+                          child: Card(
+                            elevation: 2,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(2.w)),
+                            child: Container(
+                              width: 90.w,
+                              height: 15.w,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(2.w),
+                              ),
+                              child: Center(
+                                  child: Text(
+                                "BURAK ŞEKER \nSenior Flutter Dev",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .caption!
+                                    .copyWith(
+                                        fontSize: 5.w,
+                                        fontWeight: FontWeight.bold),
+                              )),
+                            ),
                           ),
                         ),
                         Expanded(

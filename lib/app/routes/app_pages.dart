@@ -10,6 +10,7 @@ import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
 
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
+import 'package:sun_ik_app/app/modules/manager_search_page/manager_search_view.dart';
 
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart';
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
@@ -23,10 +24,10 @@ import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_view
 import 'package:sun_ik_app/app/modules/splash_page/splash_binding.dart';
 import 'package:sun_ik_app/app/modules/splash_page/splash_view.dart';
 
-
 import 'package:sun_ik_app/app/modules/start_page/start_binding.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_view.dart';
 
+import '../modules/manager_search_page/manager_search_binding.dart';
 import '../modules/pin_code_change_page/pin_code_change_binding.dart';
 
 part 'app_routes.dart';
@@ -74,11 +75,16 @@ class AppPages {
       name: Routes.CHANGEPINCODE,
       page: () => const PinCodeChangeView(),
       binding: PinCodeChangeBinding(),
-      ),
+    ),
     GetPage(
       name: Routes.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: Routes.MANAGERSEARCH,
+      page: () => const ManagerSearchView(),
+      binding: ManagerSearchBinding(),
     ),
   ];
 }

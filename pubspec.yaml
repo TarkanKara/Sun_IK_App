@@ -45,6 +45,7 @@ dependencies:
   shimmer: ^2.0.0
   intl: ^0.18.0
   syncfusion_flutter_pdfviewer: ^20.1.61-beta
+  flutter_heatmap_calendar: ^1.0.5
 
 dev_dependencies:
   flutter_test:

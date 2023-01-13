@@ -1,7 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/my_leaves_page/my_leaves_controller.dart';
 
 class MyLeavesView extends GetView<MyLeavesController> {
@@ -47,13 +49,67 @@ class MyLeavesView extends GetView<MyLeavesController> {
               child: Container(
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: const TabBarView(
+                child: TabBarView(
                   children: [
-                    Center(
+                    const Center(
                       child: Text("PAGE 1"),
                     ),
-                    Center(
-                      child: Text("PAGE 2"),
+                    Column(
+                      children: [
+                        Card(
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(2.w)),
+                          child: SizedBox(
+                            width: 90.w,
+                            height: 15.w,
+                            child: Center(
+                                child: Text(
+                              "BURAK ŞEKER \nSenior Flutter Dev",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .caption!
+                                  .copyWith(
+                                      fontSize: 5.w,
+                                      fontWeight: FontWeight.bold),
+                            )),
+                          ),
+                        ),
+                        Expanded(
+                          child: HeatMapCalendar(
+                            defaultColor: Colors.white,
+                            monthFontSize: 4.w,
+                            weekFontSize: 3.5.w,
+                            flexible: true,
+                            weekTextColor: Colors.red,
+                            colorMode: ColorMode.color,
+                            showColorTip: true,
+                            margin: EdgeInsets.all(1.3.w),
+                            datasets: {
+                              DateTime(2023, 1, 6): 3,
+                              DateTime(2023, 1, 7): 7,
+                              DateTime(2023, 1, 8): 10,
+                              DateTime(2023, 1, 9): 13,
+                              DateTime(2023, 1, 13): 6,
+                            },
+                            colorsets: const {
+                              1: Colors.red,
+                              3: Colors.orange,
+                              5: Colors.yellow,
+                              7: Colors.green,
+                              9: Colors.blue,
+                              11: Colors.indigo,
+                              13: Colors.purple,
+                            },
+                            onClick: (value) {
+                              //Get.snackbar("Tarih", value.toString());
+                            },
+                            onMonthChange: (p0) {
+                              //Get.snackbar("Tarih", p0.toString());
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

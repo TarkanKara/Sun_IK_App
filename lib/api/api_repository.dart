@@ -9,6 +9,7 @@ import 'package:sun_ik_app/app/models/my_request/my_request_model.dart';
 import '../app/models/home/my_profile_model.dart';
 
 import '../app/models/language/my_app_language_model.dart';
+import '../app/models/my_request_get_pending_model.dart/my_request_get_pending_model.dart';
 import 'api_provider.dart';
 
 class ApiRepository {
@@ -144,6 +145,23 @@ class ApiRepository {
         print(response.body);
 
         return MyRequestModel.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  //getMyRequestGetPending
+  Future<MyRequestGetPending?> getMyRequestGetPending() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetPendingRequestMasterMobile",
+        {},
+      );
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyRequestGetPending.fromJson(response.body);
       }
     } catch (e) {
       print("$e");

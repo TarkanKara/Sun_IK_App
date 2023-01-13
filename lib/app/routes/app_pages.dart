@@ -19,6 +19,8 @@ import 'package:sun_ik_app/app/modules/pdf_page/pdf_view.dart';
 import 'package:sun_ik_app/app/modules/pin_code_change_page/pin_code_change_view.dart';
 import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_binding.dart';
 import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_view.dart';
+import 'package:sun_ik_app/app/modules/request_page/request_binding.dart';
+import 'package:sun_ik_app/app/modules/request_page/request_view.dart';
 
 import 'package:sun_ik_app/app/modules/splash_page/splash_binding.dart';
 import 'package:sun_ik_app/app/modules/splash_page/splash_view.dart';
@@ -79,6 +81,11 @@ class AppPages {
       name: Routes.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: Routes.REQUEST,
+      page: () => const RequestView(),
+      binding: RequestBinding(),
     ),
   ];
 }

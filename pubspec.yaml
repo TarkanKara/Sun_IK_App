@@ -76,6 +76,7 @@ flutter:
     - assets/images/pin_assets/
     - assets/images/login/  
     - assets/images/splash/
+    - assets/images/request_assets/
     
   #   - images/a_dot_ham.jpeg
 

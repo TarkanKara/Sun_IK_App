@@ -5,9 +5,9 @@ import 'package:sun_ik_app/utils/const.dart';
 
 class RequestListItem extends StatelessWidget {
   String imageAsset;
-  String tarihVeSaat; 
+  String tarihVeSaat;
   String tur;
-  String talepNo; 
+  String talepNo;
   String atananKisi;
   String aciklama;
   String durum;
@@ -84,7 +84,7 @@ class RequestListItem extends StatelessWidget {
               flex: 2,
               child: Row(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 30.w,
                     child: Column(
                       children: [
@@ -187,6 +187,7 @@ class RequestListItem extends StatelessWidget {
                                 child: Text(
                                   aciklama,
                                   style: GoogleFonts.inter(
+                                      fontSize: 1.0.h,
                                       color: Const.BASLIKTEXTCOLOR,
                                       fontWeight: FontWeight.w700),
                                 ))

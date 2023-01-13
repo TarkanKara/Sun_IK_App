@@ -51,26 +51,54 @@ class RequestView extends GetView<RequestController> {
           SizedBox(
             height: 2.h,
           ),
-          Obx(() => Container(
-                alignment: Alignment.center,
-                width: 100.w,
-                height: 3.h,
-                child: Text(
-                  controller.filterIsim.value,
-                  style: GoogleFonts.inter(color: Const.BASLIKTEXTCOLOR),
-                ),
-              )),
+          Obx(
+            () => controller.status.value.isSuccess
+                ? Container(
+                    alignment: Alignment.center,
+                    width: 100.w,
+                    height: 3.h,
+                    child: Text(
+                      controller.filterIsim.value,
+                      style: GoogleFonts.inter(color: Const.BASLIKTEXTCOLOR),
+                    ),
+                  )
+                : const Center(child: CircularProgressIndicator()),
+          ),
           SizedBox(
             height: 2.h,
           ),
-          RequestListItem(
-            imageAsset: 'assets/images/request_assets/ic_devam_ediyor.png',
-            tarihVeSaat: '13.01.2023  11:38',
-            tur: 'İzin Talebi',
-            talepNo: '588',
-            atananKisi: 'SEVİNÇ AKSU',
-            aciklama: 'MÜMİN SÜRER',
-            durum: 'Devam Ediyor',
+          Obx(
+            () => controller.status.value.isSuccess
+                ? SizedBox(
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount:
+                          controller.myRequestModel.data!.myRequestList!.length,
+                      itemBuilder: (context, index) {
+                        return RequestListItem(
+                          imageAsset:
+                              'assets/images/request_assets/ic_devam_ediyor.png',
+                          tarihVeSaat:
+                              "${controller.compareToDateTime(controller.myRequestModel.data!.myRequestList![0].rEQDATE.toString())}",
+                          tur:
+                              "${controller.myRequestModel.data!.myRequestList![0].rEQNAME}",
+                          talepNo:
+                              "${controller.myRequestModel.data!.myRequestList![0].iDMASTER}",
+                          atananKisi: controller.myRequestModel.data!
+                                      .myRequestList![0].aSSIGNEMPLOYEE !=
+                                  null
+                              ? "${controller.myRequestModel.data!.myRequestList![0].aSSIGNEMPLOYEE}"
+                              : "",
+                          aciklama:
+                              "${controller.myRequestModel.data!.myRequestList![0].rEQEMPLOYEE}",
+                          durum:
+                              "${controller.myRequestModel.data!.myRequestList![0].sTATUNAME}",
+                        );
+                      },
+                    ),
+                  )
+                : const Center(child: CircularProgressIndicator()),
           )
         ],
       ),

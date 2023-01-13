@@ -11,7 +11,12 @@ class LanguagePage extends GetView<LanguageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          leading: Icon(Icons.arrow_back_ios, size: 3.h, color: Colors.white),
+          leading: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child:
+                  Icon(Icons.arrow_back_ios, size: 3.h, color: Colors.white)),
           elevation: 0,
           centerTitle: true,
           title: Text(

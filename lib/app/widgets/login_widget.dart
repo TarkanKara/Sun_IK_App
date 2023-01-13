@@ -1,30 +1,34 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
 
 class LoginTextWidget extends GetView<LoginController> {
   final String hintText;
-  //final String labelText;
-  final Widget suffixIcon;
-//                                obscureText: controller.isPasswordHidden.value,
+  final Widget? suffixIcon;
+  final TextEditingController controllers;
+  RxBool obscureText;
 
-  const LoginTextWidget({
+  LoginTextWidget({
     Key? key,
     required this.hintText,
-    // required this.labelText,
-    required this.suffixIcon,
+    required this.obscureText,
+    required this.controllers,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => TextFormField(
-        onTap: () {},
-        obscureText: controller.isPasswordHidden.value,
+        controller: controllers,
+        obscureText: obscureText.value,
         style: GoogleFonts.inter(
-            color: Color(0xff616161),
+            color: const Color(0xff616161),
             fontWeight: FontWeight.w500,
             fontSize: 2.h),
         decoration: InputDecoration(
@@ -33,15 +37,15 @@ class LoginTextWidget extends GetView<LoginController> {
           fillColor: Colors.white,
           filled: true,
           hintText: hintText,
-          hintStyle: GoogleFonts.inter(color: Color(0xff616161)),
+          hintStyle: GoogleFonts.inter(color: const Color(0xff616161)),
           suffixIcon: suffixIcon,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(2.w),
-            borderSide: BorderSide(color: Color(0xffeeeeee), width: .6.w),
+            borderSide: BorderSide(color: const Color(0xffeeeeee), width: .6.w),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(2.w),
-            borderSide: BorderSide(color: Color(0xffeeeeee), width: .6.w),
+            borderSide: BorderSide(color: const Color(0xffeeeeee), width: .6.w),
           ),
         ),
       ),
@@ -62,7 +66,7 @@ class DropDownMenu extends GetView<LoginController> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(2.w),
-          border: Border.all(color: Color(0xffeeeeee), width: .6.w),
+          border: Border.all(color: const Color(0xffeeeeee), width: .6.w),
         ),
         child: DropdownButton<String>(
           value: controller.dropdownvalue.value,
@@ -89,7 +93,7 @@ class DropDownMenu extends GetView<LoginController> {
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 2.h,
-                      color: Color(0xff616161)),
+                      color: const Color(0xff616161)),
                 ),
               ),
             );
@@ -101,14 +105,17 @@ class DropDownMenu extends GetView<LoginController> {
 }
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({
+  LoginButton({
+    required this.callback,
     Key? key,
   }) : super(key: key);
+
+  Callback callback;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: callback,
         style: ElevatedButton.styleFrom(
             elevation: 0,
             minimumSize: Size(100.w, 5.h),

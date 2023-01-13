@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:sun_ik_app/app/translation/translation.dart';
+import 'package:sun_ik_app/app_binding.dart';
+
 import 'app/routes/app_pages.dart';
+import 'app/translation/translation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +17,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (p0, p1, p2) => GetMaterialApp(
-        initialRoute: Routes.LANGUAGE,
+        initialRoute: Routes.SPLASH,
         getPages: AppPages.routes,
         locale: Get.deviceLocale,
         translations: TranslationLang(),
         enableLog: true,
         debugShowCheckedModeBanner: false,
+        initialBinding: AppBinding(),
         title: 'Sun IK App',
         theme: ThemeData(
           primarySwatch: Colors.blue,

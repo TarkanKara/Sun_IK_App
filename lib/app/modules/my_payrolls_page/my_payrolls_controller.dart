@@ -1,17 +1,59 @@
 // ignore_for_file: avoid_print, unused_element, unused_local_variable, unused_field
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../api/api_repository.dart';
+import '../../models/my_payroll/my_payroll_model.dart';
+import '../../models/my_payroll/my_payroll_pdf_model.dart';
+
 class MyPayrollsController extends GetxController {
+  final ApiRepository apiRepository;
+  MyPayrollsController({required this.apiRepository});
+
+  //Model
+  MyPayrollModel myPayrollModel = MyPayrollModel();
+  MyPayrollPdfModel myPayrollPdfModel = MyPayrollPdfModel();
+
+  //Değişkenler
+  Rx<RxStatus> status = RxStatus.empty().obs;
+  Uint8List? resultPdf;
+  RxInt indexfinal = 0.obs;
+
+  //DateTime
   var selectedDate = DateTime.now().obs;
 
   @override
   void onInit() {
+    getMyPayrolls();
+    //await getMyPayrollPdf(2);
     print("MyPayrolls View");
     super.onInit();
   }
 
+  //get MyPayroll
+  getMyPayrolls() async {
+    status.value = RxStatus.loading();
+    myPayrollModel = (await apiRepository.getMyPayroll())!;
+    status.value = RxStatus.success();
+  }
+
+  //getMyPayrollPdf
+  getMyPayrollPdf(int index) async {
+    status.value = RxStatus.loading();
+    myPayrollPdfModel = (await apiRepository.getMyPayrolPdf(
+      myPayrollModel.data![index].documentyear,
+      myPayrollModel.data![index].documentmonth,
+      myPayrollModel.data![index].uid,
+    ))!;
+    resultPdf = base64.decode(myPayrollPdfModel.data.toString());
+    status.value = RxStatus.success();
+  }
+
+/* ---------------------------showDatePicker START---------------------------------------------*/
   //MyPayrolles || showDatePickerr
   void showDatePickerr() async {
     DateTime? pickedData = await showDatePicker(
@@ -46,4 +88,6 @@ class MyPayrollsController extends GetxController {
     return true;
     //return false;
   }
+
+  /* ---------------------------showDatePicker END---------------------------------------------*/
 }

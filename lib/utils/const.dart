@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class Const {
@@ -14,15 +16,22 @@ class Const {
   static const Color ACIKLAMATEXTCOLOR = Color(0xff8F989D);
   static const Color SONBORDROTEXTCOLOR = Colors.blue;
   // assets
-  static const String PROFILEAVATAR = "assets/images/home_assets/ic_avatar_profile.png";
+  static const String PROFILEAVATAR =
+      "assets/images/home_assets/ic_avatar_profile.png";
   static const String SUNLOGO = "assets/images/home_assets/ic_sun_logo.PNG";
-  static const String CIKISYAPICON = "assets/images/home_assets/ic_cikis_yap.png";
-  static const String TALEPLERIMICON = "assets/images/home_assets/ic_taleplerim.png";
-  static const String ONAYLARIMICON = "assets/images/home_assets/ic_onayladiklarim1.png";
+  static const String CIKISYAPICON =
+      "assets/images/home_assets/ic_cikis_yap.png";
+  static const String TALEPLERIMICON =
+      "assets/images/home_assets/ic_taleplerim.png";
+  static const String ONAYLARIMICON =
+      "assets/images/home_assets/ic_onayladiklarim1.png";
   static const String ISLERIMICON = "assets/images/home_assets/ic_islerim1.png";
-  static const String BORDROLARIMICON = "assets/images/home_assets/ic_bordrolarim.png";
-  static const String IZINLERIMICON = "assets/images/home_assets/ic_izinlerim.png";
-  static const String IZINLERIMEKLEICON = "assets/images/home_assets/ic_izinlerim_ekle.png";
+  static const String BORDROLARIMICON =
+      "assets/images/home_assets/ic_bordrolarim.png";
+  static const String IZINLERIMICON =
+      "assets/images/home_assets/ic_izinlerim.png";
+  static const String IZINLERIMEKLEICON =
+      "assets/images/home_assets/ic_izinlerim_ekle.png";
   // Text
   static const String SONBORDROTEXT = "Son Bordro Görüntüle";
   static const String TALEPLERIMTEXT = "Taleplerim";

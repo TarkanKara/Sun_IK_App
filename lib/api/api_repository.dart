@@ -10,7 +10,7 @@ import '../app/models/home/my_profile_model.dart';
 
 import '../app/models/language/my_app_language_model.dart';
 
-import '../app/models/my_request/my_request_get_pending_model.dart';
+import '../app/models/my_request/my_approve_get_pending_model.dart';
 import 'api_provider.dart';
 
 class ApiRepository {

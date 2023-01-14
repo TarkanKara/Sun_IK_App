@@ -5,6 +5,9 @@ class MyLeavesBinding implements Bindings {
   //
   @override
   void dependencies() {
-    Get.put(MyLeavesController());
+    Get.put(
+      MyLeavesController(apiRepository: Get.find()),
+      permanent: true,
+    );
   }
 }

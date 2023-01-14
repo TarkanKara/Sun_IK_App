@@ -1,12 +1,12 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/login/login_model.dart';
+import 'package:sun_ik_app/app/models/my_leaves/my_leaves_model.dart';
 import 'package:sun_ik_app/app/models/my_payroll/my_payroll_model.dart';
 import 'package:sun_ik_app/app/models/my_payroll/my_payroll_pdf_model.dart';
 
 import '../app/models/home/my_profile_model.dart';
-
 
 import 'api_provider.dart';
 
@@ -112,6 +112,25 @@ class ApiRepository {
       }
     } catch (e) {
       print("e");
+    }
+    return null;
+  }
+
+  //getMyLeaves
+  Future<MyLeavesModel?> getMyLeaves() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "EmployeeLeave/GetEmployeeLeave",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+
+        return MyLeavesModel.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
     }
     return null;
   }

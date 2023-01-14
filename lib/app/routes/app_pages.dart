@@ -10,6 +10,8 @@ import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
 
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
+import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_binding.dart';
+import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_view.dart';
 
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart';
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
@@ -24,7 +26,6 @@ import 'package:sun_ik_app/app/modules/request_page/request_view.dart';
 
 import 'package:sun_ik_app/app/modules/splash_page/splash_binding.dart';
 import 'package:sun_ik_app/app/modules/splash_page/splash_view.dart';
-
 
 import 'package:sun_ik_app/app/modules/start_page/start_binding.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_view.dart';
@@ -76,7 +77,7 @@ class AppPages {
       name: Routes.CHANGEPINCODE,
       page: () => const PinCodeChangeView(),
       binding: PinCodeChangeBinding(),
-      ),
+    ),
     GetPage(
       name: Routes.SPLASH,
       page: () => const SplashView(),
@@ -86,6 +87,11 @@ class AppPages {
       name: Routes.REQUEST,
       page: () => const RequestView(),
       binding: RequestBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_APPROVE_DETAIL,
+      page: () => const MyApproveDetailView(),
+      binding: MyApproveDetailBinding(),
     ),
   ];
 }

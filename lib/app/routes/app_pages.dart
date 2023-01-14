@@ -10,6 +10,8 @@ import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
 
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
+import 'package:sun_ik_app/app/modules/my_jobs_page/my_jobs_binding.dart';
+import 'package:sun_ik_app/app/modules/my_jobs_page/my_jobs_view.dart';
 
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart';
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
@@ -86,6 +88,11 @@ class AppPages {
       name: Routes.REQUEST,
       page: () => const RequestView(),
       binding: RequestBinding(),
+    ),
+    GetPage(
+      name: Routes.MYjOBS,
+      page: () => const MyJobsView(),
+      binding: MyJobsBinding(),
     ),
   ];
 }

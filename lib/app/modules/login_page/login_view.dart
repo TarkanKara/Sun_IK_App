@@ -197,7 +197,7 @@ class LoginView extends GetView<LoginController> {
                                     child: LoginButton(
                                       callback: () {
                                         print("object");
-                                        controller.isAuthCorrect();
+                                        controller.currentLogin();
                                       },
                                     )),
                                 Padding(

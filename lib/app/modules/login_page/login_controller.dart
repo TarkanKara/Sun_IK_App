@@ -2,17 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:sun_ik_app/app/modules/splash_page/splash_controller.dart';
 
 import '../../../api/api_repository.dart';
 import '../../models/login/login_model.dart';
-import '../../routes/app_pages.dart';
-
 
 class LoginController extends GetxController {
   ApiRepository apiRepository;
   LoginController({required this.apiRepository});
+  SplashController splashController =
+      Get.put(SplashController(apiRepository: Get.find()));
 
   //Model
   LoginModel loginModel = LoginModel();
@@ -49,15 +48,17 @@ class LoginController extends GetxController {
     }
   }
 
-  /* //currentLogin
+  //currentLogin
   currentLogin() async {
     status.value = RxStatus.loading();
     loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
+    splashController.storage_token.write("token", loginModel.token);
+    //splashController.token.value = loginModel.token.toString();
     status.value = RxStatus.success();
-  } */
+  }
 
   //
-  isAuthCorrect() async {
+  /* isAuthCorrect() async {
     if (user.text == "user" && passwordu.text == "Vbt1993.") {
       return Get.toNamed(Routes.HOME);
     } else {
@@ -82,5 +83,5 @@ class LoginController extends GetxController {
         backgroundColor: const Color(0xffcf3842),
       );
     }
-  }
+  } */
 }

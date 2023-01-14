@@ -26,7 +26,6 @@ class LoginController extends GetxController {
   //TextEditingController
   TextEditingController user = TextEditingController();
   TextEditingController passwordu = TextEditingController();
-
   dropDownValues(String value) {
     dropdownvalue.value = value;
   }

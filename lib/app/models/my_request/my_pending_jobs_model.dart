@@ -4,15 +4,12 @@ class MyPendingJobs {
   String? refreshToken;
   String? token;
   Data? data;
-
   MyPendingJobs({this.refreshToken, this.token, this.data});
-
   MyPendingJobs.fromJson(Map<String, dynamic> json) {
     refreshToken = json['RefreshToken'];
     token = json['Token'];
     data = json['Data'] != null ? new Data.fromJson(json['Data']) : null;
   }
-
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['RefreshToken'] = this.refreshToken;
@@ -27,9 +24,7 @@ class MyPendingJobs {
 class Data {
   List<PendingJobsList>? pendingJobsList;
   int? totalCount;
-
   Data({this.pendingJobsList, this.totalCount});
-
   Data.fromJson(Map<String, dynamic> json) {
     if (json['PendingJobsList'] != null) {
       pendingJobsList = <PendingJobsList>[];
@@ -39,7 +34,6 @@ class Data {
     }
     totalCount = json['TotalCount'];
   }
-
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.pendingJobsList != null) {
@@ -71,7 +65,6 @@ class PendingJobsList {
   bool? iSCOMPENSATION;
   String? aSSIGNEMPLOYEE;
   int? iDWORKSTATUS;
-
   PendingJobsList(
       {this.iDWORK,
       this.iDWORKTYPE,
@@ -92,7 +85,6 @@ class PendingJobsList {
       this.iSCOMPENSATION,
       this.aSSIGNEMPLOYEE,
       this.iDWORKSTATUS});
-
   PendingJobsList.fromJson(Map<String, dynamic> json) {
     iDWORK = json['ID_WORK'];
     iDWORKTYPE = json['ID_WORK_TYPE'];
@@ -114,7 +106,6 @@ class PendingJobsList {
     aSSIGNEMPLOYEE = json['ASSIGN_EMPLOYEE'];
     iDWORKSTATUS = json['ID_WORK_STATUS'];
   }
-
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['ID_WORK'] = this.iDWORK;

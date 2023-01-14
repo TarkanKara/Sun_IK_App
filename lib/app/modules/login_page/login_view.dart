@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +9,6 @@ import '../../widgets/login_widget.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,7 +195,7 @@ class LoginView extends GetView<LoginController> {
                                     child: LoginButton(
                                       callback: () {
                                         print("object");
-                                        controller.isAuthCorrect();
+                                        controller.currentLogin();
                                       },
                                     )),
                                 Padding(

@@ -3,7 +3,8 @@
 import 'package:get/get.dart';
 
 import '../../../api/api_repository.dart';
-import '../../models/my_request_get_pending_model.dart/my_request_get_pending_model.dart';
+import '../../models/my_request/my_request_get_pending_model.dart';
+
 
 class MyApproveController extends GetxController {
   final ApiRepository apiRepository;

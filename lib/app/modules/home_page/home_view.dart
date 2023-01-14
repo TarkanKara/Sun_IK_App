@@ -155,7 +155,9 @@ class HomeView extends GetView<HomeController> {
                               ),
                               children: [
                                 HomeMenuCard(
-                                  cardPressed: () {},
+                                  cardPressed: () {
+                                    Get.toNamed(Routes.REQUEST);
+                                  },
                                   cardName: controller
                                       .infoModel.data!.menuInfo[0].MENUNAME,
                                   cardInfo:
@@ -191,7 +193,9 @@ class HomeView extends GetView<HomeController> {
                                   isBordro: false,
                                 ),
                                 HomeMenuCard(
-                                  cardPressed: () {},
+                                  cardPressed: () {
+                                    Get.toNamed(Routes.MY_PAYROLLS);
+                                  },
                                   lastBordroPressed: () {},
                                   cardName: controller
                                       .infoModel.data!.menuInfo[5].MENUNAME,

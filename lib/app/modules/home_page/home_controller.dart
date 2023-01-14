@@ -28,7 +28,9 @@ class HomeController extends GetxController {
 
   //
   Rx<RxStatus> status = RxStatus.empty().obs;
-  //RxBool isLoading = false.obs;
+
+  RxList user1 = [].obs;
+  RxList user2 = [].obs;
 
   @override
   void onInit() {
@@ -49,4 +51,6 @@ class HomeController extends GetxController {
     myProfileModel = (await apiRepository.getMyProfile())!;
     status.value = RxStatus.success();
   }
+
+  
 }

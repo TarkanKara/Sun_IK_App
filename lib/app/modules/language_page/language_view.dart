@@ -41,77 +41,86 @@ class LanguagePage extends GetView<LanguageController> {
                   height: 100.h,
                   width: 100.w,
                   // margin: EdgeInsets.only(top: 2.h),
-                  child: ListView.builder(
-                    padding: EdgeInsets.only(top: 3.h),
-                    itemCount: 8,
-                    //controller.myAppLanguage.data!.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        height: 9.h,
-                        width: 100.w,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: 2.w, vertical: 1.h),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(2.w),
-                            color: Colors.white60,
-                            border: Border.all(
-                              width: .5.w,
-                              color: const Color(0xff94A3B8),
-                            )),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 14.5.h,
-                              width: 30.w,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(1.w),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          controller.languages[index]["flag"]),
-                                      fit: BoxFit.cover)),
-                            ),
-
-                            // Image.memory(const Base64Decoder().convert(controller.myAppLanguage.data![index].lANGUAGELOGO.toString()),fit: BoxFit.cover),
-
-                            Padding(
-                              padding: EdgeInsets.only(left: 5.w, top: 1.2.h),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    controller
-                                        .myAppLanguage.data![index].lANGUAGENAME
-                                        .toString(),
-                                    /* controller.languages[index]["name"], */
-                                    style: GoogleFonts.inter(
-                                        color: Colors.black,
-                                        fontSize: 2.3.h,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  SizedBox(
-                                    height: .7.h,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: .3.w),
-                                    child: Text(
-                                      controller.myAppLanguage.data![index]
-                                          .lANGUAGECODE
-                                          .toString(),
-                                      /* controller.languages[index]["subTitle"], */
-                                      style: GoogleFonts.inter(
-                                          color: Colors.black,
-                                          fontSize: 1.5.h,
-                                          fontWeight: FontWeight.w400),
+                  child: Obx(
+                    () => controller.status.value.isSuccess
+                        ? ListView.builder(
+                            padding: EdgeInsets.only(top: 3.h),
+                            itemCount: 8,
+                            //controller.myAppLanguage.data!.length,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                height: 9.h,
+                                width: 100.w,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 2.w, vertical: 1.h),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(2.w),
+                                    color: Colors.white60,
+                                    border: Border.all(
+                                      width: .5.w,
+                                      color: const Color(0xff94A3B8),
+                                    )),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 14.5.h,
+                                      width: 30.w,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(1.w),
+                                          image: DecorationImage(
+                                              image: AssetImage(controller
+                                                  .languages[index]["flag"]),
+                                              fit: BoxFit.cover)),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      );
-                    },
+
+                                    // Image.memory(const Base64Decoder().convert(controller.myAppLanguage.data![index].lANGUAGELOGO.toString()),fit: BoxFit.cover),
+
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 5.w, top: 1.2.h),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            controller.myAppLanguage
+                                                .data![index].lANGUAGENAME
+                                                .toString(),
+                                            /* controller.languages[index]["name"], */
+                                            style: GoogleFonts.inter(
+                                                color: Colors.black,
+                                                fontSize: 2.3.h,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          SizedBox(
+                                            height: .7.h,
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsets.only(left: .3.w),
+                                            child: Text(
+                                              controller.myAppLanguage
+                                                  .data![index].lANGUAGECODE
+                                                  .toString(),
+                                              /* controller.languages[index]["subTitle"], */
+                                              style: GoogleFonts.inter(
+                                                  color: Colors.black,
+                                                  fontSize: 1.5.h,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            },
+                          )
+                        : const Center(child: CircularProgressIndicator()),
                   ),
                 )
               ],

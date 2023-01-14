@@ -67,11 +67,11 @@ class PendingRequestList {
   String? rEQUESTDETAIL;
   bool? iSCONTINUE;
   bool? iSCOMPENSATION;
-  dynamic? rEQUESTDETAILKEYVALUE;
-  dynamic? hISTORY;
-  dynamic? dOCUMENTS;
+  dynamic rEQUESTDETAILKEYVALUE;
+  dynamic hISTORY;
+  dynamic dOCUMENTS;
   bool? gETOPINION;
-  dynamic? gETOPINIONLIST;
+  dynamic gETOPINIONLIST;
   int? iDHREMPLOYEEASSIGN;
   int? cLOSED;
   int? iDPROCESSTYPE;

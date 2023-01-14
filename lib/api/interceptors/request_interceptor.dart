@@ -4,6 +4,6 @@ import 'package:get/get_connect/http/src/request/request.dart';
 
 FutureOr<Request> requestInterceptor(request) async {
   request.headers["vbtauthorization"] =
-      "FO8bSEDiFHfuvLyzBRVzEDIdV9DRHrdT7Ub06LCxbMBOSfoKG26+sc4pSIq9CL10~1742~string~638093198282424280";
+      "e7QGE7HfC61T0+1ku9hNP1fHhATUO1yjPo3gkcXAenmuwkuwva+Xef1wCDTMWXiH~1742~string~638093339073743795";
   return request;
 }

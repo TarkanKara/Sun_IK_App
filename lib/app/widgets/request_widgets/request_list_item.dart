@@ -27,11 +27,12 @@ class RequestListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 90.w,
-      height: 23.h,
+      height: 23.5.h,
+      width: 100.w,
+      margin: EdgeInsets.symmetric(horizontal: 2.w),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Const.MENUCOLOR,
+          borderRadius: BorderRadius.circular(3.w),
+          color: Colors.white,
           boxShadow: const [
             BoxShadow(
                 blurRadius: 3,
@@ -39,202 +40,146 @@ class RequestListItem extends StatelessWidget {
                 spreadRadius: 0,
                 offset: Offset(0, 1))
           ]),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 1.h,
-          ),
-          Flexible(
-              flex: 1,
-              child: Row(
-                children: [
-                  Flexible(
-                      flex: 1,
-                      child: Image.asset(
-                        imageAsset,
-                        scale: .2.h,
-                      )),
-                  Flexible(
-                      flex: 3,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: Text(tarihVeSaat,
-                                  style: GoogleFonts.inter(
-                                      color: Const.ACIKLAMATEXTCOLOR))),
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: Text(tur,
-                                  style: GoogleFonts.inter(
-                                      color: Const.BASLIKTEXTCOLOR,
-                                      fontWeight: FontWeight.w600)))
-                        ],
-                      ))
-                ],
-              )),
-          SizedBox(
-            height: 2.h,
-          ),
-          Flexible(
-              flex: 2,
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 30.w,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Talep No',
-                                  style: GoogleFonts.inter(
-                                      color: Const.ACIKLAMATEXTCOLOR),
-                                ))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  talepNo,
-                                  style: GoogleFonts.inter(
-                                      color: Const.BASLIKTEXTCOLOR,
-                                      fontWeight: FontWeight.w700),
-                                ))
-                          ],
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Atanan Kişi',
-                                  style: GoogleFonts.inter(
-                                      color: Const.ACIKLAMATEXTCOLOR),
-                                ))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  atananKisi,
-                                  style: GoogleFonts.inter(
-                                      color: Const.BASLIKTEXTCOLOR,
-                                      fontWeight: FontWeight.w700),
-                                ))
-                          ],
-                        ),
-                      ],
+      child: Padding(
+        padding: EdgeInsets.all(.2.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                    height: 7.5.h,
+                    width: 15.w,
+                    margin: EdgeInsets.only(top: 1.h),
+                    child: Image.asset(
+                      imageAsset,
+                      fit: BoxFit.cover,
+                    )),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 1.2.h),
+                      child: Text(tarihVeSaat,
+                          style: GoogleFonts.inter(
+                              color: Const.ACIKLAMATEXTCOLOR, fontSize: 1.8.h)),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 1.h),
-                    width: 30.w,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Açıklama',
-                                  style: GoogleFonts.inter(
-                                      color: Const.ACIKLAMATEXTCOLOR),
-                                ))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  aciklama,
-                                  style: GoogleFonts.inter(
-                                      fontSize: 1.0.h,
-                                      color: Const.BASLIKTEXTCOLOR,
-                                      fontWeight: FontWeight.w700),
-                                ))
-                          ],
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Durum',
-                                  style: GoogleFonts.inter(
-                                      color: Const.ACIKLAMATEXTCOLOR),
-                                ))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 2.5.w,
-                              height: .5.h,
-                            ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  durum,
-                                  style: GoogleFonts.inter(
-                                      color: Const.BASLIKTEXTCOLOR,
-                                      fontWeight: FontWeight.w700),
-                                ))
-                          ],
-                        ),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.only(top: 1.h),
+                      child: Text(tur,
+                          style: GoogleFonts.inter(
+                              color: Const.BASLIKTEXTCOLOR,
+                              fontSize: 2.2.h,
+                              fontWeight: FontWeight.w600)),
                     ),
+                  ],
+                )
+              ],
+            ),
+            Padding(
+              //ilk row talep no olan
+              padding: EdgeInsets.only(top: 1.h, left: 2.6.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Talep No',
+                    style: GoogleFonts.inter(
+                        fontSize: 2.h,
+                        color: Const.ACIKLAMATEXTCOLOR,
+                        fontWeight: FontWeight.w500),
                   ),
+                  SizedBox(width: 10.w),
+                  Text(
+                    'Açıklama',
+                    style: GoogleFonts.inter(
+                        fontSize: 2.h,
+                        color: Const.ACIKLAMATEXTCOLOR,
+                        fontWeight: FontWeight.w500),
+                  )
                 ],
-              ))
-        ],
+              ),
+            ),
+            Padding(
+              // 1. row'un bilgileri
+              padding: EdgeInsets.only(top: 1.h, left: 5.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    talepNo,
+                    style: GoogleFonts.inter(
+                        color: Const.BASLIKTEXTCOLOR,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 1.9.h),
+                  ),
+                  SizedBox(width: 19.w),
+                  Text(
+                    aciklama,
+                    style: GoogleFonts.inter(
+                        color: Const.BASLIKTEXTCOLOR,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 1.9.h),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              //atan kişi row
+              padding: EdgeInsets.only(top: 1.h, left: 2.6.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Atanan Kişi',
+                    style: GoogleFonts.inter(
+                        fontSize: 2.h,
+                        color: Const.ACIKLAMATEXTCOLOR,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(width: 5.w),
+                  Text(
+                    'Durum',
+                    style: GoogleFonts.inter(
+                        fontSize: 2.h,
+                        color: Const.ACIKLAMATEXTCOLOR,
+                        fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              // 2. row'un bilgileri
+              padding: EdgeInsets.only(top: .5.h, left: 5.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    atananKisi,
+                    style: GoogleFonts.inter(
+                        color: Const.BASLIKTEXTCOLOR,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 1.9.h),
+                  ),
+                  SizedBox(width: 26.w),
+                  Text(
+                    durum,
+                    style: GoogleFonts.inter(
+                        color: Const.BASLIKTEXTCOLOR,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 1.9.h),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -120,6 +120,7 @@ class HomeView extends GetView<HomeController> {
                               ),
                               IconButton(
                                   onPressed: () {
+                                    controller.apiRepository.userLogOut();
                                     Get.toNamed(Routes.SPLASH);
                                   },
                                   icon: Image.asset(

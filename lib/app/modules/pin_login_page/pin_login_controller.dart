@@ -17,6 +17,7 @@ class PinLoginController extends GetxController {
   RxString password = "".obs;
   RxBool switchControl = false.obs;
   RxString user_name = "".obs;
+  RxString select_company = "".obs;
 
   //TextEditingController
   TextEditingController user = TextEditingController();
@@ -26,8 +27,10 @@ class PinLoginController extends GetxController {
   void onInit() {
     super.onInit();
     user_name.value = getStorage.read("user_name");
+    select_company.value = getStorage.read("select_company");
     print("GetStore Pin Code : ${getStorage.read("pin_code")}");
     print("GetStorage UserName : $user_name");
+    print("GetStorage SelectCompany : $select_company");
   }
 
   dropDownValues(String value) {
@@ -51,7 +54,6 @@ class PinLoginController extends GetxController {
     }
   }
 
-
   //pinLoginRouteName
   pinLoginRouteName() {
     if (passwordu.text != "") {
@@ -64,5 +66,12 @@ class PinLoginController extends GetxController {
       return CustomDialog.getDialog(
           "Uyarı", "Pin Alanı Boş Girilemez", "Kapat");
     }
+  }
+
+  resetStorage() async {
+    await getStorage.remove("token2");
+    await getStorage.remove("pin_code");
+    await getStorage.remove("user_name");
+    await getStorage.remove("select_company");
   }
 }

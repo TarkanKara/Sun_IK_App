@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_controller.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../../routes/app_pages.dart';
 import '../../widgets/pin_login_widget.dart';
@@ -143,12 +144,28 @@ class PinLoginView extends GetView<PinLoginController> {
                                       child: Padding(
                                         padding: EdgeInsets.only(
                                             right: 1.8.w, top: 1.7.h),
-                                        child: Text(
-                                          "Change",
-                                          style: GoogleFonts.inter(
-                                              fontSize: 2.h,
-                                              color: Colors.black87,
-                                              fontWeight: FontWeight.w500),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            CustomDialog.getDialog(
+                                                "Uyarı",
+                                                "Çıkış Yapmak İstediğinizden Eminmisiniz",
+                                                "Kapat",
+                                                widget: ElevatedButton(
+                                                    onPressed: () {
+                                                      controller.resetStorage();
+                                                      Get.toNamed(
+                                                        Routes.SPLASH,
+                                                      );
+                                                    },
+                                                    child: Text("Çıkış")));
+                                          },
+                                          child: Text(
+                                            "Change",
+                                            style: GoogleFonts.inter(
+                                                fontSize: 2.h,
+                                                color: Colors.black87,
+                                                fontWeight: FontWeight.w500),
+                                          ),
                                         ),
                                       ),
                                     ),

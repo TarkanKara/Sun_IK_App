@@ -151,4 +151,18 @@ class ApiRepository {
     }
     return null;
   }
+
+  userLogOut() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "Application/LogOut",
+        {},
+      );
+      if (response.statusCode == 200) {
+        print("Kullanıcı Çıkış Yapıldı : ${response.body}");
+      }
+    } catch (e) {
+      print("$e");
+    }
+  }
 }

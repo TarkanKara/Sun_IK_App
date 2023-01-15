@@ -77,7 +77,8 @@ class PinDropDownMenu extends GetView<PinLoginController> {
           border: Border.all(color: const Color(0xffeeeeee), width: .6.w),
         ),
         child: DropdownButton<String>(
-          value: controller.dropdownvalue.value,
+          value: controller.select_company.value,
+          disabledHint: Text(controller.select_company.value),
           icon: Padding(
               padding: EdgeInsets.only(left: 35.w, bottom: .4.h),
               child: Icon(

@@ -65,6 +65,7 @@ class LoginController extends GetxController {
       loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
       await storage_token.write("token2", loginModel.token.toString());
       await storage_token.write("user_name", user.text);
+      await storage_token.write("select_company", dropdownvalue.value);
       status.value = RxStatus.success();
       await pinCodeChange();
     }

@@ -5,6 +5,8 @@ class SplashBinding implements Bindings {
   //
   @override
   void dependencies() {
-    Get.put(SplashController(apiRepository: Get.find()), permanent: true);
+    Get.put(SplashController(apiRepository: Get.find()), permanent: false);
   }
+
+  //permanent: true (Splash Ekranı Takılı Kalıyor)
 }

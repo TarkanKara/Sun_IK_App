@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../utils/dialog.dart';
 import '../../routes/app_pages.dart';
 
 class PinCodeCreateController extends GetxController {
@@ -14,27 +15,14 @@ class PinCodeCreateController extends GetxController {
   //
   GetStorage storage = GetStorage();
 
-
-
+  //createPinConde
   createPinConde() {
     if (newPinCodeController.text.length < 6) {
-      return Get.defaultDialog(
-          title: "Uyarı",
-          content: const Text("Şifre Altı Karekterden az Olamaz"),
-          cancel: ElevatedButton(
-              onPressed: () {
-                Get.back();
-              },
-              child: const Text("Kapat")));
+      return CustomDialog.getDialog(
+          "Uyarı", "Şifre Altı Karekterden az Olamaz", "Kapat");
     } else if (newPinCodeController.text != newRepeatPinCodeController.text) {
-      return Get.defaultDialog(
-          title: "Uyarı",
-          content: const Text("Şifreler Birbiri ile Eşleşmiyor."),
-          cancel: ElevatedButton(
-              onPressed: () {
-                Get.back();
-              },
-              child: const Text("Kapat")));
+      return CustomDialog.getDialog(
+          "Uyarı", "Şifreler Birbiri ile Eşleşmiyor.", "Kapat");
     } else {
       storage.write("pin_code", "${newPinCodeController.text}");
       return Get.offAllNamed(Routes.PIN_LOGIN);

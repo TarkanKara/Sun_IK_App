@@ -209,22 +209,7 @@ class LoginView extends GetView<LoginController> {
                                             MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Get a pin code",
-                                            style: GoogleFonts.inter(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 1.7.h),
-                                          ),
-                                          Text(
-                                            "Forgot the pin code?",
-                                            style: GoogleFonts.inter(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 1.7.h),
-                                          ),
-                                        ],
+                                        children: const [],
                                       ),
                                       RichText(
                                           text: TextSpan(children: [

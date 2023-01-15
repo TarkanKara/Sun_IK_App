@@ -120,7 +120,7 @@ class HomeView extends GetView<HomeController> {
                               ),
                               IconButton(
                                   onPressed: () {
-                                    Get.toNamed(Routes.LOGIN);
+                                    Get.toNamed(Routes.SPLASH);
                                   },
                                   icon: Image.asset(
                                     Const.CIKISYAPICON,

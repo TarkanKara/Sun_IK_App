@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../../../api/api_repository.dart';
 import '../../models/login/login_model.dart';
@@ -52,12 +53,21 @@ class LoginController extends GetxController {
 
   //currentLogin
   currentLogin() async {
-    status.value = RxStatus.loading();
-    loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
-    await storage_token.write("token2", loginModel.token.toString());
-    await storage_token.write("user_name", user.text);
-    status.value = RxStatus.success();
-    await pinCodeChange();
+    if (dropdownvalue.value != "Sun") {
+      return CustomDialog.getDialog("Uyarı", "Şirket Seçimi Yapnız", "Kapat");
+    } else if (user.text == "") {
+      return CustomDialog.getDialog("Uyarı", "Kullanıcı Boş Girilmez", "Kapat");
+    } else if (passwordu.text == "") {
+      return CustomDialog.getDialog(
+          "Uyarı", "Şifre Alanı Boş Girilmez", "Kapat");
+    } else {
+      status.value = RxStatus.loading();
+      loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
+      await storage_token.write("token2", loginModel.token.toString());
+      await storage_token.write("user_name", user.text);
+      status.value = RxStatus.success();
+      await pinCodeChange();
+    }
   }
 
   pinCodeChange() {

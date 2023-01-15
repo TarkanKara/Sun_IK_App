@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../../routes/app_pages.dart';
 
@@ -50,29 +51,18 @@ class PinLoginController extends GetxController {
     }
   }
 
+
+  //pinLoginRouteName
   pinLoginRouteName() {
     if (passwordu.text != "") {
       if (passwordu.text == getStorage.read("pin_code")) {
         return Get.offAllNamed(Routes.HOME);
       } else {
-        return Get.defaultDialog(
-            title: "Uyarı",
-            content: const Text("Hatalı Pin Girdiniz"),
-            cancel: ElevatedButton(
-                onPressed: () {
-                  Get.back();
-                },
-                child: const Text("Kapat")));
+        return CustomDialog.getDialog("Uyarı", "Hatalı Pin Girdiniz", "Kapat");
       }
     } else {
-      return Get.defaultDialog(
-          title: "Uyarı",
-          content: const Text("Pin Alanı Boş Girilemez"),
-          cancel: ElevatedButton(
-              onPressed: () {
-                Get.back();
-              },
-              child: const Text("Kapat")));
+      return CustomDialog.getDialog(
+          "Uyarı", "Pin Alanı Boş Girilemez", "Kapat");
     }
   }
 }

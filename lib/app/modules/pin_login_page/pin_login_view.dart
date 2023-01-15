@@ -213,12 +213,17 @@ class PinLoginView extends GetView<PinLoginController> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            "Change Pin",
-                                            style: GoogleFonts.inter(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 1.7.h),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Get.toNamed(Routes.CHANGEPINCODE);
+                                            },
+                                            child: Text(
+                                              "Change Pin",
+                                              style: GoogleFonts.inter(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 1.7.h),
+                                            ),
                                           ),
                                           Text(
                                             "Forgot the pin code?",

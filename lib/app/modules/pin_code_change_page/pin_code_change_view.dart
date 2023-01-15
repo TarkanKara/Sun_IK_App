@@ -26,7 +26,7 @@ class PinCodeChangeView extends GetView<PinCodeChangeController> {
         toolbarHeight: 6.h,
         leading: IconButton(
           onPressed: () {},
-          icon : const Icon(Icons.arrow_back_rounded),
+          icon: const Icon(Icons.arrow_back_rounded),
           color: Color(0xff2C3E50),
         ),
         centerTitle: true,
@@ -106,7 +106,10 @@ class PinCodeChangeView extends GetView<PinCodeChangeController> {
             width: 90.w,
             height: 7.h,
             buttonText: 'Şifre Yenile',
-            buttonClick: () {},
+            buttonClick: () {
+              
+              controller.changePinCode();
+            },
           )
         ],
       ),

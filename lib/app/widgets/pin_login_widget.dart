@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_controller.dart';
@@ -11,12 +12,16 @@ class PinLoginTextWidget extends GetView<PinLoginController> {
   final Widget? suffixIcon;
   final TextEditingController? controllers;
   RxBool obscureText;
+  bool readOnlyFalse;
+  final TextInputType number;
 
   PinLoginTextWidget({
     Key? key,
+    required this.number,
     required this.hintText,
     required this.obscureText,
     required this.controllers,
+    required this.readOnlyFalse,
     this.suffixIcon,
   }) : super(key: key);
 
@@ -24,8 +29,12 @@ class PinLoginTextWidget extends GetView<PinLoginController> {
   Widget build(BuildContext context) {
     return Obx(
       () => TextFormField(
+        keyboardType: number,
         controller: controllers,
         obscureText: obscureText.value,
+        //enableInteractiveSelection: false,
+        //enabled: false,
+        readOnly: readOnlyFalse,
         style: GoogleFonts.inter(
             color: const Color(0xff616161),
             fontWeight: FontWeight.w500,
@@ -104,12 +113,13 @@ class PinDropDownMenu extends GetView<PinLoginController> {
 }
 
 class PinLoginButton extends StatelessWidget {
-  const PinLoginButton({super.key});
+  final Callback? callback;
+  const PinLoginButton({super.key, this.callback});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: callback,
         style: ElevatedButton.styleFrom(
             elevation: 0,
             minimumSize: Size(100.w, 5.h),

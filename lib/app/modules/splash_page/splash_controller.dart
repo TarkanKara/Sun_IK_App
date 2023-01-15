@@ -28,16 +28,24 @@ class SplashController extends GetxController {
 
     if (storage_token.read("token2") != null) {
       if (storage_token.read("token2") != "") {
-        Future.delayed(const Duration(milliseconds: 750), () {
-          Get.offAllNamed(Routes.HOME);
-        });
+        if (storage_token.read("pin_code") != null) {
+          Future.delayed(const Duration(milliseconds: 750), () {
+            Get.offAllNamed(Routes.PIN_LOGIN);
+          });
+        } else {
+          Future.delayed(const Duration(milliseconds: 750), () {
+            Get.offAllNamed(Routes.LOGIN);
+          });
+        }
       } else {
         Future.delayed(const Duration(milliseconds: 750), () {
           Get.offAllNamed(Routes.LOGIN);
         });
       }
     } else {
-      Get.toNamed(Routes.LOGIN);
+      Future.delayed(const Duration(milliseconds: 750), () {
+        Get.toNamed(Routes.LOGIN);
+      });
     }
   }
 }

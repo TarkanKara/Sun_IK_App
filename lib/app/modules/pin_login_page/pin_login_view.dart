@@ -7,7 +7,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_controller.dart';
 
 import '../../routes/app_pages.dart';
-import '../../widgets/login_widget.dart';
 import '../../widgets/pin_login_widget.dart';
 
 class PinLoginView extends GetView<PinLoginController> {
@@ -112,8 +111,8 @@ class PinLoginView extends GetView<PinLoginController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(top: 1.5.h,
-                                      bottom: 1.h, right: 2.w),
+                                  padding: EdgeInsets.only(
+                                      top: 1.5.h, bottom: 1.h, right: 2.w),
                                   child: SizedBox(
                                     width: 75.w,
                                     child: Text(
@@ -125,15 +124,18 @@ class PinLoginView extends GetView<PinLoginController> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(top: 1.5.h,bottom: 1.h),
+                                  padding:
+                                      EdgeInsets.only(top: 1.5.h, bottom: 1.h),
                                   child: const PinDropDownMenu(),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(bottom: 2.h),
                                   child: PinLoginTextWidget(
+                                    number: TextInputType.text,
+                                    readOnlyFalse: true,
                                     controllers: controller.user,
                                     obscureText: false.obs,
-                                    hintText: "Username",
+                                    hintText: controller.user_name.value,
                                     suffixIcon: GestureDetector(
                                       onTap: () {
                                         //sayfa değiştirme eklenecek
@@ -143,8 +145,10 @@ class PinLoginView extends GetView<PinLoginController> {
                                             right: 1.8.w, top: 1.7.h),
                                         child: Text(
                                           "Change",
-                                          style:
-                                              GoogleFonts.inter(fontSize: 2.h,color: Colors.black87,fontWeight: FontWeight.w500),
+                                          style: GoogleFonts.inter(
+                                              fontSize: 2.h,
+                                              color: Colors.black87,
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                     ),
@@ -153,6 +157,8 @@ class PinLoginView extends GetView<PinLoginController> {
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.h),
                                   child: PinLoginTextWidget(
+                                    number: TextInputType.number,
+                                    readOnlyFalse: false,
                                     controllers: controller.passwordu,
                                     obscureText: controller.isPasswordHidden,
                                     hintText: "Pin Code",
@@ -171,8 +177,13 @@ class PinLoginView extends GetView<PinLoginController> {
                                   ),
                                 ),
                                 Padding(
-                                    padding: EdgeInsets.only(top: 3.h),
-                                    child: PinLoginButton()),
+                                  padding: EdgeInsets.only(top: 3.h),
+                                  child: PinLoginButton(
+                                    callback: () {
+                                      controller.pinLoginRouteName();
+                                    },
+                                  ),
+                                ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.5.h),
                                   child: Row(

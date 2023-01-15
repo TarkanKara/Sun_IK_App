@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 
 import '../../../api/api_repository.dart';
 import '../../models/login/login_model.dart';
+import '../../routes/app_pages.dart';
 
 class LoginController extends GetxController {
   ApiRepository apiRepository;
@@ -13,12 +14,6 @@ class LoginController extends GetxController {
 
   //
   GetStorage storage_token = GetStorage();
-
-  @override
-  void onInit() {
-    //storage_token.write("token2", "");
-    super.onInit();
-  }
 
   //Model
   LoginModel loginModel = LoginModel();
@@ -60,6 +55,16 @@ class LoginController extends GetxController {
     status.value = RxStatus.loading();
     loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
     await storage_token.write("token2", loginModel.token.toString());
+    await storage_token.write("user_name", user.text);
     status.value = RxStatus.success();
+    await pinCodeChange();
+  }
+
+  pinCodeChange() {
+    if (storage_token.read("pin_code") != null) {
+      return Get.toNamed(Routes.HOME);
+    } else {
+      return Get.toNamed(Routes.CREATEPINCODE);
+    }
   }
 }

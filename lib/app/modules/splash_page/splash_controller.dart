@@ -11,42 +11,28 @@ class SplashController extends GetxController {
 
   SplashController({required this.apiRepository});
 
-  RxString token = "".obs;
-  String pin_code = "";
-
-  //GetStorage
-  GetStorage storage_token = GetStorage();
-
-  //
-  @override
-  void onReady() async {
-    await Future.delayed(const Duration(milliseconds: 750));
-    routePage();
-
-    super.onReady();
-  }
+  final storage_token = GetStorage();
 
   //
   @override
   void onInit() {
-    storage_token.remove("token");
     print("Splash View Yüklendi");
-    //storageKey();
+    print(storage_token.read("token2"));
     super.onInit();
   }
 
-  //routePage
-  routePage() {
-    if (storage_token.read("token") != "") {
-      return Get.toNamed(Routes.HOME);
+  //
+  @override
+  void onReady() async {
+    super.onReady();
+    if (storage_token.read("token2") != "") {
+      Future.delayed(const Duration(milliseconds: 750), () {
+        Get.offAllNamed(Routes.HOME);
+      });
     } else {
-      return Get.toNamed(Routes.LOGIN);
+      Future.delayed(const Duration(milliseconds: 750), () {
+        Get.offAllNamed(Routes.LOGIN);
+      });
     }
-  }
-
-  storageKey() {
-    if (storage_token.getKeys() != "token") {
-      storage_token.write("token", "");
-    } else {}
   }
 }

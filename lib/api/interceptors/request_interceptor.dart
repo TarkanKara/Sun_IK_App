@@ -12,8 +12,7 @@ FutureOr<Request> requestInterceptor(request) async {
 
   token.read("token2") != null
       ? request.headers["vbtauthorization"] = token.read("token2")
-      : request.headers["vbtauthorization"] =
-          "VIuOyMfdGy0iy3vWdSw4xSmadAG6ZoIlmmhxmuQ2IVNpIfn/JcDCMnOb3tXxbA0b~1742~string~638093897098022811";
+      : {};
 
   print("requestInceptor");
 

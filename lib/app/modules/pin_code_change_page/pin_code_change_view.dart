@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -19,21 +18,19 @@ class PinCodeChangeView extends GetView<PinCodeChangeController> {
     return Scaffold(
       backgroundColor: const Color(0xffF2F2F2),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 221, 217, 217),
-        systemOverlayStyle:
-            const SystemUiOverlayStyle(statusBarColor: Const.STATUSBARCOLOR),
-        elevation: 0,
-        toolbarHeight: 6.h,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back_rounded),
-          color: Color(0xff2C3E50),
-        ),
         centerTitle: true,
+        elevation: 5,
+        backgroundColor: const Color(0xffEF3E52),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        ),
         title: Text(
           'Pin Code Yenileme',
           style: GoogleFonts.inter(
-              color: const Color(0xff10130F),
+              color: Colors.white,
               fontSize: 2.2.h,
               fontWeight: FontWeight.w700),
         ),
@@ -107,7 +104,6 @@ class PinCodeChangeView extends GetView<PinCodeChangeController> {
             height: 7.h,
             buttonText: 'Şifre Yenile',
             buttonClick: () {
-              
               controller.changePinCode();
             },
           )

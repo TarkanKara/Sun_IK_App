@@ -13,7 +13,7 @@ class RequestDetailController extends GetxController {
 
   //Değişkenler
   Rx<RxStatus> status = RxStatus.empty().obs;
-
+ // RxBool status = false.obs;
   //
   @override
   void onInit() {
@@ -24,9 +24,10 @@ class RequestDetailController extends GetxController {
 
   //getMyRequestDetail
   getMyRequestDetail(int idMater, detailType) async {
-    status.value = RxStatus.loading();
+    status.value =  RxStatus.loading();
     requestDetail =
         (await apiRepository.getMyRequestDetail(idMater, detailType))!;
-    status.value = RxStatus.success();
+    status.value = 
+    RxStatus.success();
   }
 }

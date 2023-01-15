@@ -7,7 +7,6 @@ import 'package:sun_ik_app/utils/const.dart';
 
 class RequestDetailView extends GetView<RequestDetailController> {
   const RequestDetailView({super.key});
-// color: const Color(0xffBDBDBD),
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +107,7 @@ class RequestDetailView extends GetView<RequestDetailController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Talep Eden',
+                              'Requestor',
                               style: GoogleFonts.inter(
                                   fontSize: 1.9.h,
                                   color: Const.ACIKLAMATEXTCOLOR,
@@ -116,7 +115,7 @@ class RequestDetailView extends GetView<RequestDetailController> {
                             ),
                             SizedBox(width: 30.w),
                             Text(
-                              'Atanan Kişi',
+                              'Assigned Person',
                               style: GoogleFonts.inter(
                                   fontSize: 1.9.h,
                                   color: Const.ACIKLAMATEXTCOLOR,
@@ -132,12 +131,15 @@ class RequestDetailView extends GetView<RequestDetailController> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Obx(() => 
+                            controller.status.value.isSuccess ?
                             Text(
-                              'BÜŞRA GÜLTEKİN ERMEZ',
+                              controller.requestDetail.data!.reqEmployee.toString(),
                               style: GoogleFonts.inter(
                                   color: Const.BASLIKTEXTCOLOR,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 1.5.h),
+                            ): CircularProgressIndicator()
                             ),
                             SizedBox(width: 13.w),
                             Text(
@@ -165,7 +167,7 @@ class RequestDetailView extends GetView<RequestDetailController> {
                         Padding(
                           padding: EdgeInsets.only(left: 4.w, bottom: .3.h),
                           child: Text(
-                            "Detay",
+                            "Details",
                             style: GoogleFonts.inter(
                                 color: Const.BASLIKTEXTCOLOR,
                                 fontWeight: FontWeight.w700,
@@ -185,7 +187,7 @@ class RequestDetailView extends GetView<RequestDetailController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Talep Eden',
+                              'Request Number',
                               style: GoogleFonts.inter(
                                   fontSize: 2.h,
                                   color: Const.ACIKLAMATEXTCOLOR,
@@ -241,7 +243,7 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                 child: SizedBox(
                                   width: 55.w,
                                   child: Text(
-                                    'Employee Name-Surname',maxLines: 2, overflow: TextOverflow.ellipsis,
+                                    'Employee Name Last Name',maxLines: 2, overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.inter(
                                         fontSize: 2.h,
                                         color: Const.ACIKLAMATEXTCOLOR,
@@ -720,7 +722,7 @@ class RequestDetailView extends GetView<RequestDetailController> {
                         Padding(
                           padding: EdgeInsets.only(left: 4.w, bottom: .3.h),
                           child: Text(
-                            "Tarihçe",
+                            "History",
                             style: GoogleFonts.inter(
                                 color: Const.BASLIKTEXTCOLOR,
                                 fontWeight: FontWeight.w700,

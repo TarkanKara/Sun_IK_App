@@ -18,6 +18,8 @@ class SplashController extends GetxController {
   void onInit() {
     print("Splash View Yüklendi");
     print("Storage Token Bilgisi : ${storage_token.read("token2")}");
+    print("Storage User Bilgisi : ${storage_token.read("user_name")}");
+    print("Storage Şirket Bilgisi : ${storage_token.read("select_company")}");
     super.onInit();
   }
 

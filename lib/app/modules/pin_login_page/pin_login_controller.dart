@@ -29,8 +29,8 @@ class PinLoginController extends GetxController {
     user_name.value = getStorage.read("user_name");
     select_company.value = getStorage.read("select_company");
     print("GetStore Pin Code : ${getStorage.read("pin_code")}");
-    print("GetStorage UserName : $user_name");
-    print("GetStorage SelectCompany : $select_company");
+    print("GetStorage UserName : ${user_name.value}");
+    print("GetStorage SelectCompany : ${select_company.value}");
   }
 
   dropDownValues(String value) {

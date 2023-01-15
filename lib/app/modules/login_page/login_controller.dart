@@ -13,11 +13,10 @@ class LoginController extends GetxController {
 
   //
   GetStorage storage_token = GetStorage();
- 
 
   @override
   void onInit() {
-    storage_token.write("token2", "");
+    //storage_token.write("token2", "");
     super.onInit();
   }
 
@@ -60,7 +59,7 @@ class LoginController extends GetxController {
   currentLogin() async {
     status.value = RxStatus.loading();
     loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
-    storage_token.write("token2", loginModel.token.toString());
+    await storage_token.write("token2", loginModel.token.toString());
     status.value = RxStatus.success();
   }
 }

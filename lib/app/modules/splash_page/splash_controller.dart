@@ -17,7 +17,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     print("Splash View Yüklendi");
-    print(storage_token.read("token2"));
+    print("Storage Token Bilgisi : ${storage_token.read("token2")}");
     super.onInit();
   }
 
@@ -25,14 +25,19 @@ class SplashController extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-    if (storage_token.read("token2") != "") {
-      Future.delayed(const Duration(milliseconds: 750), () {
-        Get.offAllNamed(Routes.HOME);
-      });
+
+    if (storage_token.read("token2") != null) {
+      if (storage_token.read("token2") != "") {
+        Future.delayed(const Duration(milliseconds: 750), () {
+          Get.offAllNamed(Routes.HOME);
+        });
+      } else {
+        Future.delayed(const Duration(milliseconds: 750), () {
+          Get.offAllNamed(Routes.LOGIN);
+        });
+      }
     } else {
-      Future.delayed(const Duration(milliseconds: 750), () {
-        Get.offAllNamed(Routes.LOGIN);
-      });
+      Get.toNamed(Routes.LOGIN);
     }
   }
 }

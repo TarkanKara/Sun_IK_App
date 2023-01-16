@@ -10,6 +10,10 @@ import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
 
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
+
+import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_binding.dart';
+import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_view.dart';
+
 import 'package:sun_ik_app/app/modules/my_approve_page/my_approve_binding.dart';
 import 'package:sun_ik_app/app/modules/my_approve_page/my_approve_view.dart';
 
@@ -93,6 +97,11 @@ class AppPages {
       name: Routes.REQUEST,
       page: () => const RequestView(),
       binding: RequestBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_APPROVE_DETAIL,
+      page: () => const MyApproveDetailView(),
+      binding: MyApproveDetailBinding(),
     ),
     GetPage(
       name: Routes.MY_APPROVE,

@@ -85,7 +85,9 @@ class HomeView extends GetView<HomeController> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.toNamed(Routes.NOTIFICATION);
+                                },
                                 child: Container(
                                   child: Stack(
                                     alignment: Alignment.topRight,

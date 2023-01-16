@@ -17,7 +17,10 @@ class NotificationView extends GetView<NotificationController> {
       backgroundColor: const Color(0xffF2F2F2),
       appBar: AppBar(
         actions: [
-          Image.asset('assets/images/notification_assets/ic_delete.png',scale: .5.h,color: Colors.white,),
+          GestureDetector(onTap: () {
+            controller.getDialog();
+          },
+            child: Image.asset('assets/images/notification_assets/ic_delete.png',scale: .5.h,color: Colors.white,)),
         ],
         centerTitle: true,
         elevation: 5,
@@ -71,12 +74,12 @@ class NotificationView extends GetView<NotificationController> {
                                   //color: Colors.amber,
                                   child: Column(
                                     children: [
-                                      SizedBox(height: 3.h,),
+                                      //SizedBox(height: 3.h,),
                                       Align(alignment : Alignment.topLeft,child: Text(DateTimeConverTo.compareToDateTime(controller.notification.data![index]!.notificationDate.toString()),style: GoogleFonts.inter(color: const Color(0xff8F989D)),)),
                                       SizedBox(height: 1.h,),
-                                      Align(alignment : Alignment.topLeft,child: Text(controller.notification.data![index]!.messageTitle.toString(),style: GoogleFonts.inter(color: const Color.fromARGB(255, 72, 74, 77),fontSize: 2.h,fontWeight: FontWeight.w700),)),
+                                      //Align(alignment : Alignment.topLeft,child: Text(controller.notification.data![index]!.messageTitle.toString(),style: GoogleFonts.inter(color: const Color.fromARGB(255, 72, 74, 77),fontSize: 2.h,fontWeight: FontWeight.w700),)),
                                       SizedBox(height: 1.h,),
-                                      Align(alignment : Alignment.topLeft,child: Text(controller.notification.data![index]!.messageBody.toString().substring(0,20),style: GoogleFonts.inter(color: const Color(0xff8F989D)),)),
+                                      //Align(alignment : Alignment.topLeft,child: Text(controller.notification.data![index]!.messageBody.toString().substring(0,20),style: GoogleFonts.inter(color: const Color(0xff8F989D)),)),
                                     ],
                                   )
                                 ),

@@ -1,8 +1,13 @@
 // ignore_for_file: avoid_print
 
+import 'dart:html';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sun_ik_app/api/api_repository.dart';
-import 'package:sun_ik_app/app/models/home/notification_model.dart';
+import 'package:sun_ik_app/app/models/home/notification/notification_model.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
 class NotificationController extends GetxController {
   final ApiRepository apiRepository;
@@ -28,4 +33,20 @@ class NotificationController extends GetxController {
     notification = (await apiRepository.getPushNotification())!;
     status.value = RxStatus.success();
   }
+
+  getDialog(){
+    return Get.defaultDialog(actions: [
+      Column(
+        children: [
+          ElevatedButton(onPressed: () {
+            
+          }, child: const Text('Hepsini Sil')),
+          ElevatedButton(onPressed: () {
+            
+          }, child: const Text('Sadece Okunanları Sil'))
+        ],
+      )
+    ]);
+  }
+
 }

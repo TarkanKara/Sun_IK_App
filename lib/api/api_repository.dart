@@ -1,5 +1,4 @@
-// ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps
-
+// ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps, body_might_complete_normally_nullable
 
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
@@ -159,7 +158,6 @@ class ApiRepository {
     return null;
   }
 
-
   //getMyRequestDetail
   Future<MyRequestDetailModel?> getMyRequestDetail(
       int idMater, detailType) async {
@@ -173,7 +171,7 @@ class ApiRepository {
         print(response.body);
 
         return MyRequestDetailModel.fromJson(response.body);
-          }
+      }
     } catch (e) {
       print("$e");
     }
@@ -268,4 +266,19 @@ class ApiRepository {
     }
   }
 
+  Future<MyRequestGetPending?> getMyRequestGetPending() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetPendingRequestMasterMobile",
+        {},
+      );
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyRequestGetPending.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
 }

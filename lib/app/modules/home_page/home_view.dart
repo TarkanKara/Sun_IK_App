@@ -171,7 +171,9 @@ class HomeView extends GetView<HomeController> {
                                   isBordro: false,
                                 ),
                                 HomeMenuCard(
-                                  cardPressed: () {},
+                                  cardPressed: () {
+                                    Get.toNamed(Routes.MY_APPROVE);
+                                  },
                                   cardName: controller
                                       .infoModel!.data!.menuInfo[1].MENUNAME,
                                   cardInfo:

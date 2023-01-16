@@ -11,6 +11,8 @@ class SplashController extends GetxController {
 
   SplashController({required this.apiRepository});
 
+
+
   final storage_token = GetStorage();
 
   //
@@ -23,8 +25,9 @@ class SplashController extends GetxController {
     super.onInit();
   }
 
+
   //
-  @override
+@override
   void onReady() async {
     super.onReady();
 

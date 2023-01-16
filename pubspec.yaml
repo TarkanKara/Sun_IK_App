@@ -81,6 +81,7 @@ flutter:
     - assets/images/login/  
     - assets/images/splash/
     - assets/images/request_assets/
+    - assets/images/my_tasks/  
     - assets/images/my_approve_detail/
     - assets/images/my_approve/
     - assets/images/notification_assets/

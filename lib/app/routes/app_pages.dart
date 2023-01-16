@@ -10,6 +10,8 @@ import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
 
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
+import 'package:sun_ik_app/app/modules/my_jobs_page/my_jobs_binding.dart';
+import 'package:sun_ik_app/app/modules/my_jobs_page/my_jobs_view.dart';
 
 import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_binding.dart';
 import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_view.dart';
@@ -97,6 +99,11 @@ class AppPages {
       name: Routes.REQUEST,
       page: () => const RequestView(),
       binding: RequestBinding(),
+    ),
+    GetPage(
+      name: Routes.MYjOBS,
+      page: () => const MyJobsView(),
+      binding: MyJobsBinding(),
     ),
     GetPage(
       name: Routes.MY_APPROVE_DETAIL,

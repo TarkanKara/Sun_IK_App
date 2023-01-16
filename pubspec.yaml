@@ -46,6 +46,9 @@ dependencies:
   intl: ^0.18.0
   syncfusion_flutter_pdfviewer: ^20.1.61-beta
   get_storage: ^2.0.3
+  share_plus: ^6.3.0
+  path_provider: ^2.0.11
+  open_file_plus: ^3.3.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +82,11 @@ flutter:
     - assets/images/splash/
     - assets/images/request_assets/
     - assets/images/my_tasks/  
+    - assets/images/my_approve_detail/
+    - assets/images/my_approve/
+    - assets/images/notification_assets/
+    
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

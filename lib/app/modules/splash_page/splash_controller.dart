@@ -11,42 +11,46 @@ class SplashController extends GetxController {
 
   SplashController({required this.apiRepository});
 
-  RxString token = "".obs;
-  String pin_code = "";
 
-  //GetStorage
-  GetStorage storage_token = GetStorage();
 
-  //
-  @override
-  void onReady() async {
-    await Future.delayed(const Duration(milliseconds: 750));
-    routePage();
-
-    super.onReady();
-  }
+  final storage_token = GetStorage();
 
   //
   @override
   void onInit() {
-    storage_token.remove("token");
     print("Splash View Yüklendi");
-    //storageKey();
+    print("Storage Token Bilgisi : ${storage_token.read("token2")}");
+    print("Storage User Bilgisi : ${storage_token.read("user_name")}");
+    print("Storage Şirket Bilgisi : ${storage_token.read("select_company")}");
     super.onInit();
   }
 
-  //routePage
-  routePage() {
-    if (storage_token.read("token") != "") {
-      return Get.toNamed(Routes.HOME);
-    } else {
-      return Get.toNamed(Routes.LOGIN);
-    }
-  }
 
-  storageKey() {
-    if (storage_token.getKeys() != "token") {
-      storage_token.write("token", "");
-    } else {}
+  //
+@override
+  void onReady() async {
+    super.onReady();
+
+    if (storage_token.read("token2") != null) {
+      if (storage_token.read("token2") != "") {
+        if (storage_token.read("pin_code") != null) {
+          Future.delayed(const Duration(milliseconds: 750), () {
+            Get.offAllNamed(Routes.PIN_LOGIN);
+          });
+        } else {
+          Future.delayed(const Duration(milliseconds: 750), () {
+            Get.offAllNamed(Routes.LOGIN);
+          });
+        }
+      } else {
+        Future.delayed(const Duration(milliseconds: 750), () {
+          Get.offAllNamed(Routes.LOGIN);
+        });
+      }
+    } else {
+      Future.delayed(const Duration(milliseconds: 750), () {
+        Get.toNamed(Routes.LOGIN);
+      });
+    }
   }
 }

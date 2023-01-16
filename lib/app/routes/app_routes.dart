@@ -15,4 +15,10 @@ abstract class Routes {
   static const SPLASH = "/splash";
   static const REQUEST = "/request";
    static const MYjOBS = "/my_jobs";
+  static const MY_APPROVE_DETAIL = "/my_approve_detail";
+  static const MY_APPROVE = "/my_approve";
+  static const REQUEST_DETAIL = "/request_detail";
+  static const NOTIFICATION = "/notification";
+  static const PIN_LOGIN = "/pin_login";
+  
 }

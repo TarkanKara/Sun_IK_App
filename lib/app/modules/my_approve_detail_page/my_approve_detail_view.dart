@@ -13,22 +13,23 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          leading: GestureDetector(
-              onTap: () {
-                Get.back();
-              },
-              child:
-                  Icon(Icons.arrow_back_ios, size: 3.h, color: Colors.white)),
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            "My Approves",
-            style: GoogleFonts.inter(
-                color: Colors.white,
-                fontSize: 3.2.h,
-                fontWeight: FontWeight.w600),
-          ),
-          backgroundColor: const Color(0xff94A3B8)),
+        centerTitle: true,
+        elevation: 5,
+        backgroundColor: const Color(0xffEF3E52),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        ),
+        title: Text(
+          'My Approve Detail',
+          style: GoogleFonts.inter(
+              color: Colors.white,
+              fontSize: 2.2.h,
+              fontWeight: FontWeight.w700),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Obx(
           () => controller.status.value.isSuccess
@@ -93,9 +94,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                         padding: EdgeInsets.only(top: .6.h),
                                         child: Text(
                                             DateTimeConverTo.compareToDateTime(
-                                                controller
-                                                    .requestDetail.data!.reqDate
-                                                    .toString()),
+                                                "${controller.myApproveDetailModel.data!.reqDate}"),
                                             style: GoogleFonts.inter(
                                                 color: Const.BASLIKTEXTCOLOR,
                                                 fontSize: 1.5.h,
@@ -138,19 +137,18 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    controller.requestDetail.data!.reqEmployee
-                                        .toString(),
+                                    "${controller.myApproveDetailModel.data!.reqName}",
                                     style: GoogleFonts.inter(
                                         color: Const.BASLIKTEXTCOLOR,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 1.5.h),
                                   ),
                                   SizedBox(width: 13.w),
-                                  controller.requestDetail.data!
+                                  controller.myApproveDetailModel.data!
                                               .assignEmployee !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .assignEmployee,
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -204,11 +202,12 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                         fontWeight: FontWeight.w500),
                                   ),
                                   SizedBox(width: 30.w),
-                                  controller.requestDetail.data!.idMaster !=
+                                  controller.myApproveDetailModel.data!
+                                              .idMaster !=
                                           null
                                       ? Text(
-                                          controller
-                                              .requestDetail.data!.idMaster
+                                          controller.myApproveDetailModel.data!
+                                              .idMaster
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -241,13 +240,13 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![0]!
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .requestDetailKeyValue![0]!.value
                                               .toString(),
                                           style: GoogleFonts.inter(
@@ -285,7 +284,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                           height: 5.5.h,
                                           width: 42.w,
                                           child: controller
-                                                      .requestDetail
+                                                      .myApproveDetailModel
                                                       .data!
                                                       .requestDetailKeyValue![
                                                           1]!
@@ -293,7 +292,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                                   null
                                               ? Text(
                                                   controller
-                                                      .requestDetail
+                                                      .myApproveDetailModel
                                                       .data!
                                                       .requestDetailKeyValue![
                                                           1]!
@@ -334,14 +333,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![2]!
                                                 .value !=
                                             null
                                         ? Text(
                                             controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![2]!
                                                 .value
@@ -376,13 +375,13 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![3]!
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .requestDetailKeyValue![3]!.value
                                               .toString(),
                                           style: GoogleFonts.inter(
@@ -415,14 +414,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![4]!
                                                 .value !=
                                             null
                                         ? Text(
                                             controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![4]!
                                                 .value
@@ -456,13 +455,13 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![5]!
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .requestDetailKeyValue![5]!.value
                                               .toString(),
                                           style: GoogleFonts.inter(
@@ -495,14 +494,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![6]!
                                                 .value !=
                                             null
                                         ? Text(
                                             controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![6]!
                                                 .value
@@ -536,13 +535,13 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![7]!
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .requestDetailKeyValue![7]!.value
                                               .toString(),
                                           style: GoogleFonts.inter(
@@ -575,14 +574,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![8]!
                                                 .value !=
                                             null
                                         ? Text(
                                             controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![8]!
                                                 .value
@@ -616,13 +615,13 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![9]!
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .requestDetailKeyValue![9]!.value
                                               .toString(),
                                           style: GoogleFonts.inter(
@@ -655,14 +654,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![10]!
                                                 .value !=
                                             null
                                         ? Text(
                                             controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![10]!
                                                 .value
@@ -696,13 +695,13 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![11]!
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .requestDetailKeyValue![11]!.value
                                               .toString(),
                                           style: GoogleFonts.inter(
@@ -736,14 +735,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                   SizedBox(
                                       height: 3.h,
                                       child: controller
-                                                  .requestDetail
+                                                  .myApproveDetailModel
                                                   .data!
                                                   .requestDetailKeyValue![12]!
                                                   .value !=
                                               null
                                           ? Text(
                                               controller
-                                                  .requestDetail
+                                                  .myApproveDetailModel
                                                   .data!
                                                   .requestDetailKeyValue![12]!
                                                   .value
@@ -783,14 +782,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     SizedBox(
                                         height: 5.h,
                                         child: controller
-                                                    .requestDetail
+                                                    .myApproveDetailModel
                                                     .data!
                                                     .requestDetailKeyValue![13]!
                                                     .value !=
                                                 null
                                             ? Text(
                                                 controller
-                                                    .requestDetail
+                                                    .myApproveDetailModel
                                                     .data!
                                                     .requestDetailKeyValue![13]!
                                                     .value
@@ -829,13 +828,13 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![14]!
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
+                                          controller.myApproveDetailModel.data!
                                               .requestDetailKeyValue![14]!.value
                                               .toString(),
                                           maxLines: 4,
@@ -871,7 +870,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .myApproveDetailModel
                                                 .data!
                                                 .requestDetailKeyValue![15]!
                                                 .value !=
@@ -906,7 +905,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .myApproveDetailModel
                                               .data!
                                               .requestDetailKeyValue![16]!
                                               .value !=
@@ -951,8 +950,8 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                           height: 25.h,
                           width: 100.w,
                           child: ListView.builder(
-                            itemCount:
-                                controller.requestDetail.data!.history!.length,
+                            itemCount: controller
+                                .myApproveDetailModel.data!.history!.length,
                             itemBuilder: (context, index) {
                               return Padding(
                                 //1. blki listview
@@ -998,7 +997,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                                     DateTimeConverTo
                                                         .compareToDateTime(
                                                       controller
-                                                          .requestDetail
+                                                          .myApproveDetailModel
                                                           .data!
                                                           .history![index]!
                                                           .confirmDate
@@ -1017,7 +1016,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                                       width: 30.w,
                                                       child: Text(
                                                         controller
-                                                            .requestDetail
+                                                            .myApproveDetailModel
                                                             .data!
                                                             .history![index]!
                                                             .employeeNameSurname
@@ -1047,8 +1046,11 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            controller.requestDetail.data!
-                                                .history![index]!.description
+                                            controller
+                                                .myApproveDetailModel
+                                                .data!
+                                                .history![index]!
+                                                .description
                                                 .toString(),
                                             style: GoogleFonts.inter(
                                                 color: Const.ACIKLAMATEXTCOLOR,
@@ -1058,14 +1060,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                             height: 1.1.h,
                                           ),
                                           controller
-                                                      .requestDetail
+                                                      .myApproveDetailModel
                                                       .data!
                                                       .history![index]!
                                                       .confirmDescription !=
                                                   null
                                               ? Text(
                                                   controller
-                                                      .requestDetail
+                                                      .myApproveDetailModel
                                                       .data!
                                                       .history![0]!
                                                       .confirmDescription

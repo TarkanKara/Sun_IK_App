@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../../api/api_repository.dart';
 import '../../models/my_request/my_approve_get_pending_model.dart';
 
-
 class MyApproveController extends GetxController {
   final ApiRepository apiRepository;
   MyApproveController({required this.apiRepository});
@@ -14,6 +13,7 @@ class MyApproveController extends GetxController {
 
   //
   Rx<RxStatus> status = RxStatus.empty().obs;
+  RxInt index = 0.obs;
 
   //
   @override

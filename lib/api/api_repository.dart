@@ -14,6 +14,7 @@ import '../app/models/home/my_profile_model.dart';
 import '../app/models/home/notification/notification_bulk_delete.dart';
 import '../app/models/home/notification/notification_read_model.dart';
 import '../app/models/language/my_app_language_model.dart';
+import '../app/models/my_approve_detail/my_approve_detail.dart';
 import '../app/models/my_request/my_approve_get_pending_model.dart';
 
 import 'api_provider.dart';
@@ -275,6 +276,26 @@ class ApiRepository {
       if (response.statusCode == 200) {
         print(response.body);
         return MyRequestGetPending.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  //getMyRequestDetail
+  Future<MyApproveDetailModel?> getMyApproveDetail(
+      int idMater, int detailType) async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetRequestById?IdMaster=$idMater&DetailType=$detailType",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+
+        return MyApproveDetailModel.fromJson(response.body);
       }
     } catch (e) {
       print("$e");

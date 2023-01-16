@@ -1,11 +1,13 @@
 // ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps
 
+
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_model.dart';
 import 'package:sun_ik_app/app/models/login/login_model.dart';
 import 'package:sun_ik_app/app/models/my_payroll/my_payroll_model.dart';
 import 'package:sun_ik_app/app/models/my_payroll/my_payroll_pdf_model.dart';
+import 'package:sun_ik_app/app/models/my_request/my_request_detail_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_model.dart';
 
 import '../app/models/home/my_profile_model.dart';
@@ -156,6 +158,27 @@ class ApiRepository {
     return null;
   }
 
+
+  //getMyRequestDetail
+  Future<MyRequestDetailModel?> getMyRequestDetail(
+      int idMater, detailType) async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetRequestById?IdMaster=$idMater&DetailType=$detailType",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+
+        return MyRequestDetailModel.fromJson(response.body);
+          }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
 //getPushNotification
   Future<NotificationModel?> getPushNotification() async {
     try {
@@ -243,4 +266,5 @@ class ApiRepository {
       print("$e");
     }
   }
+
 }

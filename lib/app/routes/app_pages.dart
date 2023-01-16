@@ -33,6 +33,8 @@ import 'package:sun_ik_app/app/modules/start_page/start_binding.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_view.dart';
 
 import '../modules/pin_code_change_page/pin_code_change_binding.dart';
+import '../modules/request_page_detail/request_detail_binding.dart';
+import '../modules/request_page_detail/request_detail_view.dart';
 
 part 'app_routes.dart';
 
@@ -89,6 +91,11 @@ class AppPages {
       name: Routes.REQUEST,
       page: () => const RequestView(),
       binding: RequestBinding(),
+    ),
+    GetPage(
+      name: Routes.REQUEST_DETAIL,
+      page: () => const RequestDetailView(),
+      binding: RequestDetailBinding(),
     ),
     GetPage(
       name: Routes.NOTIFICATION,

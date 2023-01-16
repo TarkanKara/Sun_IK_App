@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, unused_local_variable
+// ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps
 
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
@@ -174,7 +174,8 @@ class ApiRepository {
   }
 
   //getReadNotification
-  Future<ReadNotificationModel?> getReadNotification(String push_notification_detail) async {
+  Future<ReadNotificationModel?> getReadNotification(
+      String push_notification_detail) async {
     try {
       var response = await apiProvider.postMethod(
         "PushNotification/ReadPushMessage?ID_PUSH_NOTIFICATION_DETAIL=${push_notification_detail}",
@@ -191,7 +192,8 @@ class ApiRepository {
   }
 
   //getDeleteNotification
-  Future<DeleteNotificationModel?> getDeleteNotification(String push_notification_detail) async {
+  Future<DeleteNotificationModel?> getDeleteNotification(
+      String push_notification_detail) async {
     try {
       var response = await apiProvider.postMethod(
         "/PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${push_notification_detail}",
@@ -210,7 +212,8 @@ class ApiRepository {
   //getBulkDeleteNotification
   // 1 ----> Tüm okunanları sil
   // 2 ----> Hepsini sil
-  Future<BulkDeleteNotificationModel?> getBulkDeleteNotification(int allOrReaded) async {
+  Future<BulkDeleteNotificationModel?> getBulkDeleteNotification(
+      int allOrReaded) async {
     try {
       var response = await apiProvider.postMethod(
         "/PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${allOrReaded}",
@@ -225,7 +228,7 @@ class ApiRepository {
     }
     return null;
   }
-  
+
   //userLogOut
   userLogOut() async {
     try {
@@ -240,5 +243,4 @@ class ApiRepository {
       print("$e");
     }
   }
-  
 }

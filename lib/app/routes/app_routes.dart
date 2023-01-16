@@ -14,7 +14,9 @@ abstract class Routes {
   static const CHANGEPINCODE = "/change_pin_code";
   static const SPLASH = "/splash";
   static const REQUEST = "/request";
+  static const MY_APPROVE = "/my_approve";
   static const REQUEST_DETAIL = "/request_detail";
   static const NOTIFICATION = "/notification";
   static const PIN_LOGIN = "/pin_login";
+
 }

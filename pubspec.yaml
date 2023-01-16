@@ -81,7 +81,9 @@ flutter:
     - assets/images/login/  
     - assets/images/splash/
     - assets/images/request_assets/
+    - assets/images/my_approve/
     - assets/images/notification_assets/
+
     
   #   - images/a_dot_ham.jpeg
 

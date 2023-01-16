@@ -1,6 +1,4 @@
-
 // ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps, body_might_complete_normally_nullable
-
 
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
@@ -18,7 +16,6 @@ import '../app/models/home/notification/notification_read_model.dart';
 import '../app/models/language/my_app_language_model.dart';
 import '../app/models/my_approve_detail/my_approve_detail.dart';
 import '../app/models/my_request/my_approve_get_pending_model.dart';
-
 
 import 'api_provider.dart';
 
@@ -162,7 +159,6 @@ class ApiRepository {
     return null;
   }
 
-
   //getMyRequestDetail
   Future<MyRequestDetailModel?> getMyRequestDetail(
       int idMater, detailType) async {
@@ -183,7 +179,6 @@ class ApiRepository {
     return null;
   }
 
-
 //getPushNotification
   Future<NotificationModel?> getPushNotification() async {
     try {
@@ -200,8 +195,6 @@ class ApiRepository {
     }
     return null;
   }
-  
-  
 
   //getReadNotification
   Future<ReadNotificationModel?> getReadNotification(
@@ -221,8 +214,6 @@ class ApiRepository {
     return null;
   }
 
-
-
   //getDeleteNotification
   Future<DeleteNotificationModel?> getDeleteNotification(
       String push_notification_detail) async {
@@ -240,8 +231,6 @@ class ApiRepository {
     }
     return null;
   }
-  
-  
 
   //getBulkDeleteNotification
   // 1 ----> Tüm okunanları sil
@@ -263,7 +252,6 @@ class ApiRepository {
     return null;
   }
 
-
   //userLogOut
   userLogOut() async {
     try {
@@ -279,8 +267,7 @@ class ApiRepository {
     }
   }
 
-
- //getMyPendingJobs
+  //getMyPendingJobs
   Future<MyPendingJobs?> getMyPendingJobs() async {
     try {
       var response = await apiProvider.postMethod(
@@ -299,8 +286,6 @@ class ApiRepository {
     return null;
   }
 
-
-
   //getMyRequestDetail
   Future<MyApproveDetailModel?> getMyApproveDetail(
       int idMater, int detailType) async {
@@ -314,6 +299,23 @@ class ApiRepository {
         print(response.body);
 
         return MyApproveDetailModel.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  //getMyRequestGetPending
+  Future<MyRequestGetPending?> getMyRequestGetPending() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetPendingRequestMasterMobile",
+        {},
+      );
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyRequestGetPending.fromJson(response.body);
       }
     } catch (e) {
       print("$e");

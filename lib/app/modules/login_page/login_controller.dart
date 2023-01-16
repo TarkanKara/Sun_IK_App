@@ -3,18 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:sun_ik_app/app/modules/splash_page/splash_controller.dart';
-
 import '../../../api/api_repository.dart';
 import '../../models/login/login_model.dart';
 
 import 'package:get_storage/get_storage.dart';
 import 'package:sun_ik_app/utils/dialog.dart';
 
-import '../../../api/api_repository.dart';
-import '../../models/login/login_model.dart';
 import '../../routes/app_pages.dart';
-
+import '../splash_page/splash_controller.dart';
 
 class LoginController extends GetxController {
   ApiRepository apiRepository;

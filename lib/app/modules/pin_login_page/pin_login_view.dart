@@ -1,14 +1,18 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:sun_ik_app/app/modules/login_page/login_controller.dart';
-import '../../routes/app_pages.dart';
-import '../../widgets/login_widget.dart';
+import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_controller.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
-class LoginView extends GetView<LoginController> {
-  const LoginView({super.key});
+import '../../routes/app_pages.dart';
+import '../../widgets/pin_login_widget.dart';
+
+class PinLoginView extends GetView<PinLoginController> {
+  const PinLoginView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +36,7 @@ class LoginView extends GetView<LoginController> {
               children: [
                 SizedBox(height: 2.h),
                 SizedBox(
-                  height: 88.h,
+                  height: 80.h,
                   width: 100.w,
                   child: Stack(
                     children: [
@@ -85,9 +89,9 @@ class LoginView extends GetView<LoginController> {
                       Positioned(
                         //textformfield container
                         left: 2.w,
-                        top: 22.h,
+                        top: 27.h,
                         child: Container(
-                          height: 63.h,
+                          height: 50.h,
                           width: 85.w,
                           decoration: BoxDecoration(
                             color: const Color(0xffef3e52),
@@ -103,79 +107,78 @@ class LoginView extends GetView<LoginController> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
-                                left: 3.w, top: 8.h, right: 3.w),
+                                left: 3.w, top: 2.h, right: 3.w),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      bottom: .5.h, top: 1.7.h, right: 10.w),
-                                  child: Text(
-                                      "Please login to use the mobile application",
-                                      style: GoogleFonts.inter(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 2.h)),
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: 1.8.h,
-                                        left: 1.w,
-                                        right: 1.w,
-                                      ),
-                                      child: SizedBox(
-                                        width: 60.w,
-                                        child: Text(
-                                          "I don't have a computer password. I want to get a password via SMS",
-                                          style: GoogleFonts.inter(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 1.7.h),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(top: .5.h),
-                                      child: Obx(() => Switch(
-                                            value:
-                                                controller.switchControl.value,
-                                            activeColor:
-                                                const Color(0xff00c853),
-                                            activeTrackColor:
-                                                const Color(0xff00c853),
-                                            inactiveThumbColor:
-                                                const Color(0xffeeeeee),
-                                            inactiveTrackColor:
-                                                const Color(0xffc2c2c2),
-                                            onChanged: (value) {
-                                              controller.switchControl.value =
-                                                  value;
-                                            },
-                                          )),
-                                    ),
-                                  ],
+                                      top: 1.5.h, bottom: 1.h, right: 2.w),
+                                  child: SizedBox(
+                                    width: 75.w,
+                                    child: Text(
+                                        "Please login to use the mobile application",
+                                        style: GoogleFonts.inter(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 1.8.h)),
+                                  ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 1.h),
-                                  child: const DropDownMenu(),
+                                  padding:
+                                      EdgeInsets.only(top: 1.5.h, bottom: 1.h),
+                                  child: const PinDropDownMenu(),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(bottom: 2.h),
-                                  child: LoginTextWidget(
+                                  child: PinLoginTextWidget(
+                                    number: TextInputType.text,
+                                    readOnlyFalse: true,
                                     controllers: controller.user,
                                     obscureText: false.obs,
-                                    hintText: "Username",
+                                    hintText: controller.user_name.value,
+                                    suffixIcon: GestureDetector(
+                                      onTap: () {
+                                        //sayfa değiştirme eklenecek
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            right: 1.8.w, top: 1.7.h),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            CustomDialog.getDialog(
+                                                "Uyarı",
+                                                "Çıkış Yapmak İstediğinizden Eminmisiniz",
+                                                "Kapat",
+                                                widget: ElevatedButton(
+                                                    onPressed: () {
+                                                      controller.resetStorage();
+                                                      Get.toNamed(
+                                                        Routes.SPLASH,
+                                                      );
+                                                    },
+                                                    child: Text("Çıkış")));
+                                          },
+                                          child: Text(
+                                            "Change",
+                                            style: GoogleFonts.inter(
+                                                fontSize: 2.h,
+                                                color: Colors.black87,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.h),
-                                  child: LoginTextWidget(
+                                  child: PinLoginTextWidget(
+                                    number: TextInputType.number,
+                                    readOnlyFalse: false,
                                     controllers: controller.passwordu,
                                     obscureText: controller.isPasswordHidden,
-                                    hintText: "Password",
+                                    hintText: "Pin Code",
                                     suffixIcon: Obx(
                                       () => GestureDetector(
                                         onTap: () {
@@ -191,13 +194,13 @@ class LoginView extends GetView<LoginController> {
                                   ),
                                 ),
                                 Padding(
-                                    padding: EdgeInsets.only(top: 3.h),
-                                    child: LoginButton(
-                                      callback: () {
-                                        print("object");
-                                        controller.currentLogin();
-                                      },
-                                    )),
+                                  padding: EdgeInsets.only(top: 3.h),
+                                  child: PinLoginButton(
+                                    callback: () {
+                                      controller.pinLoginRouteName();
+                                    },
+                                  ),
+                                ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.5.h),
                                   child: Row(
@@ -209,7 +212,27 @@ class LoginView extends GetView<LoginController> {
                                             MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: const [],
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () {
+                                              Get.toNamed(Routes.CHANGEPINCODE);
+                                            },
+                                            child: Text(
+                                              "Change Pin",
+                                              style: GoogleFonts.inter(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 1.7.h),
+                                            ),
+                                          ),
+                                          Text(
+                                            "Forgot the pin code?",
+                                            style: GoogleFonts.inter(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 1.7.h),
+                                          ),
+                                        ],
                                       ),
                                       RichText(
                                           text: TextSpan(children: [

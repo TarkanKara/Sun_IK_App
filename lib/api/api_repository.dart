@@ -153,7 +153,7 @@ class ApiRepository {
     return null;
   }
 
-  //getPushNotification
+//getPushNotification
   Future<NotificationModel?> getPushNotification() async {
     try {
       var response = await apiProvider.postMethod(
@@ -169,4 +169,20 @@ class ApiRepository {
     }
     return null;
   }
+  
+  //userLogOut
+  userLogOut() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "Application/LogOut",
+        {},
+      );
+      if (response.statusCode == 200) {
+        print("Kullanıcı Çıkış Yapıldı : ${response.body}");
+      }
+    } catch (e) {
+      print("$e");
+    }
+  }
+  
 }

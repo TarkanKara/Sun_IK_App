@@ -1,9 +1,18 @@
+// ignore_for_file: non_constant_identifier_names, unused_local_variable, avoid_print
+
 import 'dart:async';
 
 import 'package:get/get_connect/http/src/request/request.dart';
+import 'package:get_storage/get_storage.dart';
 
 FutureOr<Request> requestInterceptor(request) async {
-  request.headers["vbtauthorization"] =
-      "a6WA68K9UcJJTtm+NXjBZCXkQbaf6n1VUmdI5uM3/1q8cpbvRZpvPcZUZl0FTmhI~1742~string~638094615554825576";
+  GetStorage token = GetStorage();
+
+  print("requestInterceptor TokenBilgisi : ${token.read("token2") != null}");
+
+  token.read("token2") != null
+      ? request.headers["vbtauthorization"] = token.read("token2")
+      : {};
+
   return request;
 }

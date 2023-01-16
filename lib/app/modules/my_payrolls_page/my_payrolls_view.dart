@@ -1,7 +1,12 @@
-// ignore_for_file: unused_element, prefer_const_constructors
+// ignore_for_file: unused_element, prefer_const_constructors, import_of_legacy_library_into_null_safe
+
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:open_file_plus/open_file_plus.dart';
+
+import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../routes/app_pages.dart';
@@ -85,6 +90,19 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                                         Get.toNamed(Routes.PDF_VIEW);
                                       },
                                       child: MyPayrollListCard(
+                                          callback: () async {
+                                            final temp =
+                                                await getTemporaryDirectory();
+                                            final path =
+                                                "${temp.path}/${controller.myPayrollModel.data![index].documentperiod} bordros.pdf";
+                                            final file = File(path);
+                                            file.writeAsBytesSync(controller
+                                                .myPayrollPdfModel
+                                                .data!
+                                                .codeUnits);
+                                            await OpenFile.open(file.path,
+                                                type: "text/plain");
+                                          },
                                           subTitleText: "",
                                           /* controller.myPayrollModel
                                               .data![index].documentmonth

@@ -15,4 +15,6 @@ abstract class Routes {
   static const SPLASH = "/splash";
   static const REQUEST = "/request";
   static const NOTIFICATION = "/notification";
+  static const PIN_LOGIN = "/pin_login";
+  
 }

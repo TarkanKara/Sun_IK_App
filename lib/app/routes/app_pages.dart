@@ -21,6 +21,8 @@ import 'package:sun_ik_app/app/modules/pdf_page/pdf_view.dart';
 import 'package:sun_ik_app/app/modules/pin_code_change_page/pin_code_change_view.dart';
 import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_binding.dart';
 import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_view.dart';
+import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_binding.dart';
+import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_view.dart';
 import 'package:sun_ik_app/app/modules/request_page/request_binding.dart';
 import 'package:sun_ik_app/app/modules/request_page/request_view.dart';
 
@@ -92,6 +94,11 @@ class AppPages {
       name: Routes.NOTIFICATION,
       page: () => const NotificationView(),
       binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: Routes.PIN_LOGIN,
+      page: () => const PinLoginView(),
+      binding: PinLoginBinding(),
     ),
   ];
 }

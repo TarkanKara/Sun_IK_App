@@ -10,9 +10,9 @@ FutureOr<Request> requestInterceptor(request) async {
 
   print("requestInterceptor TokenBilgisi : ${token.read("token2") != null}");
 
-  //token.read("token2") != null
-       request.headers["vbtauthorization"] = "3QHf/JVAYZFVmG6TW40LFTMhuHwNFKTb4mom7RE7oGkeiFmOr42vjQwlbCIpQwYB~1742~string~638094707153945267";
-      //: {};
+  token.read("token2") != null
+      ? request.headers["vbtauthorization"] = token.read("token2")
+      : {};
 
   return request;
 }

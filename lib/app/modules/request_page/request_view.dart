@@ -74,26 +74,27 @@ class RequestView extends GetView<RequestController> {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
+                            controller.index.value = index;
                             Get.toNamed(Routes.REQUEST_DETAIL);
                           },
                           child: RequestListItem(
                             imageAsset:
                                 'assets/images/request_assets/ic_devam_ediyor.png',
                             tarihVeSaat:
-                                "${DateTimeConverTo.compareToDateTime(controller.myRequestModel.data!.myRequestList![0].rEQDATE.toString())}",
+                                "${DateTimeConverTo.compareToDateTime(controller.myRequestModel.data!.myRequestList![index].rEQDATE.toString())}",
                             tur:
-                                "${controller.myRequestModel.data!.myRequestList![0].rEQNAME}",
+                                "${controller.myRequestModel.data!.myRequestList![index].rEQNAME}",
                             talepNo:
-                                "${controller.myRequestModel.data!.myRequestList![0].iDMASTER}",
+                                "${controller.myRequestModel.data!.myRequestList![index].iDMASTER}",
                             atananKisi: controller.myRequestModel.data!
-                                        .myRequestList![0].aSSIGNEMPLOYEE !=
+                                        .myRequestList![index].aSSIGNEMPLOYEE !=
                                     null
-                                ? "${controller.myRequestModel.data!.myRequestList![0].aSSIGNEMPLOYEE}"
+                                ? "${controller.myRequestModel.data!.myRequestList![index].aSSIGNEMPLOYEE}"
                                 : "",
                             aciklama:
-                                "${controller.myRequestModel.data!.myRequestList![0].rEQEMPLOYEE}",
+                                "${controller.myRequestModel.data!.myRequestList![index].rEQEMPLOYEE}",
                             durum:
-                                "${controller.myRequestModel.data!.myRequestList![0].sTATUNAME}",
+                                "${controller.myRequestModel.data!.myRequestList![index].sTATUNAME}",
                           ),
                         );
                       },

@@ -18,6 +18,7 @@ class RequestController extends GetxController {
   //
   RxString filterIsim = "Tümü".obs;
   Rx<RxStatus> status = RxStatus.empty().obs;
+  RxInt index = 0.obs;
 
   getFilter() {
     Get.defaultDialog(
@@ -163,7 +164,6 @@ class RequestController extends GetxController {
     status.value = RxStatus.success();
   }
 
-  
   /*  //myRequestIcon
   myRequestIcon(int index) {
     switch (myRequestModel.data!.myRequestList![index].sTATUNAME) {

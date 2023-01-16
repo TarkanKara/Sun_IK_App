@@ -153,7 +153,8 @@ class PinLoginView extends GetView<PinLoginController> {
                                                 widget: ElevatedButton(
                                                     onPressed: () {
                                                       controller.resetStorage();
-                                                      Get.toNamed(
+
+                                                      Get.offAllNamed(
                                                         Routes.SPLASH,
                                                       );
                                                     },

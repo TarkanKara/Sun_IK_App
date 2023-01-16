@@ -44,14 +44,14 @@ class HomeView extends GetView<HomeController> {
                           height: 10.h,
                           //color: Colors.red,
                           child: Row(children: [
-                            controller.myProfileModel.data!.profilePicture !=
+                            controller.myProfileModel!.data!.profilePicture !=
                                     null
                                 ? CircleAvatar(
                                     radius: 3.5.h,
                                     backgroundImage: MemoryImage(
                                       Base64.pictureBase64Decode(
-                                        controller
-                                            .myProfileModel.data!.profilePicture
+                                        controller.myProfileModel!.data!
+                                            .profilePicture
                                             .toString(),
                                       ),
                                     ))
@@ -107,7 +107,7 @@ class HomeView extends GetView<HomeController> {
                                             shape: BoxShape.circle),
                                         child: Center(
                                             child: Text(
-                                          controller.infoModel.data!
+                                          controller.infoModel!.data!
                                               .UnReadedNotificationCount
                                               .toString(),
                                           style: GoogleFonts.inter(
@@ -122,8 +122,7 @@ class HomeView extends GetView<HomeController> {
                               ),
                               IconButton(
                                   onPressed: () {
-                                    controller.apiRepository.userLogOut();
-                                    Get.toNamed(Routes.SPLASH);
+                                    Get.offAllNamed(Routes.SPLASH);
                                   },
                                   icon: Image.asset(
                                     Const.CIKISYAPICON,
@@ -162,9 +161,9 @@ class HomeView extends GetView<HomeController> {
                                     Get.toNamed(Routes.REQUEST);
                                   },
                                   cardName: controller
-                                      .infoModel.data!.menuInfo[0].MENUNAME,
+                                      .infoModel!.data!.menuInfo[0].MENUNAME,
                                   cardInfo:
-                                      "${controller.infoModel.data!.MyRequestCount} Notifications",
+                                      "${controller.infoModel!.data!.MyRequestCount} Notifications",
                                   cardIcon:
                                       'assets/images/home_assets/ic_taleplerim.png',
                                   cardHeight: 20.h,
@@ -174,9 +173,9 @@ class HomeView extends GetView<HomeController> {
                                 HomeMenuCard(
                                   cardPressed: () {},
                                   cardName: controller
-                                      .infoModel.data!.menuInfo[1].MENUNAME,
+                                      .infoModel!.data!.menuInfo[1].MENUNAME,
                                   cardInfo:
-                                      "${controller.infoModel.data!.GetMyApprovalCount} Notifications",
+                                      "${controller.infoModel!.data!.GetMyApprovalCount} Notifications",
                                   cardIcon:
                                       'assets/images/home_assets/ic_onayladiklarim1.png',
                                   cardHeight: 20.h,
@@ -186,9 +185,9 @@ class HomeView extends GetView<HomeController> {
                                 HomeMenuCard(
                                   cardPressed: () {},
                                   cardName: controller
-                                      .infoModel.data!.menuInfo[2].MENUNAME,
+                                      .infoModel!.data!.menuInfo[2].MENUNAME,
                                   cardInfo:
-                                      "${controller.infoModel.data!.GetMyWorks} Notifications",
+                                      "${controller.infoModel!.data!.GetMyWorks} Notifications",
                                   cardIcon:
                                       'assets/images/home_assets/ic_islerim1.png',
                                   cardHeight: 20.h,
@@ -201,8 +200,8 @@ class HomeView extends GetView<HomeController> {
                                   },
                                   lastBordroPressed: () {},
                                   cardName: controller
-                                      .infoModel.data!.menuInfo[5].MENUNAME,
-                                  cardInfo: controller.infoModel.data!
+                                      .infoModel!.data!.menuInfo[5].MENUNAME,
+                                  cardInfo: controller.infoModel!.data!
                                       .myLastPayroll.DocumentName,
                                   cardIcon:
                                       'assets/images/home_assets/ic_bordrolarim.png',
@@ -313,10 +312,10 @@ class HomeView extends GetView<HomeController> {
                                           alignment: Alignment.centerLeft,
                                           margin: EdgeInsets.only(left: 3.h),
                                           child: Text(
-                                            "${controller.infoModel.data!.vacationInfo.employeeEarnedRightsList[0].ANNUALLEAVEBALANCE} Gün",
+                                            "${controller.infoModel!.data!.vacationInfo.employeeEarnedRightsList[0].ANNUALLEAVEBALANCE} Gün",
                                             style: GoogleFonts.inter(
                                               color: controller
-                                                          .infoModel
+                                                          .infoModel!
                                                           .data!
                                                           .vacationInfo
                                                           .employeeEarnedRightsList[
@@ -361,7 +360,7 @@ class HomeView extends GetView<HomeController> {
                                           child: Text(
                                             DateTimeConverTo.compareToDateYMD(
                                                 controller
-                                                    .infoModel
+                                                    .infoModel!
                                                     .data!
                                                     .vacationInfo
                                                     .employeeEarnedRightsList[0]
@@ -377,44 +376,44 @@ class HomeView extends GetView<HomeController> {
                                       ],
                                     )),
                                 Flexible(
-                                    flex: 1,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.only(right: .3.h),
-                                          alignment: Alignment.centerLeft,
-                                          margin: EdgeInsets.only(left: 2.h),
-                                          child: Text(
-                                            Const.IZINGUNTEXT,
-                                            style: GoogleFonts.inter(
-                                              color: Const.ACIKLAMATEXTCOLOR,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w700,
-                                            ),
+                                  flex: 1,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(right: .3.h),
+                                        alignment: Alignment.centerLeft,
+                                        margin: EdgeInsets.only(left: 2.h),
+                                        child: Text(
+                                          Const.IZINGUNTEXT,
+                                          style: GoogleFonts.inter(
+                                            color: Const.ACIKLAMATEXTCOLOR,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w700,
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: .5.h,
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(right: .3.h),
-                                          alignment: Alignment.centerLeft,
-                                          margin: EdgeInsets.only(left: 2.h),
-                                          child: Text(
-                                            "${controller.infoModel.data!.vacationInfo.employeeEarnedRightsList[0].NEXTLEAVEALLOWANCEDAYS} Gün",
-                                            style: GoogleFonts.inter(
-                                              color: Const.BASLIKTEXTCOLOR,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w700,
-                                            ),
+                                      ),
+                                      SizedBox(
+                                        height: .5.h,
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(right: .3.h),
+                                        alignment: Alignment.centerLeft,
+                                        margin: EdgeInsets.only(left: 2.h),
+                                        child: Text(
+                                          "${controller.infoModel!.data!.vacationInfo.employeeEarnedRightsList[0].NEXTLEAVEALLOWANCEDAYS} Gün",
+                                          style: GoogleFonts.inter(
+                                            color: Const.BASLIKTEXTCOLOR,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w700,
                                           ),
                                         ),
-                                      ],
-                                    ))
+                                      ),
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                           ),

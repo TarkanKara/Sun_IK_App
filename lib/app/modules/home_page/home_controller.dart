@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, unused_field
+// ignore_for_file: avoid_print, unused_field, unnecessary_brace_in_string_interps
 
 import 'package:get/get.dart';
 
@@ -23,8 +23,8 @@ class HomeController extends GetxController {
       Get.put(LoginController(apiRepository: Get.find()), permanent: true);
 
   //Model
-  GetLandingPageInfoModel infoModel = GetLandingPageInfoModel();
-  MyProfileModel myProfileModel = MyProfileModel();
+  GetLandingPageInfoModel? infoModel = GetLandingPageInfoModel();
+  MyProfileModel? myProfileModel = MyProfileModel();
 
   //
   Rx<RxStatus> status = RxStatus.empty().obs;
@@ -42,15 +42,22 @@ class HomeController extends GetxController {
   //getLandingPage
   getLandingPage() async {
     status.value = RxStatus.loading();
-    infoModel = (await apiRepository.getHomaLandingInfo(true))!;
+    infoModel = await apiRepository.getHomaLandingInfo(true);
     getHomeMyProfile();
   }
 
   //getHomeMyProfile
   getHomeMyProfile() async {
-    myProfileModel = (await apiRepository.getMyProfile())!;
+    myProfileModel = await apiRepository.getMyProfile();
     status.value = RxStatus.success();
   }
 
-  
+/* //homeModelClosed
+  homeModelClosed() {
+    status.value = RxStatus.loading();
+    infoModel = null;
+    myProfileModel = null;
+    print("infoModel  boşaltıldı : ${infoModel} ");
+    print("myProfileModel  boşaltıldı : ${myProfileModel} ");
+  } */
 }

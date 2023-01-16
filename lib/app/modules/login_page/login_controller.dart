@@ -1,4 +1,4 @@
-// ignore_for_file: unrelated_type_equality_checks, non_constant_identifier_names
+// ignore_for_file: unrelated_type_equality_checks, non_constant_identifier_names, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -67,6 +67,7 @@ class LoginController extends GetxController {
       await storage_token.write("user_name", user.text);
       await storage_token.write("select_company", dropdownvalue.value);
       status.value = RxStatus.success();
+      await closedTextField();
       await pinCodeChange();
     }
   }
@@ -77,5 +78,11 @@ class LoginController extends GetxController {
     } else {
       return Get.toNamed(Routes.CREATEPINCODE);
     }
+  }
+
+  closedTextField() {
+    user.clear();
+    passwordu.clear();
+    print("Login user ve password TextFiel Temizlendi");
   }
 }

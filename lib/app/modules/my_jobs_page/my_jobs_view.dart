@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -13,6 +14,26 @@ class MyJobsView extends GetView<MyJobsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 221, 217, 217),
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarColor: Const.STATUSBARCOLOR),
+        elevation: 0,
+        toolbarHeight: 6.h,
+        leading: IconButton(
+          onPressed: () {},
+          icon : const Icon(Icons.arrow_back_rounded),
+          color: Color(0xff2C3E50),
+        ),
+        centerTitle: true,
+        title: Text(
+          'My Tasks',
+          style: GoogleFonts.inter(
+              color: const Color(0xff10130F),
+              fontSize: 2.2.h,
+              fontWeight: FontWeight.w700),
+        ),
+      ),
         body: Center(
       child: Obx(() => controller.status.value.isSuccess
           ? SizedBox(

@@ -49,4 +49,12 @@ class NotificationController extends GetxController {
     ]);
   }
 
+  delete(){
+
+  }
+
+  delete_bulk(){
+    
+  }
+
 }

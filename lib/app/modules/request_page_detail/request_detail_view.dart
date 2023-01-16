@@ -12,22 +12,23 @@ class RequestDetailView extends GetView<RequestDetailController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          leading: GestureDetector(
-              onTap: () {
-                Get.back();
-              },
-              child:
-                  Icon(Icons.arrow_back_ios, size: 3.h, color: Colors.white)),
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            "My Requests",
-            style: GoogleFonts.inter(
-                color: Colors.white,
-                fontSize: 3.2.h,
-                fontWeight: FontWeight.w600),
-          ),
-          backgroundColor: const Color(0xff94A3B8)),
+        centerTitle: true,
+        elevation: 5,
+        backgroundColor: const Color(0xffEF3E52),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        ),
+        title: Text(
+          'My Requests Detail',
+          style: GoogleFonts.inter(
+              color: Colors.white,
+              fontSize: 2.2.h,
+              fontWeight: FontWeight.w700),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Obx(
           () => controller.status.value.isSuccess

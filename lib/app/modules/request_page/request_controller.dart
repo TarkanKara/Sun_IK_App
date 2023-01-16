@@ -3,6 +3,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/api/api_repository.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_model.dart';
@@ -17,6 +18,7 @@ class RequestController extends GetxController {
   //
   RxString filterIsim = "Tümü".obs;
   Rx<RxStatus> status = RxStatus.empty().obs;
+  RxInt index = 0.obs;
 
   getFilter() {
     Get.defaultDialog(
@@ -162,7 +164,6 @@ class RequestController extends GetxController {
     status.value = RxStatus.success();
   }
 
-  
   /*  //myRequestIcon
   myRequestIcon(int index) {
     switch (myRequestModel.data!.myRequestList![index].sTATUNAME) {

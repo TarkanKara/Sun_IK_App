@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -8,6 +7,7 @@ import 'package:sun_ik_app/app/widgets/request_widgets/request_list_item.dart';
 import 'package:sun_ik_app/utils/const.dart';
 
 import '../../../utils/date_convert.dart';
+import '../../routes/app_pages.dart';
 
 class RequestView extends GetView<RequestController> {
   const RequestView({super.key});
@@ -17,23 +17,14 @@ class RequestView extends GetView<RequestController> {
     return Scaffold(
       backgroundColor: const Color(0xffF2F2F2),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 221, 217, 217),
-        systemOverlayStyle:
-            const SystemUiOverlayStyle(statusBarColor: Const.STATUSBARCOLOR),
-        elevation: 0,
-        toolbarHeight: 6.h,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back_rounded),
-          color: const Color(0xff2C3E50),
-        ),
         centerTitle: true,
-        title: Text(
-          'Taleplerim',
-          style: GoogleFonts.inter(
-              color: const Color(0xff10130F),
-              fontSize: 2.2.h,
-              fontWeight: FontWeight.w700),
+        elevation: 5,
+        backgroundColor: const Color(0xffEF3E52),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
         actions: [
           IconButton(
@@ -42,20 +33,27 @@ class RequestView extends GetView<RequestController> {
             },
             icon: Image.asset(
               'assets/images/request_assets/ic_filter.png',
-              color: const Color(0xff2C3E50),
+              color: Colors.white,
               scale: .5.h,
             ),
           )
         ],
+        title: Text(
+          "Taleplerim",
+          style: GoogleFonts.inter(
+              color: Colors.white,
+              fontSize: 2.2.h,
+              fontWeight: FontWeight.w700),
+        ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 2.h,
-          ),
-          Obx(
-            () => controller.status.value.isSuccess
-                ? Container(
+      body: Obx(
+        () => controller.status.value.isSuccess
+            ? Column(
+                children: [
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Container(
                     alignment: Alignment.center,
                     width: 100.w,
                     height: 3.h,
@@ -63,46 +61,48 @@ class RequestView extends GetView<RequestController> {
                       controller.filterIsim.value,
                       style: GoogleFonts.inter(color: Const.BASLIKTEXTCOLOR),
                     ),
-                  )
-                : const Center(child: CircularProgressIndicator()),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Obx(
-            () => controller.status.value.isSuccess
-                ? SizedBox(
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  SizedBox(
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
                       itemCount:
                           controller.myRequestModel.data!.myRequestList!.length,
                       itemBuilder: (context, index) {
-                        return RequestListItem(
-                          imageAsset:
-                              'assets/images/request_assets/ic_devam_ediyor.png',
-                          tarihVeSaat:
-                              "${DateTimeConverTo.compareToDateTime(controller.myRequestModel.data!.myRequestList![0].rEQDATE.toString())}",
-                          tur:
-                              "${controller.myRequestModel.data!.myRequestList![0].rEQNAME}",
-                          talepNo:
-                              "${controller.myRequestModel.data!.myRequestList![0].iDMASTER}",
-                          atananKisi: controller.myRequestModel.data!
-                                      .myRequestList![0].aSSIGNEMPLOYEE !=
-                                  null
-                              ? "${controller.myRequestModel.data!.myRequestList![0].aSSIGNEMPLOYEE}"
-                              : "",
-                          aciklama:
-                              "${controller.myRequestModel.data!.myRequestList![0].rEQEMPLOYEE}",
-                          durum:
-                              "${controller.myRequestModel.data!.myRequestList![0].sTATUNAME}",
+                        return GestureDetector(
+                          onTap: () {
+                            controller.index.value = index;
+                            Get.toNamed(Routes.REQUEST_DETAIL);
+                          },
+                          child: RequestListItem(
+                            imageAsset:
+                                'assets/images/request_assets/ic_devam_ediyor.png',
+                            tarihVeSaat:
+                                "${DateTimeConverTo.compareToDateTime(controller.myRequestModel.data!.myRequestList![index].rEQDATE.toString())}",
+                            tur:
+                                "${controller.myRequestModel.data!.myRequestList![index].rEQNAME}",
+                            talepNo:
+                                "${controller.myRequestModel.data!.myRequestList![index].iDMASTER}",
+                            atananKisi: controller.myRequestModel.data!
+                                        .myRequestList![index].aSSIGNEMPLOYEE !=
+                                    null
+                                ? "${controller.myRequestModel.data!.myRequestList![index].aSSIGNEMPLOYEE}"
+                                : "",
+                            aciklama:
+                                "${controller.myRequestModel.data!.myRequestList![index].rEQEMPLOYEE}",
+                            durum:
+                                "${controller.myRequestModel.data!.myRequestList![index].sTATUNAME}",
+                          ),
                         );
                       },
                     ),
                   )
-                : const Center(child: CircularProgressIndicator()),
-          )
-        ],
+                ],
+              )
+            : const Center(child: CircularProgressIndicator()),
       ),
     );
   }

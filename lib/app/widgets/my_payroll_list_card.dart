@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyPayrollListCard extends StatelessWidget {
   final String titleText;
   final String subTitleText;
+  final Callback? callback;
 
   const MyPayrollListCard({
     Key? key,
     required this.titleText,
     required this.subTitleText,
+    this.callback,
   }) : super(key: key);
 
   @override
@@ -35,7 +38,7 @@ class MyPayrollListCard extends StatelessWidget {
           style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 1.8.h),
         ), */
         trailing:
-            IconButton(onPressed: () {}, icon: const Icon(Icons.download)),
+            IconButton(onPressed: callback, icon: const Icon(Icons.download)),
       ),
     );
   }

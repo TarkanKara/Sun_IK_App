@@ -239,7 +239,7 @@ class ApiRepository {
       int allOrReaded) async {
     try {
       var response = await apiProvider.postMethod(
-        "/PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${allOrReaded}",
+        "PushNotification/BulkDeletePushMessage?AllOrReaded=${allOrReaded}",
         {},
       );
       if (response.statusCode == 200) {

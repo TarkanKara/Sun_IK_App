@@ -11,7 +11,8 @@ class NotificationController extends GetxController {
   final ApiRepository apiRepository;
   NotificationController({required this.apiRepository});
 
-  HomeController homeController = Get.put(HomeController(apiRepository: Get.find()));
+  HomeController homeController =
+      Get.put(HomeController(apiRepository: Get.find()));
 
   //Model
   NotificationModel notification = NotificationModel();
@@ -43,11 +44,19 @@ class NotificationController extends GetxController {
             children: [
               ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed: () {},
+                  onPressed: () {
+                    selectedAllOrReadedNotificationDelete(2);
+                    getNotification();
+                    Get.back();
+                  },
                   child: const Text('Hepsini Sil')),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed: () {},
+                  onPressed: () {
+                    selectedAllOrReadedNotificationDelete(1);
+                    getNotification();
+                    Get.back();
+                  },
                   child: const Text('Sadece Okunanları Sil'))
             ],
           )
@@ -72,5 +81,9 @@ class NotificationController extends GetxController {
             child: const Text('Sil')));
   }
 
-  delete_bulk() {}
+  selectedAllOrReadedNotificationDelete(int allOrReaded) async {
+    status.value = RxStatus.loading();
+    await apiRepository.getBulkDeleteNotification(allOrReaded);
+    status.value = RxStatus.success();
+  }
 }

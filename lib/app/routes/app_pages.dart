@@ -1,4 +1,4 @@
-// ignore_for_file: ant_identifier_names
+// ignore_for_file: ant_identifier_names, constant_identifier_names
 
 import 'package:get/get.dart';
 
@@ -110,7 +110,7 @@ class AppPages {
       binding: RequestBinding(),
     ),
     GetPage(
-      name: Routes.MYjOBS,
+      name: Routes.MY_jOBS,
       page: () => const MyJobsView(),
       binding: MyJobsBinding(),
     ),

@@ -37,9 +37,7 @@ class RequestView extends GetView<RequestController> {
           )
         ],
         title: Text(
-          
           "Taleplerim",
-
           style: GoogleFonts.inter(
               color: Colors.white,
               fontSize: 2.2.h,
@@ -63,9 +61,7 @@ class RequestView extends GetView<RequestController> {
                     ),
                   ),
                   SizedBox(
-                    height: 2.h,
-                  ),
-                  SizedBox(
+                    height: 85.h,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
@@ -77,33 +73,35 @@ class RequestView extends GetView<RequestController> {
                             controller.index.value = index;
                             Get.toNamed(Routes.REQUEST_DETAIL);
                           },
-                          child: RequestListItem(
-                            imageAsset:
-                                'assets/images/request_assets/ic_devam_ediyor.png',
-                            tarihVeSaat:
-                                "${DateTimeConverTo.compareToDateTime(controller.myRequestModel.data!.myRequestList![index].rEQDATE.toString())}",
-                            tur:
-                                "${controller.myRequestModel.data!.myRequestList![index].rEQNAME}",
-                            talepNo:
-                                "${controller.myRequestModel.data!.myRequestList![index].iDMASTER}",
-                            atananKisi: controller.myRequestModel.data!
-                                        .myRequestList![index].aSSIGNEMPLOYEE !=
-                                    null
-                                ? "${controller.myRequestModel.data!.myRequestList![index].aSSIGNEMPLOYEE}"
-                                : "",
-                            aciklama:
-                                "${controller.myRequestModel.data!.myRequestList![index].rEQEMPLOYEE}",
-                            durum:
-                                "${controller.myRequestModel.data!.myRequestList![index].sTATUNAME}",
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 3.w),
+                            child: RequestListItem(
+                              imageAsset:
+                                  'assets/images/request_assets/ic_devam_ediyor.png',
+                              tarihVeSaat:
+                                  "${DateTimeConverTo.compareToDateTime(controller.myRequestModel.data!.myRequestList![index].rEQDATE.toString())}",
+                              tur:
+                                  "${controller.myRequestModel.data!.myRequestList![index].rEQNAME}",
+                              talepNo:
+                                  "${controller.myRequestModel.data!.myRequestList![index].iDMASTER}",
+                              atananKisi: controller
+                                          .myRequestModel
+                                          .data!
+                                          .myRequestList![index]
+                                          .aSSIGNEMPLOYEE !=
+                                      null
+                                  ? "${controller.myRequestModel.data!.myRequestList![index].aSSIGNEMPLOYEE}"
+                                  : "",
+                              aciklama:
+                                  "${controller.myRequestModel.data!.myRequestList![index].rEQEMPLOYEE}",
+                              durum:
+                                  "${controller.myRequestModel.data!.myRequestList![index].sTATUNAME}",
+                            ),
                           ),
                         );
                       },
                     ),
-
                   ),
-
-                 
-
                 ],
               )
             : const Center(child: CircularProgressIndicator()),

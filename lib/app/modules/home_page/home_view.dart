@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, avoid_unnecessary_containers, unused_local_variable
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, avoid_unnecessary_containers, unused_local_variable, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -44,21 +44,16 @@ class HomeView extends GetView<HomeController> {
                           height: 10.h,
                           //color: Colors.red,
                           child: Row(children: [
-                            controller.myProfileModel!.data!.profilePicture !=
-                                    null
-                                ? CircleAvatar(
-                                    radius: 3.5.h,
-                                    backgroundImage: MemoryImage(
-                                      Base64.pictureBase64Decode(
-                                        controller.myProfileModel!.data!
-                                            .profilePicture
-                                            .toString(),
-                                      ),
-                                    ))
-                                : CircleAvatar(
-                                    radius: 3.5.h,
-                                    backgroundImage: AssetImage(
-                                        "assets/images/home_assets/ic_avatar_profile.png")),
+                            CircleAvatar(
+                                radius: 3.5.h,
+                                backgroundColor: Colors.grey.withOpacity(0.5),
+                                backgroundImage: MemoryImage(
+                                  Base64.pictureBase64Decode(
+                                    controller
+                                        .myProfileModel!.data!.profilePicture
+                                        .toString(),
+                                  ),
+                                )),
                             IconButton(
                                 onPressed: () {}, icon: const Icon(Icons.info)),
                           ]),
@@ -185,7 +180,9 @@ class HomeView extends GetView<HomeController> {
                                   isBordro: false,
                                 ),
                                 HomeMenuCard(
-                                  cardPressed: () {},
+                                  cardPressed: () {
+                                    Get.toNamed(Routes.MY_jOBS);
+                                  },
                                   cardName: controller
                                       .infoModel!.data!.menuInfo[2].MENUNAME,
                                   cardInfo:
@@ -198,7 +195,13 @@ class HomeView extends GetView<HomeController> {
                                 ),
                                 HomeMenuCard(
                                   cardPressed: () {
-                                    Get.toNamed(Routes.MY_PAYROLLS);
+                                    Get.toNamed(Routes.MY_PAYROLLS, arguments: {
+                                      "name":
+                                          "${controller.infoModel!.data!.NameSurname}",
+                                      "picture": controller
+                                          .myProfileModel!.data!.profilePicture
+                                          .toString()
+                                    });
                                   },
                                   lastBordroPressed: () {},
                                   cardName: controller

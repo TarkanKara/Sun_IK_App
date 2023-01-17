@@ -12,10 +12,10 @@ class HomeController extends GetxController {
   HomeController({required this.apiRepository});
 
   //MyPayrollsController
-  MyPayrollsController myPayrollsController = Get.put(
-    MyPayrollsController(apiRepository: Get.find()),
-    permanent: true,
-  );
+  // MyPayrollsController myPayrollsController = Get.put(
+  //   MyPayrollsController(apiRepository: Get.find()),
+  //   permanent: false,
+  // );
 
   //Model
   GetLandingPageInfoModel? infoModel = GetLandingPageInfoModel();

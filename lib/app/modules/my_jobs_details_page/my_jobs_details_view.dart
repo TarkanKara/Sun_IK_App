@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -43,16 +42,16 @@ class MyJobsDetailsView extends GetView<MyJobsDetailsController> {
           children: [
             Padding(
               padding: EdgeInsets.only(top: 2.h),
-              child: Text("18.06.2021 14:08"),
+              child: const Text("18.06.2021 14:08"),
             ),
             Padding(
               padding: EdgeInsets.only(top: 2.h),
-              child: Text("Requestor"),
+              child: const Text("Requestor"),
             ),
             Padding(
               padding: EdgeInsets.only(top: 2.h),
-              child:
-                  Text("Status: Pending"), // Status sabit pending değişecek ${}
+              child: const Text(
+                  "Status: Pending"), // Status sabit pending değişecek ${}
             ),
           ],
         ),

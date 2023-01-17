@@ -122,31 +122,35 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
               ),
             ],
           ),
-          Positioned(
-            top: 12.h,
-            left: 8.w,
-            right: 8.w,
-            child: GestureDetector(
-                onTap: () {
-                  controller.getMyPayrollPdf(0);
-                  Get.toNamed(Routes.PDF_VIEW);
-                },
-                child: LastMyPayroll()),
+          Obx(
+            () => controller.status.value.isSuccess
+                ? Positioned(
+                    top: 12.h,
+                    left: 8.w,
+                    right: 8.w,
+                    child: GestureDetector(
+                        onTap: () {
+                          controller.getMyPayrollPdf(0);
+                          Get.toNamed(Routes.PDF_VIEW);
+                        },
+                        child: LastMyPayroll(
+                          userText: controller.userName,
+                        )),
+                  )
+                : Center(child: CircularProgressIndicator()),
           ),
           Positioned(
             top: 8.h,
             left: 40.w,
             right: 40.w,
             child: CircleAvatar(
-              radius: 10.w,
-              backgroundColor: const Color(0xffEBEBEB),
-              child: CircleAvatar(
-                radius: 8.5.w,
-                backgroundColor: Colors.white,
-                backgroundImage: const AssetImage(
-                    "assets/images/home_assets/ic_avatar_profile.png"),
-              ),
-            ),
+                radius: 10.w,
+                backgroundColor: const Color(0xffEBEBEB),
+                child: CircleAvatar(
+                  radius: 8.5.w,
+                  backgroundColor: Colors.grey.withOpacity(0.5),
+                  backgroundImage: MemoryImage(controller.photoPath!),
+                )),
           ),
         ],
       ),

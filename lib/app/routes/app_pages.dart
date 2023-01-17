@@ -20,6 +20,7 @@ import 'package:sun_ik_app/app/modules/my_approve_page/my_approve_view.dart';
 
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart';
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
+import 'package:sun_ik_app/app/modules/my_team_page/my_team_view.dart';
 import 'package:sun_ik_app/app/modules/notification_detail_page/notification_detail_binding.dart';
 import 'package:sun_ik_app/app/modules/notification_detail_page/notification_detail_view.dart';
 import 'package:sun_ik_app/app/modules/notification_page/notification_binding.dart';
@@ -141,6 +142,11 @@ class AppPages {
       name: Routes.NOTIFICATION_DETAIL,
       page: () => const NotificationDetailView(),
       binding: NotificationDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_TEAMS,
+      page: () => const MyTeamView(),
+      binding: MyApproveDetailBinding(),
     ),
   ];
 }

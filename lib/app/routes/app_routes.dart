@@ -22,4 +22,5 @@ abstract class Routes {
   static const NOTIFICATION = "/notification";
   static const PIN_LOGIN = "/pin_login";
   static const NOTIFICATION_DETAIL = "/notification_detail";
+  static const MY_TEAMS = "/my_teams";
 }

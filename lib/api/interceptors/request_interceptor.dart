@@ -7,7 +7,6 @@ import 'package:get_storage/get_storage.dart';
 import 'package:sun_ik_app/app/models/login/login_model.dart';
 
 FutureOr<Request> requestInterceptor(request) async {
-
   GetStorage token = GetStorage();
   LoginModel loginModel = LoginModel();
 
@@ -17,6 +16,6 @@ FutureOr<Request> requestInterceptor(request) async {
   token.read("token2") != null
       ? request.headers["vbtauthorization"] = token.read("token2")
       : {};
-
+      
   return request;
 }

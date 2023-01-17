@@ -13,6 +13,7 @@ abstract class Routes {
   static const CREATEPINCODE = "/create_pin_code";
   static const CHANGEPINCODE = "/change_pin_code";
   static const SPLASH = "/splash";
+  static const MY_LEAVES = "/my_leaves";
   static const MANAGERSEARCH = "/managersearch";
   static const REQUEST = "/request";
   static const MY_jOBS = "/my_jobs";
@@ -23,4 +24,5 @@ abstract class Routes {
   static const PIN_LOGIN = "/pin_login";
   static const MY_JOBS_DETAIL = "/myjobsdetail";
   static const NOTIFICATION_DETAIL = "/notification_detail";
+  
 }

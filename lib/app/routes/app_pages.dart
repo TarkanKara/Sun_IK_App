@@ -10,6 +10,8 @@ import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
 
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
+import 'package:sun_ik_app/app/modules/my_leaves_page/my_leaves.view.dart';
+import 'package:sun_ik_app/app/modules/my_leaves_page/my_leaves_binding.dart';
 import 'package:sun_ik_app/app/modules/manager_search_page/manager_search_view.dart';
 import 'package:sun_ik_app/app/modules/my_jobs_page/my_jobs_binding.dart';
 import 'package:sun_ik_app/app/modules/my_jobs_page/my_jobs_view.dart';
@@ -98,6 +100,11 @@ class AppPages {
       name: Routes.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_LEAVES,
+      page: () => const MyLeavesView(),
+      binding: MyLeavesBinding(),
     ),
     GetPage(
       name: Routes.MANAGERSEARCH,

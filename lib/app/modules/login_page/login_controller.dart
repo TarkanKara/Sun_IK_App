@@ -1,18 +1,25 @@
-// ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks, non_constant_identifier_names, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../api/api_repository.dart';
 import '../../models/login/login_model.dart';
-import '../../routes/app_pages.dart';
 
+import 'package:get_storage/get_storage.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
+
+import '../../routes/app_pages.dart';
+import '../splash_page/splash_controller.dart';
 
 class LoginController extends GetxController {
   ApiRepository apiRepository;
   LoginController({required this.apiRepository});
+  SplashController splashController =
+      Get.put(SplashController(apiRepository: Get.find()));
+
+  //
+  GetStorage storage_token = GetStorage();
 
   //Model
   LoginModel loginModel = LoginModel();
@@ -27,7 +34,6 @@ class LoginController extends GetxController {
   //TextEditingController
   TextEditingController user = TextEditingController();
   TextEditingController passwordu = TextEditingController();
-
   dropDownValues(String value) {
     dropdownvalue.value = value;
   }
@@ -49,38 +55,38 @@ class LoginController extends GetxController {
     }
   }
 
-  /* //currentLogin
+  //currentLogin
   currentLogin() async {
-    status.value = RxStatus.loading();
-    loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
-    status.value = RxStatus.success();
-  } */
+    if (dropdownvalue.value != "Sun") {
+      return CustomDialog.getDialog("Uyarı", "Şirket Seçimi Yapnız", "Kapat");
+    } else if (user.text == "") {
+      return CustomDialog.getDialog("Uyarı", "Kullanıcı Boş Girilmez", "Kapat");
+    } else if (passwordu.text == "") {
+      return CustomDialog.getDialog(
+          "Uyarı", "Şifre Alanı Boş Girilmez", "Kapat");
+    } else {
+      status.value = RxStatus.loading();
+      loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;
+      await storage_token.write("token2", loginModel.token.toString());
+      await storage_token.write("user_name", user.text);
+      await storage_token.write("select_company", dropdownvalue.value);
+      status.value = RxStatus.success();
+      await closedTextField();
+      await pinCodeChange();
+    }
+  }
 
-  //
-  isAuthCorrect() async {
-    if (user.text == "user" && passwordu.text == "Vbt1993.") {
+  pinCodeChange() {
+    if (storage_token.read("pin_code") != null) {
       return Get.toNamed(Routes.HOME);
     } else {
-      return Get.defaultDialog(
-        title: "Hata",
-        titleStyle: GoogleFonts.inter(
-            color: Colors.white, fontWeight: FontWeight.w500, fontSize: 3.h),
-        content: Column(
-          children: [
-            Text("Kullanıcı bilgileri yanlış girildi.",
-                style: GoogleFonts.inter(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 2.5.h)),
-            Text("Bilgilerinizi kontrol ediniz.",
-                style: GoogleFonts.inter(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 2.5.h)),
-          ],
-        ),
-        backgroundColor: const Color(0xffcf3842),
-      );
+      return Get.toNamed(Routes.CREATEPINCODE);
     }
+  }
+
+  closedTextField() {
+    user.clear();
+    passwordu.clear();
+    print("Login user ve password TextFiel Temizlendi");
   }
 }

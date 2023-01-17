@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../api/api_repository.dart';
+import '../../../utils/base64_convert_picture.dart';
 import '../../models/my_payroll/my_payroll_model.dart';
 import '../../models/my_payroll/my_payroll_pdf_model.dart';
 
@@ -22,12 +23,19 @@ class MyPayrollsController extends GetxController {
   Rx<RxStatus> status = RxStatus.empty().obs;
   Uint8List? resultPdf;
   RxInt indexfinal = 0.obs;
+  String userName = "";
+  Uint8List? photoPath;
 
   //DateTime
   var selectedDate = DateTime.now().obs;
 
   @override
   void onInit() {
+    //userNameMap = Get.arguments;
+    photoPath = Base64.pictureBase64Decode(Get.arguments['picture']);
+    print(photoPath);
+    userName = Get.arguments['name'];
+    print("arguments ${Get.arguments.toString()}");
     getMyPayrolls();
     //await getMyPayrollPdf(2);
     print("MyPayrolls View");

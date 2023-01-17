@@ -5,7 +5,9 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../modules/my_payrolls_page/my_payrolls_controller.dart';
 
 class LastMyPayroll extends GetView<MyPayrollsController> {
+  final String userText;
   const LastMyPayroll({
+    required this.userText,
     Key? key,
   }) : super(key: key);
 
@@ -30,9 +32,9 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
                 children: [
                   SizedBox(
                     height: 5.h,
-                    width: 42.w,
+                    width: 60.w,
                     child: Text(
-                      "TARKAN KARA",
+                      userText,
                       style: Theme.of(context)
                           .textTheme
                           .caption!

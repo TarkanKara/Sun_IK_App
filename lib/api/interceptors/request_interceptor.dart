@@ -1,9 +1,22 @@
+// ignore_for_file: non_constant_identifier_names, unused_local_variable, avoid_print
+
 import 'dart:async';
 
 import 'package:get/get_connect/http/src/request/request.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:sun_ik_app/app/models/login/login_model.dart';
 
 FutureOr<Request> requestInterceptor(request) async {
-  request.headers["vbtauthorization"] =
-      "WKoMn2uQoYonCyZtPWWWayz7aN/l2GU1wN9bhgXRl0JzS6zoy1ymfZ9O2hbOuHWR~1742~string~638091686988888975";
+
+  GetStorage token = GetStorage();
+  LoginModel loginModel = LoginModel();
+
+  print("requestInterceptor TokenBilgisi : ${token.read("token2")}");
+  print("requestInterceptor ModelTokenBilgisi : ${loginModel.token}");
+
+  token.read("token2") != null
+      ? request.headers["vbtauthorization"] = token.read("token2")
+      : {};
+
   return request;
 }

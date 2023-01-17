@@ -7,6 +7,8 @@ class StartView extends GetView<StartController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const SafeArea(
+      child: Scaffold(),
+    );
   }
 }

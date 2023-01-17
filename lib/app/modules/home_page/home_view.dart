@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:sun_ik_app/utils/base64_convert_picture.dart';
 import 'package:sun_ik_app/utils/date_convert.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../../../utils/const.dart';
 import '../../routes/app_pages.dart';
@@ -41,19 +41,19 @@ class HomeView extends GetView<HomeController> {
                         ),
                         Container(
                           width: 28.7.w,
-                          height: 10.h,
+                          // height: 10.h,
                           //color: Colors.red,
                           child: Row(children: [
-                            CircleAvatar(
-                                radius: 3.5.h,
-                                backgroundColor: Colors.grey.withOpacity(0.5),
-                                backgroundImage: MemoryImage(
-                                  Base64.pictureBase64Decode(
-                                    controller
-                                        .myProfileModel!.data!.profilePicture
-                                        .toString(),
-                                  ),
-                                )),
+                            // CircleAvatar(
+                            //     radius: 3.5.h,
+                            //     backgroundColor: Colors.grey.withOpacity(0.5),
+                            //     backgroundImage: MemoryImage(
+                            //       Base64.pictureBase64Decode(
+                            //         controller
+                            //             .myProfileModel!.data!.profilePicture
+                            //             .toString(),
+                            //       ),
+                            //     )),
                             IconButton(
                                 onPressed: () {}, icon: const Icon(Icons.info)),
                           ]),
@@ -74,6 +74,7 @@ class HomeView extends GetView<HomeController> {
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(
+                        //color: Colors.red,
                         width: 25.w,
                         height: 10.h,
                         child: Row(
@@ -117,7 +118,15 @@ class HomeView extends GetView<HomeController> {
                               ),
                               IconButton(
                                   onPressed: () async {
-                                    Get.offNamed(Routes.SPLASH);
+                                    CustomDialog.getDialog(
+                                        'Uyarı',
+                                        'Çıkış yapmak istediğinize emin misiniz?',
+                                        'Kapat',
+                                        widget: ElevatedButton(
+                                            onPressed: () {
+                                              Get.offAllNamed(Routes.SPLASH);
+                                            },
+                                            child: Text('Çıkış Yap')));
                                   },
                                   icon: Image.asset(
                                     Const.CIKISYAPICON,
@@ -127,101 +136,217 @@ class HomeView extends GetView<HomeController> {
                             ]),
                       ),
                     ),
+                    /* ---------------Yönetici True------------------ */
+
+                    controller.infoModel!.data!.IsManager != false
+                        ? Positioned(
+                            right: 10.h,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: Container(
+                                    //color: Colors.red,
+                                    width: 25.w,
+                                    height: 10.h,
+                                    child: Image.asset(
+                                      "assets/images/home_assets/ic_search.png",
+                                      scale: 0.2.h,
+                                      color: Colors.red[400],
+                                    )),
+                              ),
+                            ),
+                          )
+                        : Container()
+
+                    /* -------------,------------------- */
                   ],
                 ),
                 SizedBox(
                   height: 2.h,
                 ),
                 SizedBox(
-                  width: double.infinity,
-                  height: 41.5.h,
-                  child: Obx(
-                    () => controller.status.value.isSuccess
-                        ? SizedBox(
-                            width: double.infinity,
-                            height: 41.5.h,
-                            child: GridView(
-                              physics: const NeverScrollableScrollPhysics(),
-                              padding: const EdgeInsets.all(10),
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 1.2,
-                                crossAxisSpacing: 2.h,
-                                mainAxisSpacing: 2.h,
-                              ),
-                              children: [
-                                HomeMenuCard(
-                                  cardPressed: () {
-                                    Get.toNamed(Routes.REQUEST);
-                                  },
-                                  cardName: controller
-                                      .infoModel!.data!.menuInfo[0].MENUNAME,
-                                  cardInfo:
-                                      "${controller.infoModel!.data!.MyRequestCount} Notifications",
-                                  cardIcon:
-                                      'assets/images/home_assets/ic_taleplerim.png',
-                                  cardHeight: 20.h,
-                                  cardWidth: 38.w,
-                                  isBordro: false,
-                                ),
-                                HomeMenuCard(
-                                  cardPressed: () {
-                                    Get.toNamed(Routes.MY_APPROVE);
-                                  },
-                                  cardName: controller
-                                      .infoModel!.data!.menuInfo[1].MENUNAME,
-                                  cardInfo:
-                                      "${controller.infoModel!.data!.GetMyApprovalCount} Notifications",
-                                  cardIcon:
-                                      'assets/images/home_assets/ic_onayladiklarim1.png',
-                                  cardHeight: 20.h,
-                                  cardWidth: 38.w,
-                                  isBordro: false,
-                                ),
-                                HomeMenuCard(
-                                  cardPressed: () {
-                                    Get.toNamed(Routes.MY_jOBS);
-                                  },
-                                  cardName: controller
-                                      .infoModel!.data!.menuInfo[2].MENUNAME,
-                                  cardInfo:
-                                      "${controller.infoModel!.data!.GetMyWorks} Notifications",
-                                  cardIcon:
-                                      'assets/images/home_assets/ic_islerim1.png',
-                                  cardHeight: 20.h,
-                                  cardWidth: 38.w,
-                                  isBordro: false,
-                                ),
-                                HomeMenuCard(
-                                  cardPressed: () {
-                                    Get.toNamed(Routes.MY_PAYROLLS, arguments: {
-                                      "name":
-                                          "${controller.infoModel!.data!.NameSurname}",
-                                      "picture": controller
-                                          .myProfileModel!.data!.profilePicture
-                                          .toString()
-                                    });
-                                  },
-                                  lastBordroPressed: () {},
-                                  cardName: controller
-                                      .infoModel!.data!.menuInfo[5].MENUNAME,
-                                  cardInfo: controller.infoModel!.data!
-                                      .myLastPayroll.DocumentName,
-                                  cardIcon:
-                                      'assets/images/home_assets/ic_bordrolarim.png',
-                                  cardHeight: 20.h,
-                                  cardWidth: 38.w,
-                                  isBordro: true,
-                                ),
-                              ],
-                            ),
-                          )
-                        : Center(
-                            child: CircularProgressIndicator(),
+                    width: double.infinity,
+                    height: 41.5.h,
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 41.5.h,
+                      child: GridView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        padding: const EdgeInsets.all(10),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 1.2,
+                          crossAxisSpacing: 2.h,
+                          mainAxisSpacing: 2.h,
+                        ),
+                        children: [
+                          HomeMenuCard(
+                            cardPressed: () {
+                              Get.toNamed(Routes.REQUEST);
+                            },
+                            cardName: controller
+                                .infoModel!.data!.menuInfo[0].MENUNAME,
+                            cardInfo:
+                                "${controller.infoModel!.data!.MyRequestCount} Notifications",
+                            cardIcon:
+                                'assets/images/home_assets/ic_taleplerim.png',
+                            cardHeight: 20.h,
+                            cardWidth: 38.w,
+                            isBordro: false,
                           ),
-                  ),
-                ),
+                          HomeMenuCard(
+                            cardPressed: () {
+                              Get.toNamed(Routes.MY_APPROVE);
+                            },
+                            cardName: controller
+                                .infoModel!.data!.menuInfo[1].MENUNAME,
+                            cardInfo:
+                                "${controller.infoModel!.data!.GetMyApprovalCount} Notifications",
+                            cardIcon:
+                                'assets/images/home_assets/ic_onayladiklarim1.png',
+                            cardHeight: 20.h,
+                            cardWidth: 38.w,
+                            isBordro: false,
+                          ),
+                          HomeMenuCard(
+                            cardPressed: () {
+                              Get.toNamed(Routes.MY_jOBS);
+                            },
+                            cardName: controller
+                                .infoModel!.data!.menuInfo[2].MENUNAME,
+                            cardInfo:
+                                "${controller.infoModel!.data!.GetMyWorks} Notifications",
+                            cardIcon:
+                                'assets/images/home_assets/ic_islerim1.png',
+                            cardHeight: 20.h,
+                            cardWidth: 38.w,
+                            isBordro: false,
+                          ),
+                          HomeMenuCard(
+                            cardPressed: () {
+                              Get.toNamed(Routes.MY_PAYROLLS, arguments: {
+                                "name":
+                                    "${controller.infoModel!.data!.NameSurname}",
+                                "picture": controller
+                                    .myProfileModel!.data!.profilePicture
+                                    .toString()
+                              });
+                            },
+                            lastBordroPressed: () {},
+                            cardName: controller
+                                .infoModel!.data!.menuInfo[5].MENUNAME,
+                            cardInfo: controller
+                                .infoModel!.data!.myLastPayroll.DocumentName,
+                            cardIcon:
+                                'assets/images/home_assets/ic_bordrolarim.png',
+                            cardHeight: 20.h,
+                            cardWidth: 38.w,
+                            isBordro: true,
+                          ),
+                        ],
+                      ),
+                    )),
+
+                // Align(
+                //   alignment: Alignment.center,
+                //   child: Container(
+                //     width: 95.w,
+                //     height: 15.h,
+                //     decoration: BoxDecoration(
+                //         image: DecorationImage(
+                //             image: AssetImage(
+                //                 "assets/images/home_assets/ic_sun_akademi.jpg"),
+                //             fit: BoxFit.fill),
+                //         borderRadius: BorderRadius.circular(20),
+                //         color: Const.MENUCOLOR,
+                //         boxShadow: const [
+                //           BoxShadow(
+                //               blurRadius: 3,
+                //               color: Colors.grey,
+                //               spreadRadius: 0,
+                //               offset: Offset(0, 1))
+                //         ]),
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         IconButton(
+                //             onPressed: () {},
+                //             icon: Icon(
+                //               Icons.arrow_forward_ios_outlined,
+                //               color: Colors.white,
+                //               size: 4.h,
+                //             )),
+                //         Padding(
+                //           padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                //           child: Text(
+                //             'Sun Akademi',
+                //             style: GoogleFonts.inter(
+                //                 fontSize: 30, color: Colors.white),
+                //           ),
+                //         ),
+                //         IconButton(
+                //             onPressed: () {},
+                //             icon: Icon(
+                //               Icons.arrow_back_ios_outlined,
+                //               color: Colors.white,
+                //               size: 4.h,
+                //             ))
+                //       ],
+                //     ),
+                //   ),
+                // ),
+                controller.isAkademi.value
+                    ? Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          margin: EdgeInsets.symmetric(vertical: 0.6.h),
+                          width: 95.w,
+                          height: 15.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Const.MENUCOLOR,
+                              boxShadow: const [
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    color: Colors.grey,
+                                    spreadRadius: 0,
+                                    offset: Offset(0, 1))
+                              ]),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.asset(
+                                    'assets/images/home_assets/logo_sun_akademi.png',
+                                    height: 20.w,
+                                    width: 20.w,
+                                  )),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(left: 3.5.w, right: 3.5.w),
+                                child: Text(
+                                  'Sun Akademi',
+                                  style: GoogleFonts.inter(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w600,
+                                      color: Const.BASLIKTEXTCOLOR),
+                                ),
+                              ),
+                              Container(
+                                  width: 5.h,
+                                  height: 5.h,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/home_assets/ic_forward.png"))))
+                            ],
+                          ),
+                        ),
+                      )
+                    : Container(),
+
                 Align(
                   alignment: Alignment.center,
                   child: Padding(

@@ -5,17 +5,10 @@ import 'package:get/get.dart';
 import '../../../api/api_repository.dart';
 import '../../models/home/get_landing_page_info.dart';
 import '../../models/home/my_profile_model.dart';
-import '../my_payrolls_page/my_payrolls_controller.dart';
 
 class HomeController extends GetxController {
   final ApiRepository apiRepository;
   HomeController({required this.apiRepository});
-
-  //MyPayrollsController
-  // MyPayrollsController myPayrollsController = Get.put(
-  //   MyPayrollsController(apiRepository: Get.find()),
-  //   permanent: false,
-  // );
 
   //Model
   GetLandingPageInfoModel? infoModel = GetLandingPageInfoModel();
@@ -24,12 +17,16 @@ class HomeController extends GetxController {
   //
   Rx<RxStatus> status = RxStatus.empty().obs;
 
+  //
+  RxBool isAkademi = false.obs;
+
   RxList user1 = [].obs;
   RxList user2 = [].obs;
 
   @override
   void onInit() {
     getLandingPage();
+
     print("Home View Yüklendi....");
     super.onInit();
   }
@@ -44,12 +41,21 @@ class HomeController extends GetxController {
   //getHomeMyProfile
   getHomeMyProfile() async {
     myProfileModel = await apiRepository.getMyProfile();
+    isSunAkademi();
     status.value = RxStatus.success();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    print("object");
+  isSunAkademi() {
+    if (infoModel!.data!.IsManager == false) {
+      for (var element in infoModel!.data!.menuInfo) {
+        if (element.MENUNAME == "SunAkademi") {
+          isAkademi.value = true;
+        } else {
+          isAkademi.value = false;
+        }
+      }
+    } else {
+      isAkademi.value = true;
+    }
   }
 }

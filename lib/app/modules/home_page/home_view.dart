@@ -121,8 +121,8 @@ class HomeView extends GetView<HomeController> {
                                 ),
                               ),
                               IconButton(
-                                  onPressed: () {
-                                    Get.offAllNamed(Routes.SPLASH);
+                                  onPressed: () async {
+                                    Get.offNamed(Routes.SPLASH);
                                   },
                                   icon: Image.asset(
                                     Const.CIKISYAPICON,

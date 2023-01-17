@@ -46,4 +46,10 @@ class HomeController extends GetxController {
     myProfileModel = await apiRepository.getMyProfile();
     status.value = RxStatus.success();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print("object");
+  }
 }

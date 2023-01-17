@@ -20,6 +20,8 @@ class NotificationController extends GetxController {
   //
   Rx<RxStatus> status = RxStatus.empty().obs;
 
+  RxInt index = 0.obs;
+
   //
   @override
   void onInit() {

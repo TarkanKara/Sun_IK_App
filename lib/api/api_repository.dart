@@ -198,7 +198,7 @@ class ApiRepository {
 
   //getReadNotification
   Future<ReadNotificationModel?> getReadNotification(
-      String push_notification_detail) async {
+      int? push_notification_detail) async {
     try {
       var response = await apiProvider.postMethod(
         "PushNotification/ReadPushMessage?ID_PUSH_NOTIFICATION_DETAIL=${push_notification_detail}",

@@ -3,14 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:sun_ik_app/app/modules/home_page/home_controller.dart';
 import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../../routes/app_pages.dart';
 
 class PinLoginController extends GetxController {
-  HomeController homeController =
-      Get.put(HomeController(apiRepository: Get.find()));
   //
   GetStorage getStorage = GetStorage();
 
@@ -77,12 +74,5 @@ class PinLoginController extends GetxController {
     await getStorage.remove("pin_code");
     await getStorage.remove("user_name");
     await getStorage.remove("select_company");
-    await closedModel();
-  }
-
-  closedModel() {
-    homeController.status.value = RxStatus.loading();
-    homeController.infoModel = null;
-    homeController.myProfileModel = null;
   }
 }

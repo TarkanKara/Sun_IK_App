@@ -5,13 +5,11 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/request_page/request_controller.dart';
 import 'package:sun_ik_app/app/widgets/request_widgets/request_list_item.dart';
 import 'package:sun_ik_app/utils/const.dart';
-
 import '../../../utils/date_convert.dart';
 import '../../routes/app_pages.dart';
 
 class RequestView extends GetView<RequestController> {
   const RequestView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +37,9 @@ class RequestView extends GetView<RequestController> {
           )
         ],
         title: Text(
+          
           "Taleplerim",
+
           style: GoogleFonts.inter(
               color: Colors.white,
               fontSize: 2.2.h,
@@ -99,7 +99,11 @@ class RequestView extends GetView<RequestController> {
                         );
                       },
                     ),
-                  )
+
+                  ),
+
+                 
+
                 ],
               )
             : const Center(child: CircularProgressIndicator()),

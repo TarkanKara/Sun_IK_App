@@ -196,7 +196,10 @@ class LoginView extends GetView<LoginController> {
                                       callback: () {
                                         print("object");
                                         controller.currentLogin();
+
+
                                         //controller.closedTextField();
+
                                       },
                                     )),
                                 Padding(

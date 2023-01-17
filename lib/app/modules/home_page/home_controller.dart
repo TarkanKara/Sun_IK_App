@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../../api/api_repository.dart';
 import '../../models/home/get_landing_page_info.dart';
 import '../../models/home/my_profile_model.dart';
-import '../login_page/login_controller.dart';
 import '../my_payrolls_page/my_payrolls_controller.dart';
 
 class HomeController extends GetxController {
@@ -17,10 +16,6 @@ class HomeController extends GetxController {
     MyPayrollsController(apiRepository: Get.find()),
     permanent: true,
   );
-
-  //LoginController
-  LoginController loginController =
-      Get.put(LoginController(apiRepository: Get.find()), permanent: true);
 
   //Model
   GetLandingPageInfoModel? infoModel = GetLandingPageInfoModel();
@@ -52,12 +47,9 @@ class HomeController extends GetxController {
     status.value = RxStatus.success();
   }
 
-/* //homeModelClosed
-  homeModelClosed() {
-    status.value = RxStatus.loading();
-    infoModel = null;
-    myProfileModel = null;
-    print("infoModel  boşaltıldı : ${infoModel} ");
-    print("myProfileModel  boşaltıldı : ${myProfileModel} ");
-  } */
+  @override
+  void dispose() {
+    super.dispose();
+    print("object");
+  }
 }

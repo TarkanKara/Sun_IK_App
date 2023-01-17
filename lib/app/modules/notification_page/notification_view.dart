@@ -31,6 +31,7 @@ class NotificationView extends GetView<NotificationController> {
         backgroundColor: const Color(0xffEF3E52),
         leading: IconButton(
           onPressed: () {
+            controller.homeController.getLandingPage();
             Get.back();
           },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),

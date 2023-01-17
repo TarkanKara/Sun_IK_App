@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sun_ik_app/api/api_repository.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_model.dart';
+import 'package:sun_ik_app/app/modules/home_page/home_controller.dart';
 import 'package:sun_ik_app/utils/dialog.dart';
 
 class NotificationController extends GetxController {
   final ApiRepository apiRepository;
   NotificationController({required this.apiRepository});
+
+  HomeController homeController = Get.put(HomeController(apiRepository: Get.find()));
 
   //Model
   NotificationModel notification = NotificationModel();
@@ -19,7 +22,6 @@ class NotificationController extends GetxController {
   //
   @override
   void onInit() {
-    refresh();
     getNotification();
     print("Notification View Yüklendi");
     super.onInit();
@@ -64,6 +66,8 @@ class NotificationController extends GetxController {
         widget: ElevatedButton(
             onPressed: () {
               selectedNotificationDelete(idPushNotificationDetail);
+              getNotification();
+              Get.back();
             },
             child: const Text('Sil')));
   }

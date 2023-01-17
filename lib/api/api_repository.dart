@@ -216,10 +216,10 @@ class ApiRepository {
 
   //getDeleteNotification
   Future<DeleteNotificationModel?> getDeleteNotification(
-      String push_notification_detail) async {
+      int idPushNotificationDetail) async {
     try {
       var response = await apiProvider.postMethod(
-        "/PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${push_notification_detail}",
+        "PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${idPushNotificationDetail}",
         {},
       );
       if (response.statusCode == 200) {

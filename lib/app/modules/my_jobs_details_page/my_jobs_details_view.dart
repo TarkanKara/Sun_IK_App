@@ -30,24 +30,32 @@ class MyJobsDetailsView extends GetView<MyJobsDetailsController> {
               fontWeight: FontWeight.w700),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 2.h),
-            child: Text("18.06.2021 14:08"),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 2.h),
-            child: Text("Requestor"),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 2.h),
-            child: Text("Status: Pending"),// Status sabit pending değişecek ${}
-          ),
-
-        ],
+      body: Container(
+        height: 100.h,
+        width: 100.w,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/login/login_background.jpg"),
+                fit: BoxFit.cover)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 2.h),
+              child: Text("18.06.2021 14:08"),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 2.h),
+              child: Text("Requestor"),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 2.h),
+              child:
+                  Text("Status: Pending"), // Status sabit pending değişecek ${}
+            ),
+          ],
+        ),
       ),
     );
   }

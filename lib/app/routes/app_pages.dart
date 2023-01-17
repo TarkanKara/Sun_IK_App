@@ -17,6 +17,8 @@ import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_
 import 'package:sun_ik_app/app/modules/my_approve_detail_page/my_approve_detail_view.dart';
 import 'package:sun_ik_app/app/modules/my_approve_page/my_approve_binding.dart';
 import 'package:sun_ik_app/app/modules/my_approve_page/my_approve_view.dart';
+import 'package:sun_ik_app/app/modules/my_jobs_details_page/my_jobs_details_bindings.dart';
+import 'package:sun_ik_app/app/modules/my_jobs_details_page/my_jobs_details_view.dart';
 
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart';
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
@@ -136,6 +138,11 @@ class AppPages {
       name: Routes.PIN_LOGIN,
       page: () => const PinLoginView(),
       binding: PinLoginBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_JOBS_DETAIL,
+      page: () => const MyJobsDetailsView(),
+      binding: MyJobsDetailsBindings(),
     ),
     GetPage(
       name: Routes.NOTIFICATION_DETAIL,

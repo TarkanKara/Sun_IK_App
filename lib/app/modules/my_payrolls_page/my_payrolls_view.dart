@@ -74,7 +74,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                     children: [
                       Obx(() => controller.status.value.isSuccess
                           ? SizedBox(
-                              height: 60.h,
+                              height: 58.5.h,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 padding: EdgeInsets.zero,

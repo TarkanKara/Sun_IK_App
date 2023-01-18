@@ -34,7 +34,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
             icon: const Icon(Icons.add_sharp),
           ),
         ],
-        title: const Text("MY LEAVES"),
+        title: const Text("İzinlerim"),
       ),
       body: DefaultTabController(
         initialIndex: 0,

@@ -26,7 +26,7 @@ class MyJobsView extends GetView<MyJobsController> {
             icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           ),
           title: Text(
-            'My Task',
+            'İşlerim',
             style: GoogleFonts.inter(
                 color: Colors.white,
                 fontSize: 2.2.h,

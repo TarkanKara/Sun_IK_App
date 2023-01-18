@@ -19,49 +19,49 @@ class LanguageController extends GetxController {
 
   RxList languages = [
     {
-      "name":"Turkish", 
+      "name":"Türkçe", 
       "subTitle": "Türkçe",
       "flag": "assets/images/language/turkish_flag.jpg",
       //"isCheck": false
     },
     {
-      "name": "English",
+      "name": "İngilizce",
       "subTitle": "English",
       "flag": "assets/images/language/english_flag.png",
       // "isCheck": false
     },
     {
-      "name": "Portuguese",
+      "name": "Portekizce",
       "subTitle": "Português",
       "flag": "assets/images/language/portugal_flag.png",
       //"isCheck": false
     },
     {
-      "name": "German",
+      "name": "Almanca",
       "subTitle": "Deutsch",
       "flag": "assets/images/language/german_flag.png",
       //"isCheck": false
     },
     {
-      "name": "French",
+      "name": "Fransızca",
       "subTitle": "Français",
       "flag": "assets/images/language/french_flag1.png",
       // "isCheck": false
     },
     {
-      "name": "Chinese",
+      "name": "Çince",
       "subTitle": "中国人",
       "flag": "assets/images/language/chinese_flag.png",
       // "isCheck": false
     },
     {
-      "name": "Japanese",
+      "name": "Japonca",
       "subTitle": "日本",
       "flag": "assets/images/language/japanese_flag.png",
       // "isCheck": false
     },
     {
-      "name": "Hindi",
+      "name": "Hintçe",
       "subTitle": "हिंदी",
       "flag": "assets/images/language/indian_flag.png",
       // "isCheck": false

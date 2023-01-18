@@ -38,7 +38,7 @@ class NotificationView extends GetView<NotificationController> {
           },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
-        title: const Text("Notifications"),
+        title: const Text("Bildirimler"),
       ),
       body: Obx(
         () => controller.status.value.isSuccess

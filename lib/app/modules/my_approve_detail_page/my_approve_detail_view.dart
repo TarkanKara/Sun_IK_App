@@ -112,7 +112,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Requestor',
+                                    'Talep Eden',
                                     style: GoogleFonts.inter(
                                         fontSize: 1.9.h,
                                         color: Const.ACIKLAMATEXTCOLOR,
@@ -120,7 +120,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                   ),
                                   SizedBox(width: 30.w),
                                   Text(
-                                    'Assigned Person',
+                                    'Atanan Kişi',
                                     style: GoogleFonts.inter(
                                         fontSize: 1.9.h,
                                         color: Const.ACIKLAMATEXTCOLOR,
@@ -141,7 +141,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     style: GoogleFonts.inter(
                                         color: Const.BASLIKTEXTCOLOR,
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 1.5.h),
+                                        fontSize: 1.6.h),
                                   ),
                                   SizedBox(width: 13.w),
                                   controller.myApproveDetailModel.data!
@@ -174,7 +174,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                 padding:
                                     EdgeInsets.only(left: 4.w, bottom: .3.h),
                                 child: Text(
-                                  "Details",
+                                  "Detaylar",
                                   style: GoogleFonts.inter(
                                       color: Const.BASLIKTEXTCOLOR,
                                       fontWeight: FontWeight.w700,
@@ -195,7 +195,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Request Number',
+                                    'Talep Numarası',
                                     style: GoogleFonts.inter(
                                         fontSize: 2.h,
                                         color: Const.ACIKLAMATEXTCOLOR,
@@ -267,7 +267,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     child: SizedBox(
                                       width: 45.w,
                                       child: Text(
-                                        'Çalışan Soyadı',
+                                        'Çalışan Ad Soyadı',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.inter(
@@ -322,7 +322,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 55.w,
                                         child: Text(
-                                          'Did you get a warrant',
+                                          'İzine ait döküman geldi mi',
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           style: GoogleFonts.inter(
@@ -402,7 +402,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 55.w,
                                         child: Text(
-                                          'Permission Start Date',
+                                          'İzin Başlangıç Tarihi',
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           style: GoogleFonts.inter(
@@ -443,7 +443,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     child: SizedBox(
                                       width: 55.w,
                                       child: Text(
-                                        'Permission End Date',
+                                        'İzin Bitiş Tarihi',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.inter(
@@ -482,7 +482,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 55.w,
                                         child: Text(
-                                          'On-The-Job Date',
+                                          'İş Başı Tarihi',
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           style: GoogleFonts.inter(
@@ -523,7 +523,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     child: SizedBox(
                                       width: 55.w,
                                       child: Text(
-                                        'Permission Number of Days of Leave',
+                                        'İzin Gün Sayısı',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.inter(
@@ -562,7 +562,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 55.w,
                                         child: Text(
-                                          'Permission Start Time',
+                                          'İzin Başlangıç Saati',
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           style: GoogleFonts.inter(
@@ -603,7 +603,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     child: SizedBox(
                                       width: 55.w,
                                       child: Text(
-                                        'Permission End Time',
+                                        'İzin Bitiş Saati',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.inter(
@@ -642,7 +642,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 55.w,
                                         child: Text(
-                                          'Permission Time (time)',
+                                          'İzin Süresi(saat)',
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           style: GoogleFonts.inter(
@@ -683,7 +683,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     child: SizedBox(
                                       width: 55.w,
                                       child: Text(
-                                        'Permission Time (minutes)',
+                                        'İzin Süresi(dakika)',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.inter(
@@ -721,7 +721,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     child: SizedBox(
                                       width: 40.w,
                                       child: Text(
-                                        'Description',
+                                        'Açıklama',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.inter(
@@ -768,7 +768,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 40.w,
                                         child: Text(
-                                          'Address/Phone To Pass Permission',
+                                          'İzni Geçireceği Adres/Telefon',
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           style: GoogleFonts.inter(
@@ -816,7 +816,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 55.w,
                                         child: Text(
-                                          'Anual Leave Balance',
+                                          'Yıllık İzin Bakiyesi',
                                           maxLines: 2,
                                           style: GoogleFonts.inter(
                                               fontSize: 2.h,
@@ -858,7 +858,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                       child: SizedBox(
                                         width: 40.w,
                                         child: Text(
-                                          'Year Permit Date',
+                                          'Yıl İzin Hakediş Gün Tarihi',
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           style: GoogleFonts.inter(
@@ -895,7 +895,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                     child: SizedBox(
                                       width: 55.w,
                                       child: Text(
-                                        'Number of Days Of Year Leave',
+                                        'Yıl İzin Hakediş Gün Sayısı',
                                         style: GoogleFonts.inter(
                                             fontSize: 2.h,
                                             color: Const.ACIKLAMATEXTCOLOR,
@@ -935,7 +935,7 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                 padding:
                                     EdgeInsets.only(left: 4.w, bottom: .3.h),
                                 child: Text(
-                                  "History",
+                                  "Tarih",
                                   style: GoogleFonts.inter(
                                       color: Const.BASLIKTEXTCOLOR,
                                       fontWeight: FontWeight.w700,

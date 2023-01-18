@@ -39,7 +39,7 @@ class LoginController extends GetxController {
   }
 
   RxList<String> company = [
-    "Şirket Seçinizy",
+    "Şirket Seçiniz",
     "Sun",
   ].obs;
 

@@ -43,7 +43,7 @@ class MyApproveView extends GetView<MyApproveController> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        controller.index.value = index;
+                        // controller.index.value = index;
                         Get.toNamed(Routes.MY_APPROVE_DETAIL);
                       },
                       child: Container(

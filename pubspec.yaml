@@ -86,6 +86,7 @@ flutter:
     - assets/images/my_approve_detail/
     - assets/images/my_approve/
     - assets/images/notification_assets/
+    - assets/images/my_teams/
     
     
   #   - images/a_dot_ham.jpeg

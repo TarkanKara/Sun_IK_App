@@ -25,4 +25,5 @@ abstract class Routes {
   static const MY_LEAVES_DETAIL = "/my_leaves_detail";
   static const MY_JOBS_DETAIL = "/myjobsdetail";
   static const NOTIFICATION_DETAIL = "/notification_detail";
+  static const MY_TEAMS = "/my_teams";
 }

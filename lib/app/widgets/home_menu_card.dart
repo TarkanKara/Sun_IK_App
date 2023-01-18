@@ -52,7 +52,7 @@ class HomeMenuCard extends StatelessWidget {
                 isBordro
                     ? GestureDetector(
                         onTap: lastBordroPressed,
-                        child: Text(Const.SONBORDROTEXT,
+                        child: Text("",
                             style: GoogleFonts.inter(
                                 color: Const.SONBORDROTEXTCOLOR)))
                     : Container()

@@ -250,7 +250,10 @@ class HomeView extends GetView<HomeController> {
                                     .toString()
                               });
                             },
-                            lastBordroPressed: () {},
+                            lastBordroPressed: () {
+                              
+                     
+                            },
                             cardName: controller
                                 .infoModel!.data!.menuInfo[5].MENUNAME,
                             cardInfo: controller

@@ -43,7 +43,6 @@ class HomeView extends GetView<HomeController> {
                         Container(
                           width: 28.7.w,
                           height: 10.h,
-                          //color: Colors.red,
                           child: Row(children: [
                             controller.myProfileModel!.data!.profilePicture !=
                                     null
@@ -86,7 +85,6 @@ class HomeView extends GetView<HomeController> {
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(
-                        //color: Colors.red,
                         width: 25.w,
                         height: 10.h,
                         child: Row(
@@ -162,7 +160,6 @@ class HomeView extends GetView<HomeController> {
                                   Get.toNamed(Routes.MANAGERSEARCH);
                                 },
                                 child: Container(
-                                    //color: Colors.red,
                                     width: 18.w,
                                     height: 10.h,
                                     margin: EdgeInsets.only(right: 3.w),
@@ -202,10 +199,10 @@ class HomeView extends GetView<HomeController> {
                             cardPressed: () {
                               Get.toNamed(Routes.REQUEST);
                             },
-                            cardName: controller
-                                .infoModel!.data!.menuInfo[0].MENUNAME,
+                            cardName: "Taleplerim",
+                             //controller.infoModel!.data!.menuInfo[0].MENUNAME,
                             cardInfo:
-                                "${controller.infoModel!.data!.MyRequestCount} Notifications",
+                                "${controller.infoModel!.data!.MyRequestCount} Bildirimler",
                             cardIcon:
                                 'assets/images/home_assets/ic_taleplerim.png',
                             cardHeight: 20.h,
@@ -216,10 +213,10 @@ class HomeView extends GetView<HomeController> {
                             cardPressed: () {
                               Get.toNamed(Routes.MY_APPROVE);
                             },
-                            cardName: controller
-                                .infoModel!.data!.menuInfo[1].MENUNAME,
+                            cardName: "Onaylarım",
+                            //controller.infoModel!.data!.menuInfo[1].MENUNAME,
                             cardInfo:
-                                "${controller.infoModel!.data!.GetMyApprovalCount} Notifications",
+                                "${controller.infoModel!.data!.GetMyApprovalCount} Bildirimler",
                             cardIcon:
                                 'assets/images/home_assets/ic_onayladiklarim1.png',
                             cardHeight: 20.h,
@@ -230,10 +227,10 @@ class HomeView extends GetView<HomeController> {
                             cardPressed: () {
                               Get.toNamed(Routes.MY_jOBS);
                             },
-                            cardName: controller
-                                .infoModel!.data!.menuInfo[2].MENUNAME,
+                            cardName:"İşlerim",
+                             //controller                               .infoModel!.data!.menuInfo[2].MENUNAME,
                             cardInfo:
-                                "${controller.infoModel!.data!.GetMyWorks} Notifications",
+                                "${controller.infoModel!.data!.GetMyWorks} Bildirimler",
                             cardIcon:
                                 'assets/images/home_assets/ic_islerim1.png',
                             cardHeight: 20.h,
@@ -254,8 +251,8 @@ class HomeView extends GetView<HomeController> {
                               
                      
                             },
-                            cardName: controller
-                                .infoModel!.data!.menuInfo[5].MENUNAME,
+                            cardName: "Bodrolarım",
+                            //controller.infoModel!.data!.menuInfo[5].MENUNAME,
                             cardInfo: controller
                                 .infoModel!.data!.myLastPayroll.DocumentName,
                             cardIcon:
@@ -317,7 +314,64 @@ class HomeView extends GetView<HomeController> {
                 //   ),
                 // ),
                 controller.isAkademi.value
-                    ? Align(
+                    ? Container(margin: EdgeInsets.symmetric(vertical: 0.3.h,horizontal: 3.w),
+                            width: 95.w,
+                            height: 15.h,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4.w),
+                                color: Const.MENUCOLOR,
+                                boxShadow: const [
+                                  BoxShadow(
+                                      blurRadius: 3,
+                                      color: Colors.grey,
+                                      spreadRadius: 0,
+                                      offset: Offset(0, 1))
+                      
+                            ]
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 5.w),
+                              child: Row(
+                                //mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(3.w),
+                                      child: Image.asset(
+                                        'assets/images/home_assets/logo_sun_akademi.png',
+                                        height: 20.w,
+                                        width: 20.w,
+                                      )),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 3.5.w, right: 3.5.w),
+                                    child: Text(
+                                      'Sun Akademi',
+                                      style: GoogleFonts.inter(
+                                          fontSize: 3.h,
+                                          letterSpacing: .5.w,
+                                          fontWeight: FontWeight.w600,
+                                          color: Const.BASLIKTEXTCOLOR),
+                                    ),
+                                  ),
+                                  Container(
+                                      width: 3.h,
+                                      height: 3.h,
+                                      margin: EdgeInsets.only(left: 7.w,top: .2.h),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/images/home_assets/ic_forward.png"),fit: BoxFit.fill
+                                                  ),
+                                                  )
+                                                  )
+                                ],
+                              ),
+                            ),
+
+
+                            ): Container(),
+                    /* Align(
                         alignment: Alignment.center,
                         child: GestureDetector(
                           onTap: () {
@@ -328,7 +382,7 @@ class HomeView extends GetView<HomeController> {
                             width: 95.w,
                             height: 15.h,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(2.w),
                                 color: Const.MENUCOLOR,
                                 boxShadow: const [
                                   BoxShadow(
@@ -341,7 +395,7 @@ class HomeView extends GetView<HomeController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
+                                    borderRadius: BorderRadius.circular(3.w),
                                     child: Image.asset(
                                       'assets/images/home_assets/logo_sun_akademi.png',
                                       height: 20.w,
@@ -353,14 +407,14 @@ class HomeView extends GetView<HomeController> {
                                   child: Text(
                                     'Sun Akademi',
                                     style: GoogleFonts.inter(
-                                        fontSize: 30,
+                                        fontSize: 3.h,
                                         fontWeight: FontWeight.w600,
                                         color: Const.BASLIKTEXTCOLOR),
                                   ),
                                 ),
                                 Container(
-                                    width: 5.h,
-                                    height: 5.h,
+                                    width: 1.5.h,
+                                    height: 1.5.h,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
                                             image: AssetImage(
@@ -369,8 +423,8 @@ class HomeView extends GetView<HomeController> {
                             ),
                           ),
                         ),
-                      )
-                    : Container(),
+                      ) */
+                    
 
                 Align(
                   alignment: Alignment.center,

@@ -65,7 +65,7 @@ class PinLoginView extends GetView<PinLoginController> {
                                   Padding(
                                     padding: EdgeInsets.only(left: 1.5.w),
                                     child: Text(
-                                      "EN",
+                                      "TR",
                                       style: GoogleFonts.inter(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -79,7 +79,7 @@ class PinLoginView extends GetView<PinLoginController> {
                                     height: 3.5.h,
                                     width: 11.w,
                                     child: Image.asset(
-                                      "assets/images/eng_flag.png",
+                                      "assets/images/turk_bayrak.png",
                                       fit: BoxFit.contain,
                                     ),
                                   ),
@@ -111,17 +111,17 @@ class PinLoginView extends GetView<PinLoginController> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
-                                left: 3.w, top: 7.5.h, right: 3.w),
+                                left: 3.w, top: 10.h, right: 3.w),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: 1.5.h, bottom: 1.h, right: 2.w),
+                                      top: 1.5.h, bottom: 1.h, left: 9.w),
                                   child: SizedBox(
                                     width: 75.w,
                                     child: Text(
-                                        "Please login to use the mobile application",
+                                        "Mobil uygulamaya ile giriş yapınız.",
                                         style: GoogleFonts.inter(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
@@ -169,7 +169,7 @@ class PinLoginView extends GetView<PinLoginController> {
                                                     child: Text("Çıkış")));
                                           },
                                           child: Text(
-                                            "Change",
+                                            "Değiştir",
                                             style: GoogleFonts.inter(
                                                 fontSize: 2.h,
                                                 color: Colors.black87,
@@ -187,7 +187,7 @@ class PinLoginView extends GetView<PinLoginController> {
                                     readOnlyFalse: false,
                                     controllers: controller.passwordu,
                                     obscureText: controller.isPasswordHidden,
-                                    hintText: "Pin Code",
+                                    hintText: "PIN Kodu",
                                     suffixIcon: Obx(
                                       () => GestureDetector(
                                         onTap: () {
@@ -203,7 +203,7 @@ class PinLoginView extends GetView<PinLoginController> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(top: 3.h),
+                                  padding: EdgeInsets.only(top: 4.h),
                                   child: PinLoginButton(
                                     callback: () {
                                       controller.pinLoginRouteName();
@@ -211,7 +211,7 @@ class PinLoginView extends GetView<PinLoginController> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(top: 1.5.h),
+                                  padding: EdgeInsets.only(top: 3.h),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -221,7 +221,7 @@ class PinLoginView extends GetView<PinLoginController> {
                                           Get.toNamed(Routes.CHANGEPINCODE);
                                         },
                                         child: Text(
-                                          "Change Pin",
+                                          "PIN'i değiştir",
                                           style: GoogleFonts.inter(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,

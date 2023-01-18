@@ -122,7 +122,7 @@ class LoginButton extends StatelessWidget {
             backgroundColor: Colors.white),
         child: Center(
           child: Text(
-            "LOGIN",
+            "Giriş",
             style: GoogleFonts.inter(
                 color: const Color(0xffcf3842),
                 fontWeight: FontWeight.bold,

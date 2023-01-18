@@ -57,7 +57,7 @@ class LoginView extends GetView<LoginController> {
                                   Padding(
                                     padding: EdgeInsets.only(left: 1.5.w),
                                     child: Text(
-                                      "EN",
+                                      "TR",
                                       style: GoogleFonts.inter(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class LoginView extends GetView<LoginController> {
                                     height: 3.5.h,
                                     width: 11.w,
                                     child: Image.asset(
-                                      "assets/images/eng_flag.png",
+                                      "assets/images/turk_bayrak.png",
                                       fit: BoxFit.contain,
                                     ),
                                   ),
@@ -113,7 +113,7 @@ class LoginView extends GetView<LoginController> {
                                   padding: EdgeInsets.only(
                                       bottom: .5.h, top: 1.7.h, right: 10.w),
                                   child: Text(
-                                      "Please login to use the mobile application",
+                                      "Mobil uygulamaya ile giriş yapınız.",
                                       style: GoogleFonts.inter(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
@@ -121,21 +121,19 @@ class LoginView extends GetView<LoginController> {
                                 ),
                                 Row(
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: 1.8.h,
-                                        left: 1.w,
-                                        right: 1.w,
-                                      ),
-                                      child: SizedBox(
-                                        width: 60.w,
-                                        child: Text(
-                                          "I don't have a computer password. I want to get a password via SMS",
-                                          style: GoogleFonts.inter(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 1.7.h),
-                                        ),
+                                    Container(
+                                      width: 60.w,
+                                      margin: EdgeInsets.only(
+                                      bottom: .5.h,
+                                      left: 1.w,
+                                      right: 1.w,
+                                    ),
+                                      child: Text(
+                                        "Bilgisayar şifrem yok. SMS ile şifresi almak istiyorum.",
+                                        style: GoogleFonts.inter(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 1.8.h),
                                       ),
                                     ),
                                     Padding(
@@ -168,7 +166,7 @@ class LoginView extends GetView<LoginController> {
                                   child: LoginTextWidget(
                                     controllers: controller.user,
                                     obscureText: false.obs,
-                                    hintText: "Username",
+                                    hintText: "Kullanıcı Adı",
                                   ),
                                 ),
                                 Padding(
@@ -176,7 +174,7 @@ class LoginView extends GetView<LoginController> {
                                   child: LoginTextWidget(
                                     controllers: controller.passwordu,
                                     obscureText: controller.isPasswordHidden,
-                                    hintText: "Password",
+                                    hintText: "Şifre",
                                     suffixIcon: Obx(
                                       () => GestureDetector(
                                         onTap: () {
@@ -198,8 +196,7 @@ class LoginView extends GetView<LoginController> {
                                         print("object");
                                         controller.currentLogin();
 
-                                        //controller.closedTextField();
-                                      },
+                                     },
                                     )),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.5.h),

@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_print, unused_field, unnecessary_brace_in_string_interps
 
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../api/api_repository.dart';
 import '../../models/home/get_landing_page_info.dart';
@@ -20,8 +19,6 @@ class HomeController extends GetxController {
 
   //
   RxBool isAkademi = false.obs;
-
-  final Uri _url = Uri.parse('https://www.educaedu-turkiye.com/kurumlar/sun-akademi-uni50');
 
   RxList user1 = [].obs;
   RxList user2 = [].obs;
@@ -61,11 +58,4 @@ class HomeController extends GetxController {
       isAkademi.value = true;
     }
   }
-
-
-  Future<void> sunAkademiUrl() async {
-  if (!await launchUrl(_url)) {
-    throw 'Could not launch $_url';
-  }
-}
 }

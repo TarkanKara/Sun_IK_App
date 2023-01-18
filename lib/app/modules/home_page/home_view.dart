@@ -311,54 +311,49 @@ class HomeView extends GetView<HomeController> {
                 controller.isAkademi.value
                     ? Align(
                         alignment: Alignment.center,
-                        child: GestureDetector(
-                          onTap: () {
-                            controller.sunAkademiUrl();
-                          },
-                          child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 0.6.h),
-                            width: 95.w,
-                            height: 15.h,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Const.MENUCOLOR,
-                                boxShadow: const [
-                                  BoxShadow(
-                                      blurRadius: 3,
-                                      color: Colors.grey,
-                                      spreadRadius: 0,
-                                      offset: Offset(0, 1))
-                                ]),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                      'assets/images/home_assets/logo_sun_akademi.png',
-                                      height: 20.w,
-                                      width: 20.w,
-                                    )),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 3.5.w, right: 3.5.w),
-                                  child: Text(
-                                    'Sun Akademi',
-                                    style: GoogleFonts.inter(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w600,
-                                        color: Const.BASLIKTEXTCOLOR),
-                                  ),
+                        child: Container(
+                          margin: EdgeInsets.symmetric(vertical: 0.6.h),
+                          width: 95.w,
+                          height: 15.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Const.MENUCOLOR,
+                              boxShadow: const [
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    color: Colors.grey,
+                                    spreadRadius: 0,
+                                    offset: Offset(0, 1))
+                              ]),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.asset(
+                                    'assets/images/home_assets/logo_sun_akademi.png',
+                                    height: 20.w,
+                                    width: 20.w,
+                                  )),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(left: 3.5.w, right: 3.5.w),
+                                child: Text(
+                                  'Sun Akademi',
+                                  style: GoogleFonts.inter(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w600,
+                                      color: Const.BASLIKTEXTCOLOR),
                                 ),
-                                Container(
-                                    width: 5.h,
-                                    height: 5.h,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                "assets/images/home_assets/ic_forward.png"))))
-                              ],
-                            ),
+                              ),
+                              Container(
+                                  width: 5.h,
+                                  height: 5.h,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/home_assets/ic_forward.png"))))
+                            ],
                           ),
                         ),
                       )

@@ -7,7 +7,7 @@ class NotificationBinding implements Bindings {
   void dependencies() {
     Get.put(
       NotificationController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

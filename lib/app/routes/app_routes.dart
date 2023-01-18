@@ -13,9 +13,16 @@ abstract class Routes {
   static const CREATEPINCODE = "/create_pin_code";
   static const CHANGEPINCODE = "/change_pin_code";
   static const SPLASH = "/splash";
+  static const MY_LEAVES = "/my_leaves";
+  static const MANAGERSEARCH = "/managersearch";
   static const REQUEST = "/request";
+  static const MY_jOBS = "/my_jobs";
+  static const MY_APPROVE_DETAIL = "/my_approve_detail";
+  static const MY_APPROVE = "/my_approve";
   static const REQUEST_DETAIL = "/request_detail";
   static const NOTIFICATION = "/notification";
   static const PIN_LOGIN = "/pin_login";
   static const MY_LEAVES_DETAIL = "/my_leaves_detail";
+  static const MY_JOBS_DETAIL = "/myjobsdetail";
+  static const NOTIFICATION_DETAIL = "/notification_detail";
 }

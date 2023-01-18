@@ -13,7 +13,7 @@ class PinLoginController extends GetxController {
 
   //
   RxString dropdownvalue = "Select Company".obs;
-  RxBool isPasswordHidden = false.obs;
+  RxBool isPasswordHidden = true.obs;
   RxString password = "".obs;
   RxBool switchControl = false.obs;
   RxString user_name = "".obs;
@@ -58,6 +58,7 @@ class PinLoginController extends GetxController {
   pinLoginRouteName() {
     if (passwordu.text != "") {
       if (passwordu.text == getStorage.read("pin_code")) {
+        passwordu.clear();
         return Get.offAllNamed(Routes.HOME);
       } else {
         return CustomDialog.getDialog("Uyarı", "Hatalı Pin Girdiniz", "Kapat");

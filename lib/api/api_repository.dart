@@ -1,20 +1,23 @@
-// ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps
-
+// ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps, body_might_complete_normally_nullable
 
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_model.dart';
 import 'package:sun_ik_app/app/models/login/login_model.dart';
+import 'package:sun_ik_app/app/models/my_leaves/my_leaves_model.dart';
 import 'package:sun_ik_app/app/models/my_payroll/my_payroll_model.dart';
 import 'package:sun_ik_app/app/models/my_payroll/my_payroll_pdf_model.dart';
+import 'package:sun_ik_app/app/models/my_request/my_pending_jobs_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_detail_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_model.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../app/models/home/my_profile_model.dart';
-
 import '../app/models/home/notification/notification_bulk_delete.dart';
 import '../app/models/home/notification/notification_read_model.dart';
 import '../app/models/language/my_app_language_model.dart';
+import '../app/models/my_approve_detail/my_approve_detail.dart';
+import '../app/models/my_request/my_approve_get_pending_model.dart';
 
 import 'api_provider.dart';
 
@@ -119,7 +122,29 @@ class ApiRepository {
         return LoginModel.fromJson(response.body);
       }
     } catch (e) {
+      return CustomDialog.getDialog("Uyarı",
+          "Kullanıcı bilgileri yanlış.\n      Tekrar Deneyiniz.", "Kapat");
+
       print("e");
+    }
+    return null;
+  }
+
+  //getMyLeaves
+  Future<MyLeavesModel?> getMyLeaves() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "EmployeeLeave/GetEmployeeLeave",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+
+        return MyLeavesModel.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
     }
     return null;
   }
@@ -158,7 +183,6 @@ class ApiRepository {
     return null;
   }
 
-
   //getMyRequestDetail
   Future<MyRequestDetailModel?> getMyRequestDetail(
       int idMater, detailType) async {
@@ -172,7 +196,7 @@ class ApiRepository {
         print(response.body);
 
         return MyRequestDetailModel.fromJson(response.body);
-          }
+      }
     } catch (e) {
       print("$e");
     }
@@ -198,7 +222,7 @@ class ApiRepository {
 
   //getReadNotification
   Future<ReadNotificationModel?> getReadNotification(
-      String push_notification_detail) async {
+      int? push_notification_detail) async {
     try {
       var response = await apiProvider.postMethod(
         "PushNotification/ReadPushMessage?ID_PUSH_NOTIFICATION_DETAIL=${push_notification_detail}",
@@ -216,10 +240,10 @@ class ApiRepository {
 
   //getDeleteNotification
   Future<DeleteNotificationModel?> getDeleteNotification(
-      String push_notification_detail) async {
+      int idPushNotificationDetail) async {
     try {
       var response = await apiProvider.postMethod(
-        "/PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${push_notification_detail}",
+        "PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${idPushNotificationDetail}",
         {},
       );
       if (response.statusCode == 200) {
@@ -239,7 +263,7 @@ class ApiRepository {
       int allOrReaded) async {
     try {
       var response = await apiProvider.postMethod(
-        "/PushNotification/DeletePushMessage?ID_PUSH_NOTIFICATION_DETAIL=${allOrReaded}",
+        "PushNotification/BulkDeletePushMessage?AllOrReaded=${allOrReaded}",
         {},
       );
       if (response.statusCode == 200) {
@@ -267,4 +291,58 @@ class ApiRepository {
     }
   }
 
+  //getMyPendingJobs
+  Future<MyPendingJobs?> getMyPendingJobs() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetPendingJobs",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyPendingJobs.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  //getMyRequestDetail
+  Future<MyApproveDetailModel?> getMyApproveDetail(
+      int idMater, int detailType) async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetRequestById?IdMaster=$idMater&DetailType=$detailType",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+
+        return MyApproveDetailModel.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  //getMyRequestGetPending
+  Future<MyRequestGetPending?> getMyRequestGetPending() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetPendingRequestMasterMobile",
+        {},
+      );
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyRequestGetPending.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
 }

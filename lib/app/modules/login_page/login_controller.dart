@@ -1,17 +1,22 @@
-// ignore_for_file: unrelated_type_equality_checks, non_constant_identifier_names
+// ignore_for_file: unrelated_type_equality_checks, non_constant_identifier_names, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../../../api/api_repository.dart';
 import '../../models/login/login_model.dart';
+
+import 'package:get_storage/get_storage.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
+
 import '../../routes/app_pages.dart';
+import '../splash_page/splash_controller.dart';
 
 class LoginController extends GetxController {
   ApiRepository apiRepository;
   LoginController({required this.apiRepository});
+  SplashController splashController =
+      Get.put(SplashController(apiRepository: Get.find()));
 
   //
   GetStorage storage_token = GetStorage();
@@ -21,7 +26,7 @@ class LoginController extends GetxController {
 
   //
   RxString dropdownvalue = "Select Company".obs;
-  RxBool isPasswordHidden = false.obs;
+  RxBool isPasswordHidden = true.obs;
   RxString password = "".obs;
   RxBool switchControl = false.obs;
   Rx<RxStatus> status = RxStatus.empty().obs;
@@ -29,7 +34,6 @@ class LoginController extends GetxController {
   //TextEditingController
   TextEditingController user = TextEditingController();
   TextEditingController passwordu = TextEditingController();
-
   dropDownValues(String value) {
     dropdownvalue.value = value;
   }
@@ -67,6 +71,7 @@ class LoginController extends GetxController {
       await storage_token.write("user_name", user.text);
       await storage_token.write("select_company", dropdownvalue.value);
       status.value = RxStatus.success();
+      await closedTextField();
       await pinCodeChange();
     }
   }
@@ -77,5 +82,11 @@ class LoginController extends GetxController {
     } else {
       return Get.toNamed(Routes.CREATEPINCODE);
     }
+  }
+
+  closedTextField() {
+    user.clear();
+    passwordu.clear();
+    print("Login user ve password TextFiel Temizlendi");
   }
 }

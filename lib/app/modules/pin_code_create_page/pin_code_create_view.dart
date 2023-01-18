@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -17,15 +18,12 @@ class PinCodeCreateView extends GetView<PinCodeCreateController> {
     return Scaffold(
       backgroundColor: const Color(0xffF2F2F2),
       appBar: AppBar(
+        leading: Container(),
         centerTitle: true,
         elevation: 5,
+        systemOverlayStyle:
+            SystemUiOverlayStyle(statusBarColor: Const.STATUSBARCOLOR),
         backgroundColor: const Color(0xffEF3E52),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-        ),
         title: Text(
           'Pin Code Oluşturma',
           style: GoogleFonts.inter(

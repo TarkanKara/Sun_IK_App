@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SplashView extends StatelessWidget {
@@ -10,6 +11,9 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Color(0xffa80c34),
+        ),
         toolbarHeight: 0,
         backgroundColor: Color(0xffa80c34),
         elevation: 0,

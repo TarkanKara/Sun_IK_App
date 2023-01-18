@@ -11,6 +11,7 @@ class CustomDialog {
         onPressed: () {
           Get.back();
         },
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
         child: Text(textButon),
       ),
     );

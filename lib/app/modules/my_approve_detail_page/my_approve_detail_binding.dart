@@ -7,7 +7,7 @@ class MyApproveDetailBinding implements Bindings {
   void dependencies() {
     Get.put(
       MyApproveDetailController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

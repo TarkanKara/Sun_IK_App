@@ -1,5 +1,8 @@
 // ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps, body_might_complete_normally_nullable
 
+import 'dart:io';
+
+import 'package:pdf/widgets.dart';
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_model.dart';
@@ -11,6 +14,7 @@ import 'package:sun_ik_app/app/models/my_request/my_pending_jobs_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_detail_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_model.dart';
 import 'package:sun_ik_app/utils/dialog.dart';
+import 'package:sun_ik_app/utils/null_widget.dart';
 
 import '../app/models/home/my_profile_model.dart';
 import '../app/models/home/notification/notification_bulk_delete.dart';
@@ -124,8 +128,6 @@ class ApiRepository {
     } catch (e) {
       return CustomDialog.getDialog("Uyarı",
           "Kullanıcı bilgileri yanlış.\n      Tekrar Deneyiniz.", "Kapat");
-
-      print("e");
     }
     return null;
   }
@@ -185,10 +187,10 @@ class ApiRepository {
 
   //getMyRequestDetail
   Future<MyRequestDetailModel?> getMyRequestDetail(
-      int idMater, detailType) async {
+      int? idMater, int? detailType) async {
     try {
       var response = await apiProvider.postMethod(
-        "RequestManagement/GetRequestById?IdMaster=$idMater&DetailType=$detailType",
+        "RequestManagement/GetRequestById?IdMaster=${idMater!}&DetailType=${detailType!}",
         {},
       );
 
@@ -197,8 +199,8 @@ class ApiRepository {
 
         return MyRequestDetailModel.fromJson(response.body);
       }
-    } catch (e) {
-      print("$e");
+    } on SocketException catch (e) {
+      return NullWidget.isNull();
     }
     return null;
   }

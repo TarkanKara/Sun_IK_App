@@ -7,7 +7,7 @@ class LoginBinding implements Bindings {
   void dependencies() {
     Get.put(
       LoginController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

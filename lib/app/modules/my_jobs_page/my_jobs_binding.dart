@@ -9,7 +9,7 @@ class MyJobsBinding implements Bindings {
   void dependencies() {
     Get.put(
       MyJobsController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

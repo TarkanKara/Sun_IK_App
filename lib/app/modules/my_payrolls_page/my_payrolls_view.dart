@@ -139,20 +139,32 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                   )
                 : Center(child: CircularProgressIndicator()),
           ),
-          Positioned(
-            top: 8.h,
-            left: 40.w,
-            right: 40.w,
-            child: CircleAvatar(
-                radius: 10.w,
-                backgroundColor: const Color(0xffEBEBEB),
-                child: CircleAvatar(
-                  radius: 8.5.w,
-                  backgroundColor: Colors.grey.withOpacity(0.5),
-                  backgroundImage: MemoryImage(controller.photoPath!),
+          controller.photoPath! != null
+              ? Positioned(
+                  top: 8.h,
+                  left: 40.w,
+                  right: 40.w,
+                  child: CircleAvatar(
+                    radius: 10.w,
+                    backgroundColor: const Color(0xffEBEBEB),
+                    child: CircleAvatar(
+                      radius: 8.w,
+                      backgroundColor: Colors.grey.withOpacity(0.5),
+                      backgroundImage: MemoryImage(
+                        controller.photoPath!,
+                      ),
+                    ),
+                  ))
+              : CircleAvatar(
+                  radius: 10.w,
+                  backgroundColor: const Color(0xffEBEBEB),
+                  child: CircleAvatar(
+                    radius: 8.w,
+                    backgroundColor: Colors.grey.withOpacity(0.5),
+                    backgroundImage: AssetImage(
+                        "assets/images/home_assets/ic_avatar_profile.png"),
+                  ),
                 )
-                ),
-          ),
         ],
       ),
     );

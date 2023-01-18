@@ -135,6 +135,8 @@ class HomeView extends GetView<HomeController> {
                                         'Çıkış yapmak istediğinize emin misiniz?',
                                         'Kapat',
                                         widget: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.red),
                                             onPressed: () {
                                               Get.offAllNamed(Routes.SPLASH);
                                             },
@@ -156,15 +158,18 @@ class HomeView extends GetView<HomeController> {
                             child: Align(
                               alignment: Alignment.center,
                               child: GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.toNamed(Routes.MANAGERSEARCH);
+                                },
                                 child: Container(
                                     //color: Colors.red,
-                                    width: 25.w,
+                                    width: 18.w,
                                     height: 10.h,
+                                    margin: EdgeInsets.only(right: 3.w),
                                     child: Image.asset(
                                       "assets/images/home_assets/ic_search.png",
                                       scale: 0.2.h,
-                                      color: Colors.red[400],
+                                      color: Colors.black.withOpacity(.6),
                                     )),
                               ),
                             ),
@@ -311,49 +316,54 @@ class HomeView extends GetView<HomeController> {
                 controller.isAkademi.value
                     ? Align(
                         alignment: Alignment.center,
-                        child: Container(
-                          margin: EdgeInsets.symmetric(vertical: 0.6.h),
-                          width: 95.w,
-                          height: 15.h,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Const.MENUCOLOR,
-                              boxShadow: const [
-                                BoxShadow(
-                                    blurRadius: 3,
-                                    color: Colors.grey,
-                                    spreadRadius: 0,
-                                    offset: Offset(0, 1))
-                              ]),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/home_assets/logo_sun_akademi.png',
-                                    height: 20.w,
-                                    width: 20.w,
-                                  )),
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(left: 3.5.w, right: 3.5.w),
-                                child: Text(
-                                  'Sun Akademi',
-                                  style: GoogleFonts.inter(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w600,
-                                      color: Const.BASLIKTEXTCOLOR),
+                        child: GestureDetector(
+                          onTap: () {
+                            controller.sunAkademiUrl();
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(vertical: 0.6.h),
+                            width: 95.w,
+                            height: 15.h,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Const.MENUCOLOR,
+                                boxShadow: const [
+                                  BoxShadow(
+                                      blurRadius: 3,
+                                      color: Colors.grey,
+                                      spreadRadius: 0,
+                                      offset: Offset(0, 1))
+                                ]),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Image.asset(
+                                      'assets/images/home_assets/logo_sun_akademi.png',
+                                      height: 20.w,
+                                      width: 20.w,
+                                    )),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 3.5.w, right: 3.5.w),
+                                  child: Text(
+                                    'Sun Akademi',
+                                    style: GoogleFonts.inter(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w600,
+                                        color: Const.BASLIKTEXTCOLOR),
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                  width: 5.h,
-                                  height: 5.h,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/home_assets/ic_forward.png"))))
-                            ],
+                                Container(
+                                    width: 5.h,
+                                    height: 5.h,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                "assets/images/home_assets/ic_forward.png"))))
+                              ],
+                            ),
                           ),
                         ),
                       )
@@ -363,71 +373,171 @@ class HomeView extends GetView<HomeController> {
                   alignment: Alignment.center,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 20.h,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Const.MENUCOLOR,
-                          boxShadow: const [
-                            BoxShadow(
-                                blurRadius: 3,
-                                color: Colors.grey,
-                                spreadRadius: 0,
-                                offset: Offset(0, 1))
-                          ]),
-                      child: Column(
-                        children: [
-                          Flexible(
-                            child: Row(
-                              children: [
-                                Flexible(
-                                    flex: 2,
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              left: 3.h, right: 3.h),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.MY_LEAVES);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 20.h,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Const.MENUCOLOR,
+                            boxShadow: const [
+                              BoxShadow(
+                                  blurRadius: 3,
+                                  color: Colors.grey,
+                                  spreadRadius: 0,
+                                  offset: Offset(0, 1))
+                            ]),
+                        child: Column(
+                          children: [
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  Flexible(
+                                      flex: 2,
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(
+                                                left: 3.h, right: 3.h),
+                                            width: 5.h,
+                                            height: 5.h,
+                                            decoration: const BoxDecoration(
+                                                image: DecorationImage(
+                                                    image: AssetImage(
+                                                        Const.IZINLERIMICON))),
+                                          ),
+                                          Text(
+                                            Const.IZINLERIMTEXT,
+                                            style: GoogleFonts.inter(
+                                              color: Const.BASLIKTEXTCOLOR,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                        ],
+                                      )),
+                                  Flexible(
+                                    flex: 1,
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Get.toNamed(Routes.MY_LEAVES_DETAIL);
+                                        },
+                                        child: Container(
+                                          margin: EdgeInsets.only(right: 4.h),
                                           width: 5.h,
                                           height: 5.h,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                               image: DecorationImage(
-                                                  image: AssetImage(
-                                                      Const.IZINLERIMICON))),
+                                                  image: const AssetImage(
+                                                      Const.IZINLERIMEKLEICON),
+                                                  scale: .1.h)),
                                         ),
-                                        Text(
-                                          Const.IZINLERIMTEXT,
-                                          style: GoogleFonts.inter(
-                                            color: Const.BASLIKTEXTCOLOR,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ),
-                                      ],
-                                    )),
-                                Flexible(
-                                  flex: 1,
-                                  child: Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Container(
-                                      margin: EdgeInsets.only(right: 4.h),
-                                      width: 5.h,
-                                      height: 5.h,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: const AssetImage(
-                                                  Const.IZINLERIMEKLEICON),
-                                              scale: .1.h)),
+                                      ),
                                     ),
-                                  ),
-                                )
-                              ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                          Flexible(
-                            child: Row(
-                              children: [
-                                Flexible(
+                            Flexible(
+                              child: Row(
+                                children: [
+                                  Flexible(
+                                      flex: 1,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            margin: EdgeInsets.only(left: 3.h),
+                                            child: Text(
+                                              Const.IZINBAKIYESITEXT,
+                                              style: GoogleFonts.inter(
+                                                color: Const.ACIKLAMATEXTCOLOR,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: .5.h,
+                                          ),
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            margin: EdgeInsets.only(left: 3.h),
+                                            child: Text(
+                                              "${controller.infoModel!.data!.vacationInfo.employeeEarnedRightsList[0].ANNUALLEAVEBALANCE} Gün",
+                                              style: GoogleFonts.inter(
+                                                color: controller
+                                                            .infoModel!
+                                                            .data!
+                                                            .vacationInfo
+                                                            .employeeEarnedRightsList[
+                                                                0]
+                                                            .ANNUALLEAVEBALANCE >=
+                                                        0
+                                                    ? Colors.green
+                                                    : Colors.red,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )),
+                                  Flexible(
+                                      flex: 1,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            margin: EdgeInsets.only(left: 1.h),
+                                            child: Text(
+                                              Const.IZINBASLANGICTEXT,
+                                              style: GoogleFonts.inter(
+                                                color: Const.ACIKLAMATEXTCOLOR,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: .5.h,
+                                          ),
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            margin: EdgeInsets.only(left: 1.h),
+                                            child: Text(
+                                              DateTimeConverTo.compareToDateYMD(
+                                                  controller
+                                                      .infoModel!
+                                                      .data!
+                                                      .vacationInfo
+                                                      .employeeEarnedRightsList[
+                                                          0]
+                                                      .NEXTLEAVEALLOWANCEDATE
+                                                      .toString()),
+                                              style: GoogleFonts.inter(
+                                                color: Const.BASLIKTEXTCOLOR,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )),
+                                  Flexible(
                                     flex: 1,
                                     child: Column(
                                       crossAxisAlignment:
@@ -436,10 +546,11 @@ class HomeView extends GetView<HomeController> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Container(
+                                          padding: EdgeInsets.only(right: .3.h),
                                           alignment: Alignment.centerLeft,
-                                          margin: EdgeInsets.only(left: 3.h),
+                                          margin: EdgeInsets.only(left: 2.h),
                                           child: Text(
-                                            Const.IZINBAKIYESITEXT,
+                                            Const.IZINGUNTEXT,
                                             style: GoogleFonts.inter(
                                               color: Const.ACIKLAMATEXTCOLOR,
                                               fontSize: 15,
@@ -451,63 +562,11 @@ class HomeView extends GetView<HomeController> {
                                           height: .5.h,
                                         ),
                                         Container(
+                                          padding: EdgeInsets.only(right: .3.h),
                                           alignment: Alignment.centerLeft,
-                                          margin: EdgeInsets.only(left: 3.h),
+                                          margin: EdgeInsets.only(left: 2.h),
                                           child: Text(
-                                            "${controller.infoModel!.data!.vacationInfo.employeeEarnedRightsList[0].ANNUALLEAVEBALANCE} Gün",
-                                            style: GoogleFonts.inter(
-                                              color: controller
-                                                          .infoModel!
-                                                          .data!
-                                                          .vacationInfo
-                                                          .employeeEarnedRightsList[
-                                                              0]
-                                                          .ANNUALLEAVEBALANCE >=
-                                                      0
-                                                  ? Colors.green
-                                                  : Colors.red,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )),
-                                Flexible(
-                                    flex: 1,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          margin: EdgeInsets.only(left: 1.h),
-                                          child: Text(
-                                            Const.IZINBASLANGICTEXT,
-                                            style: GoogleFonts.inter(
-                                              color: Const.ACIKLAMATEXTCOLOR,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: .5.h,
-                                        ),
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          margin: EdgeInsets.only(left: 1.h),
-                                          child: Text(
-                                            DateTimeConverTo.compareToDateYMD(
-                                                controller
-                                                    .infoModel!
-                                                    .data!
-                                                    .vacationInfo
-                                                    .employeeEarnedRightsList[0]
-                                                    .NEXTLEAVEALLOWANCEDATE
-                                                    .toString()),
+                                            "${controller.infoModel!.data!.vacationInfo.employeeEarnedRightsList[0].NEXTLEAVEALLOWANCEDAYS} Gün",
                                             style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
                                               fontSize: 15,
@@ -516,50 +575,13 @@ class HomeView extends GetView<HomeController> {
                                           ),
                                         ),
                                       ],
-                                    )),
-                                Flexible(
-                                  flex: 1,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.only(right: .3.h),
-                                        alignment: Alignment.centerLeft,
-                                        margin: EdgeInsets.only(left: 2.h),
-                                        child: Text(
-                                          Const.IZINGUNTEXT,
-                                          style: GoogleFonts.inter(
-                                            color: Const.ACIKLAMATEXTCOLOR,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: .5.h,
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.only(right: .3.h),
-                                        alignment: Alignment.centerLeft,
-                                        margin: EdgeInsets.only(left: 2.h),
-                                        child: Text(
-                                          "${controller.infoModel!.data!.vacationInfo.employeeEarnedRightsList[0].NEXTLEAVEALLOWANCEDAYS} Gün",
-                                          style: GoogleFonts.inter(
-                                            color: Const.BASLIKTEXTCOLOR,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

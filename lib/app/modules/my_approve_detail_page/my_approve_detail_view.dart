@@ -947,14 +947,14 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                           ),
                         ),
                         SizedBox(
-                          height: 25.h,
                           width: 100.w,
                           child: ListView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(vertical: 1.5.h),
                             itemCount: controller
                                 .myApproveDetailModel.data!.history!.length,
                             itemBuilder: (context, index) {
                               return Padding(
-                                //1. blki listview
                                 padding: EdgeInsets.only(
                                     left: 2.w, top: 1.h, right: 2.w),
                                 child: Row(

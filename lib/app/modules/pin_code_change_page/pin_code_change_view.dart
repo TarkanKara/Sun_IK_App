@@ -73,6 +73,7 @@ class PinCodeChangeView extends GetView<PinCodeChangeController> {
             height: 2.h,
           ),
           PinTextFormField(
+            
             controller: controller.currentPinCodeController,
             width: 90.w,
             height: 7.h,

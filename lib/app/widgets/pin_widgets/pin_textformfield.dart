@@ -11,8 +11,11 @@ class PinTextFormField extends StatelessWidget {
   TextEditingController controller;
   String hintText;
   PinTextFormField(
-    {super.key,required this.width,required this.height,required this.controller,required this.hintText}
-  );
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.controller,
+      required this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +29,17 @@ class PinTextFormField extends StatelessWidget {
           border: const Border.fromBorderSide(
               BorderSide(color: Color(0xffD1D4D1)))),
       child: TextFormField(
-        controller: controller,
+          keyboardType: TextInputType.number,
+          controller: controller,
           decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: GoogleFonts.inter(
-            color: Const.ACIKLAMATEXTCOLOR,
-            fontSize: 2.h,
-            fontWeight: FontWeight.w500),
-        contentPadding: EdgeInsets.symmetric(horizontal: 1.h),
-        border: InputBorder.none,
-      )),
+            hintText: hintText,
+            hintStyle: GoogleFonts.inter(
+                color: Const.ACIKLAMATEXTCOLOR,
+                fontSize: 2.h,
+                fontWeight: FontWeight.w500),
+            contentPadding: EdgeInsets.symmetric(horizontal: 1.h),
+            border: InputBorder.none,
+          )),
     );
   }
 }

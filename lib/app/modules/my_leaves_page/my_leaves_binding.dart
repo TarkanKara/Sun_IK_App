@@ -7,7 +7,7 @@ class MyLeavesBinding implements Bindings {
   void dependencies() {
     Get.put(
       MyLeavesController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

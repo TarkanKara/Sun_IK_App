@@ -7,7 +7,7 @@ class MyApproveBinding implements Bindings {
   void dependencies() {
     Get.put(
       MyApproveController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/my_leaves_page/my_leaves_controller.dart';
 
+import '../../routes/app_pages.dart';
 import '../../widgets/my_leaves_card_widget.dart';
 import '../../widgets/my_leaves_title.dart';
 
@@ -21,12 +22,16 @@ class MyLeavesView extends GetView<MyLeavesController> {
         centerTitle: true,
         backgroundColor: const Color(0xffEF3E52),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.back();
+          },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.MY_LEAVES_DETAIL);
+            },
             icon: const Icon(Icons.add_sharp),
           ),
         ],

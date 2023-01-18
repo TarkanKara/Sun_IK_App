@@ -22,12 +22,13 @@ class MyApproveDetailController extends GetxController {
   //
   @override
   void onInit() {
-    /* getMyApproveDetail(
-        myApproveController.myRwquestGetPending.data!.pendingRequestList![myApproveController.index.value].iDMASTER,
+    getMyApproveDetail(
+        myApproveController.myRwquestGetPending.data!
+            .pendingRequestList![myApproveController.index.value].iDMASTER,
         myApproveController.myRwquestGetPending.data!
             .pendingRequestList![myApproveController.index.value].rEQTYPE);
     print("MyApproveDetail View Yüklendi");
-    super.onInit(); */
+    super.onInit();
   }
 
   getMyApproveDetail(int? idMater, int? detailType) async {

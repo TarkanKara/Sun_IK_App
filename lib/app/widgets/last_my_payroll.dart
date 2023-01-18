@@ -23,22 +23,19 @@ class LastMyPayroll extends GetView<MyPayrollsController> {
             color: const Color(0xffFEFEFE),
             borderRadius: BorderRadius.all(Radius.circular(5.w))),
         child: Padding(
-          padding: EdgeInsets.only(left: 10.w, right: 2.w, top: 7.h),
+          padding: EdgeInsets.only(top: 7.h),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 5.h,
-                    width: 60.w,
-                    child: Text(
-                      userText,
-                      style: Theme.of(context)
-                          .textTheme
-                          .caption!
-                          .copyWith(fontSize: 5.w, fontWeight: FontWeight.bold),
+                    child: Center(
+                      child: Text(
+                        userText,
+                        style: Theme.of(context).textTheme.caption!.copyWith(
+                            fontSize: 5.w, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   /* SizedBox(

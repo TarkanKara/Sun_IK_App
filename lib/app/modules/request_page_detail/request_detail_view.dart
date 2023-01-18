@@ -93,8 +93,8 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                         padding: EdgeInsets.only(top: .6.h),
                                         child: Text(
                                             DateTimeConverTo.compareToDateTime(
-                                                controller
-                                                    .requestDetail.data!.reqDate
+                                                controller.requestDetail!.data!
+                                                    .rEQDATE
                                                     .toString()),
                                             style: GoogleFonts.inter(
                                                 color: Const.BASLIKTEXTCOLOR,
@@ -138,7 +138,7 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    controller.requestDetail.data!.reqEmployee
+                                    controller.requestDetail!.data!.rEQEMPLOYEE
                                         .toString(),
                                     style: GoogleFonts.inter(
                                         color: Const.BASLIKTEXTCOLOR,
@@ -146,12 +146,13 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                         fontSize: 1.5.h),
                                   ),
                                   SizedBox(width: 13.w),
-                                  controller.requestDetail.data!
-                                              .assignEmployee !=
+                                  controller.requestDetail!.data!
+                                              .aSSIGNEMPLOYEE !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .assignEmployee,
+                                          controller.requestDetail!.data!
+                                              .aSSIGNEMPLOYEE
+                                              .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
                                               fontWeight: FontWeight.w700,
@@ -204,11 +205,11 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                         fontWeight: FontWeight.w500),
                                   ),
                                   SizedBox(width: 30.w),
-                                  controller.requestDetail.data!.idMaster !=
+                                  controller.requestDetail!.data!.iDMASTER !=
                                           null
                                       ? Text(
                                           controller
-                                              .requestDetail.data!.idMaster
+                                              .requestDetail!.data!.iDMASTER
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -241,14 +242,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![0]!
+                                              .rEQUESTDETAILKEYVALUE![0]
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .requestDetailKeyValue![0]!.value
+                                          controller.requestDetail!.data!
+                                              .rEQUESTDETAILKEYVALUE![0].value
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -285,18 +286,16 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                           height: 5.5.h,
                                           width: 42.w,
                                           child: controller
-                                                      .requestDetail
+                                                      .requestDetail!
                                                       .data!
-                                                      .requestDetailKeyValue![
-                                                          1]!
+                                                      .rEQUESTDETAILKEYVALUE![1]
                                                       .value !=
                                                   null
                                               ? Text(
                                                   controller
-                                                      .requestDetail
+                                                      .requestDetail!
                                                       .data!
-                                                      .requestDetailKeyValue![
-                                                          1]!
+                                                      .rEQUESTDETAILKEYVALUE![1]
                                                       .value
                                                       .toString(),
                                                   maxLines: 3,
@@ -334,17 +333,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .requestDetail!
                                                 .data!
-                                                .requestDetailKeyValue![2]!
+                                                .rEQUESTDETAILKEYVALUE![2]
                                                 .value !=
                                             null
                                         ? Text(
-                                            controller
-                                                .requestDetail
-                                                .data!
-                                                .requestDetailKeyValue![2]!
-                                                .value
+                                            controller.requestDetail!.data!
+                                                .rEQUESTDETAILKEYVALUE![2].value
                                                 .toString(),
                                             style: GoogleFonts.inter(
                                                 color: Const.BASLIKTEXTCOLOR,
@@ -376,14 +372,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![3]!
+                                              .rEQUESTDETAILKEYVALUE![3]
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .requestDetailKeyValue![3]!.value
+                                          controller.requestDetail!.data!
+                                              .rEQUESTDETAILKEYVALUE![3].value
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -415,17 +411,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .requestDetail!
                                                 .data!
-                                                .requestDetailKeyValue![4]!
+                                                .rEQUESTDETAILKEYVALUE![4]
                                                 .value !=
                                             null
                                         ? Text(
-                                            controller
-                                                .requestDetail
-                                                .data!
-                                                .requestDetailKeyValue![4]!
-                                                .value
+                                            controller.requestDetail!.data!
+                                                .rEQUESTDETAILKEYVALUE![4].value
                                                 .toString(),
                                             style: GoogleFonts.inter(
                                                 color: Const.BASLIKTEXTCOLOR,
@@ -456,14 +449,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![5]!
+                                              .rEQUESTDETAILKEYVALUE![5]
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .requestDetailKeyValue![5]!.value
+                                          controller.requestDetail!.data!
+                                              .rEQUESTDETAILKEYVALUE![5].value
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -495,17 +488,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .requestDetail!
                                                 .data!
-                                                .requestDetailKeyValue![6]!
+                                                .rEQUESTDETAILKEYVALUE![6]
                                                 .value !=
                                             null
                                         ? Text(
-                                            controller
-                                                .requestDetail
-                                                .data!
-                                                .requestDetailKeyValue![6]!
-                                                .value
+                                            controller.requestDetail!.data!
+                                                .rEQUESTDETAILKEYVALUE![6].value
                                                 .toString(),
                                             style: GoogleFonts.inter(
                                                 color: Const.BASLIKTEXTCOLOR,
@@ -536,14 +526,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![7]!
+                                              .rEQUESTDETAILKEYVALUE![7]
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .requestDetailKeyValue![7]!.value
+                                          controller.requestDetail!.data!
+                                              .rEQUESTDETAILKEYVALUE![7].value
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -575,17 +565,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .requestDetail!
                                                 .data!
-                                                .requestDetailKeyValue![8]!
+                                                .rEQUESTDETAILKEYVALUE![8]
                                                 .value !=
                                             null
                                         ? Text(
-                                            controller
-                                                .requestDetail
-                                                .data!
-                                                .requestDetailKeyValue![8]!
-                                                .value
+                                            controller.requestDetail!.data!
+                                                .rEQUESTDETAILKEYVALUE![8].value
                                                 .toString(),
                                             style: GoogleFonts.inter(
                                                 color: Const.BASLIKTEXTCOLOR,
@@ -616,14 +603,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![9]!
+                                              .rEQUESTDETAILKEYVALUE![9]
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .requestDetailKeyValue![9]!.value
+                                          controller.requestDetail!.data!
+                                              .rEQUESTDETAILKEYVALUE![9].value
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -655,16 +642,16 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .requestDetail!
                                                 .data!
-                                                .requestDetailKeyValue![10]!
+                                                .rEQUESTDETAILKEYVALUE![10]
                                                 .value !=
                                             null
                                         ? Text(
                                             controller
-                                                .requestDetail
+                                                .requestDetail!
                                                 .data!
-                                                .requestDetailKeyValue![10]!
+                                                .rEQUESTDETAILKEYVALUE![10]
                                                 .value
                                                 .toString(),
                                             style: GoogleFonts.inter(
@@ -696,14 +683,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![11]!
+                                              .rEQUESTDETAILKEYVALUE![11]
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .requestDetailKeyValue![11]!.value
+                                          controller.requestDetail!.data!
+                                              .rEQUESTDETAILKEYVALUE![11].value
                                               .toString(),
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
@@ -736,16 +723,16 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                   SizedBox(
                                       height: 3.h,
                                       child: controller
-                                                  .requestDetail
+                                                  .requestDetail!
                                                   .data!
-                                                  .requestDetailKeyValue![12]!
+                                                  .rEQUESTDETAILKEYVALUE![12]
                                                   .value !=
                                               null
                                           ? Text(
                                               controller
-                                                  .requestDetail
+                                                  .requestDetail!
                                                   .data!
-                                                  .requestDetailKeyValue![12]!
+                                                  .rEQUESTDETAILKEYVALUE![12]
                                                   .value
                                                   .toString(),
                                               maxLines: 5,
@@ -783,16 +770,16 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     SizedBox(
                                         height: 5.h,
                                         child: controller
-                                                    .requestDetail
+                                                    .requestDetail!
                                                     .data!
-                                                    .requestDetailKeyValue![13]!
+                                                    .rEQUESTDETAILKEYVALUE![13]
                                                     .value !=
                                                 null
                                             ? Text(
                                                 controller
-                                                    .requestDetail
+                                                    .requestDetail!
                                                     .data!
-                                                    .requestDetailKeyValue![13]!
+                                                    .rEQUESTDETAILKEYVALUE![13]
                                                     .value
                                                     .toString(),
                                                 maxLines: 4,
@@ -829,14 +816,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![14]!
+                                              .rEQUESTDETAILKEYVALUE![14]
                                               .value !=
                                           null
                                       ? Text(
-                                          controller.requestDetail.data!
-                                              .requestDetailKeyValue![14]!.value
+                                          controller.requestDetail!.data!
+                                              .rEQUESTDETAILKEYVALUE![14].value
                                               .toString(),
                                           maxLines: 4,
                                           overflow: TextOverflow.ellipsis,
@@ -871,9 +858,9 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                       ),
                                     ),
                                     controller
-                                                .requestDetail
+                                                .requestDetail!
                                                 .data!
-                                                .requestDetailKeyValue![15]!
+                                                .rEQUESTDETAILKEYVALUE![15]
                                                 .value !=
                                             null
                                         ? Text(
@@ -906,9 +893,9 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                     ),
                                   ),
                                   controller
-                                              .requestDetail
+                                              .requestDetail!
                                               .data!
-                                              .requestDetailKeyValue![16]!
+                                              .rEQUESTDETAILKEYVALUE![16]
                                               .value !=
                                           null
                                       ? Text(
@@ -948,14 +935,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                           ),
                         ),
                         SizedBox(
-                          height: 25.h,
                           width: 100.w,
                           child: ListView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(vertical: 1.5.h),
                             itemCount:
-                                controller.requestDetail.data!.history!.length,
+                                controller.requestDetail!.data!.hISTORY!.length,
                             itemBuilder: (context, index) {
                               return Padding(
-                                //1. blki listview
                                 padding: EdgeInsets.only(
                                     left: 2.w, top: 1.h, right: 2.w),
                                 child: Row(
@@ -998,10 +985,10 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                                     DateTimeConverTo
                                                         .compareToDateTime(
                                                       controller
-                                                          .requestDetail
+                                                          .requestDetail!
                                                           .data!
-                                                          .history![index]!
-                                                          .confirmDate
+                                                          .hISTORY![index]
+                                                          .cONFIRMDATE
                                                           .toString(),
                                                     ),
                                                     style: GoogleFonts.inter(
@@ -1017,10 +1004,10 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                                       width: 30.w,
                                                       child: Text(
                                                         controller
-                                                            .requestDetail
+                                                            .requestDetail!
                                                             .data!
-                                                            .history![index]!
-                                                            .employeeNameSurname
+                                                            .hISTORY![index]
+                                                            .eMPLOYEENAMESURNAME
                                                             .toString(),
                                                         maxLines: 2,
                                                         style: GoogleFonts.inter(
@@ -1047,8 +1034,8 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            controller.requestDetail.data!
-                                                .history![index]!.description
+                                            controller.requestDetail!.data!
+                                                .hISTORY![index].dESCRIPTION
                                                 .toString(),
                                             style: GoogleFonts.inter(
                                                 color: Const.ACIKLAMATEXTCOLOR,
@@ -1058,17 +1045,17 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                             height: 1.1.h,
                                           ),
                                           controller
-                                                      .requestDetail
+                                                      .requestDetail!
                                                       .data!
-                                                      .history![index]!
-                                                      .confirmDescription !=
+                                                      .hISTORY![index]
+                                                      .cONFIRMDESCRIPTION !=
                                                   null
                                               ? Text(
                                                   controller
-                                                      .requestDetail
+                                                      .requestDetail!
                                                       .data!
-                                                      .history![0]!
-                                                      .confirmDescription
+                                                      .hISTORY![0]
+                                                      .cONFIRMDESCRIPTION
                                                       .toString(),
                                                 )
                                               : const Text("")

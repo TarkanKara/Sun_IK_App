@@ -155,6 +155,10 @@ class PinLoginView extends GetView<PinLoginController> {
                                                 "Çıkış Yapmak İstediğinizden Eminmisiniz",
                                                 "Kapat",
                                                 widget: ElevatedButton(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                            backgroundColor:
+                                                                Colors.red),
                                                     onPressed: () {
                                                       controller.resetStorage();
 

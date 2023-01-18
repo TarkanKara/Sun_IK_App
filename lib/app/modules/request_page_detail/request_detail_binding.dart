@@ -7,7 +7,7 @@ class RequestDetailBinding implements Bindings {
   void dependencies() {
     Get.put(
       RequestDetailController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

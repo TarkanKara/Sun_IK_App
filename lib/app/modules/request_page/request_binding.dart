@@ -6,7 +6,7 @@ class RequestBinding extends Bindings {
   void dependencies() {
     Get.put(
       RequestController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

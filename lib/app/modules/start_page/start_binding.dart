@@ -5,6 +5,6 @@ class StartBinding implements Bindings {
   //
   @override
   void dependencies() {
-    Get.put(StartController(apiRepository: Get.find()), permanent: true);
+    Get.put(StartController(apiRepository: Get.find()), permanent: false);
   }
 }

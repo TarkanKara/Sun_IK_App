@@ -6,7 +6,7 @@ class LanguageBinding implements Bindings {
   void dependencies() {
     Get.put(
       LanguageController(apiRepository: Get.find()),
-      permanent: true,
+      permanent: false,
     );
   }
 }

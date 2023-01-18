@@ -42,7 +42,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
             icon: const Icon(Icons.date_range_outlined),
           ),
         ],
-        title: const Text("MY PAYROLL"),
+        title: const Text("Bodrolarım"),
       ),
       body: Stack(
         children: [

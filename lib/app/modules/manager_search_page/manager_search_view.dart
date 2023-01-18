@@ -28,7 +28,7 @@ class ManagerSearchView extends GetView<ManagerSearchPageController> {
         ),
         centerTitle: true,
         title: Text(
-          "Search",
+          "Arama ",
           style: GoogleFonts.inter(
             fontSize: 3.3.h,
             fontWeight: FontWeight.w600,
@@ -59,7 +59,7 @@ class ManagerSearchView extends GetView<ManagerSearchPageController> {
             children: [
               SizedBox(height: 4.h),
               SearchTextFormField(
-                hintText: 'Search',
+                hintText: 'Ara',
                 prefixIcon: Icon(
                   Icons.search_sharp,
                   color: const Color(0xffc7c7c7),
@@ -77,7 +77,7 @@ class ManagerSearchView extends GetView<ManagerSearchPageController> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.w),
                 child: Text(
-                  "Search Name, Surname,",
+                  "İsim, Soyisim ",
                   style: GoogleFonts.inter(
                       color: const Color(0xffc7c7c7),
                       fontWeight: FontWeight.w500,
@@ -88,7 +88,7 @@ class ManagerSearchView extends GetView<ManagerSearchPageController> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.w),
                 child: Text(
-                  "Company, Departman, Position",
+                  "Şirket, Departman, Pozisyon",
                   style: GoogleFonts.inter(
                       color: const Color(0xffc7c7c7),
                       fontWeight: FontWeight.w500,

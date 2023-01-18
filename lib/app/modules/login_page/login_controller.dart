@@ -25,7 +25,7 @@ class LoginController extends GetxController {
   LoginModel loginModel = LoginModel();
 
   //
-  RxString dropdownvalue = "Select Company".obs;
+  RxString dropdownvalue = "Şirket Seçiniz".obs;
   RxBool isPasswordHidden = true.obs;
   RxString password = "".obs;
   RxBool switchControl = false.obs;
@@ -39,7 +39,7 @@ class LoginController extends GetxController {
   }
 
   RxList<String> company = [
-    "Select Company",
+    "Şirket Seçinizy",
     "Sun",
   ].obs;
 
@@ -87,6 +87,6 @@ class LoginController extends GetxController {
   closedTextField() {
     user.clear();
     passwordu.clear();
-    print("Login user ve password TextFiel Temizlendi");
+    print("Login user ve password TextField Temizlendi");
   }
 }

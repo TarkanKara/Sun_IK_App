@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps, body_might_complete_normally_nullable
 
-
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_model.dart';
@@ -11,6 +10,7 @@ import 'package:sun_ik_app/app/models/my_payroll/my_payroll_pdf_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_pending_jobs_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_detail_model.dart';
 import 'package:sun_ik_app/app/models/my_request/my_request_model.dart';
+import 'package:sun_ik_app/utils/dialog.dart';
 
 import '../app/models/home/my_profile_model.dart';
 import '../app/models/home/notification/notification_bulk_delete.dart';
@@ -18,7 +18,6 @@ import '../app/models/home/notification/notification_read_model.dart';
 import '../app/models/language/my_app_language_model.dart';
 import '../app/models/my_approve_detail/my_approve_detail.dart';
 import '../app/models/my_request/my_approve_get_pending_model.dart';
-
 
 import 'api_provider.dart';
 
@@ -123,11 +122,13 @@ class ApiRepository {
         return LoginModel.fromJson(response.body);
       }
     } catch (e) {
+      return CustomDialog.getDialog("Uyarı",
+          "Kullanıcı bilgileri yanlış.\n      Tekrar Deneyiniz.", "Kapat");
+
       print("e");
     }
     return null;
   }
-
 
   //getMyLeaves
   Future<MyLeavesModel?> getMyLeaves() async {
@@ -148,10 +149,6 @@ class ApiRepository {
     return null;
   }
 
-
-
-
-
   //getAllLanguage
   Future<MyAppLanguage?> getAllLanguage() async {
     try {
@@ -166,7 +163,6 @@ class ApiRepository {
     }
     return null;
   }
-
 
   //getMyRequest
   Future<MyRequestModel?> getMyRequest() async {
@@ -187,7 +183,6 @@ class ApiRepository {
     return null;
   }
 
-
   //getMyRequestDetail
   Future<MyRequestDetailModel?> getMyRequestDetail(
       int idMater, detailType) async {
@@ -207,7 +202,6 @@ class ApiRepository {
     }
     return null;
   }
-  
 
 //getPushNotification
   Future<NotificationModel?> getPushNotification() async {
@@ -225,7 +219,6 @@ class ApiRepository {
     }
     return null;
   }
-  
 
   //getReadNotification
   Future<ReadNotificationModel?> getReadNotification(
@@ -245,7 +238,6 @@ class ApiRepository {
     return null;
   }
 
-
   //getDeleteNotification
   Future<DeleteNotificationModel?> getDeleteNotification(
       int idPushNotificationDetail) async {
@@ -263,7 +255,6 @@ class ApiRepository {
     }
     return null;
   }
-
 
   //getBulkDeleteNotification
   // 1 ----> Tüm okunanları sil
@@ -285,7 +276,6 @@ class ApiRepository {
     return null;
   }
 
-
   //userLogOut
   userLogOut() async {
     try {
@@ -300,7 +290,6 @@ class ApiRepository {
       print("$e");
     }
   }
-
 
   //getMyPendingJobs
   Future<MyPendingJobs?> getMyPendingJobs() async {
@@ -339,8 +328,6 @@ class ApiRepository {
     }
     return null;
   }
-  
-  
 
   //getMyRequestGetPending
   Future<MyRequestGetPending?> getMyRequestGetPending() async {

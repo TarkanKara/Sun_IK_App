@@ -8,6 +8,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/utils/date_convert.dart';
 import 'package:sun_ik_app/utils/dialog.dart';
 
+import '../../../utils/base64_convert_picture.dart';
 import '../../../utils/const.dart';
 import '../../routes/app_pages.dart';
 import '../../widgets/home_menu_card.dart';
@@ -41,19 +42,30 @@ class HomeView extends GetView<HomeController> {
                         ),
                         Container(
                           width: 28.7.w,
-                          // height: 10.h,
+                          height: 10.h,
                           //color: Colors.red,
                           child: Row(children: [
-                            // CircleAvatar(
-                            //     radius: 3.5.h,
-                            //     backgroundColor: Colors.grey.withOpacity(0.5),
-                            //     backgroundImage: MemoryImage(
-                            //       Base64.pictureBase64Decode(
-                            //         controller
-                            //             .myProfileModel!.data!.profilePicture
-                            //             .toString(),
-                            //       ),
-                            //     )),
+                            controller.myProfileModel!.data!.profilePicture !=
+                                    null
+                                ? CircleAvatar(
+                                    radius: 8.w,
+                                    backgroundColor:
+                                        Colors.grey.withOpacity(0.5),
+                                    backgroundImage: MemoryImage(
+                                      Base64.pictureBase64Decode(
+                                        controller.myProfileModel!.data!
+                                            .profilePicture
+                                            .toString(),
+                                      ),
+                                    ),
+                                  )
+                                : CircleAvatar(
+                                    radius: 8.w,
+                                    backgroundColor:
+                                        Colors.grey.withOpacity(0.5),
+                                    backgroundImage: AssetImage(
+                                        "assets/images/home_assets/ic_avatar_profile.png"),
+                                  ),
                             IconButton(
                                 onPressed: () {}, icon: const Icon(Icons.info)),
                           ]),

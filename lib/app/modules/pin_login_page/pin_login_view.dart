@@ -1,12 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_controller.dart';
 import 'package:sun_ik_app/utils/dialog.dart';
 
+import '../../../utils/const.dart';
 import '../../routes/app_pages.dart';
 import '../../widgets/pin_login_widget.dart';
 
@@ -19,6 +21,8 @@ class PinLoginView extends GetView<PinLoginController> {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: const Color(0xffff6c6d),
+        systemOverlayStyle:
+            SystemUiOverlayStyle(statusBarColor: Const.STATUSBARCOLOR),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -36,7 +40,7 @@ class PinLoginView extends GetView<PinLoginController> {
               children: [
                 SizedBox(height: 2.h),
                 SizedBox(
-                  height: 80.h,
+                  height: 90.h,
                   width: 100.w,
                   child: Stack(
                     children: [
@@ -89,9 +93,9 @@ class PinLoginView extends GetView<PinLoginController> {
                       Positioned(
                         //textformfield container
                         left: 2.w,
-                        top: 27.h,
+                        top: 17.h,
                         child: Container(
-                          height: 50.h,
+                          height: 64.h,
                           width: 85.w,
                           decoration: BoxDecoration(
                             color: const Color(0xffef3e52),
@@ -107,7 +111,7 @@ class PinLoginView extends GetView<PinLoginController> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
-                                left: 3.w, top: 2.h, right: 3.w),
+                                left: 3.w, top: 7.5.h, right: 3.w),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -208,32 +212,17 @@ class PinLoginView extends GetView<PinLoginController> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          GestureDetector(
-                                            onTap: () {
-                                              Get.toNamed(Routes.CHANGEPINCODE);
-                                            },
-                                            child: Text(
-                                              "Change Pin",
-                                              style: GoogleFonts.inter(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 1.7.h),
-                                            ),
-                                          ),
-                                          Text(
-                                            "Forgot the pin code?",
-                                            style: GoogleFonts.inter(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 1.7.h),
-                                          ),
-                                        ],
+                                      GestureDetector(
+                                        onTap: () {
+                                          Get.toNamed(Routes.CHANGEPINCODE);
+                                        },
+                                        child: Text(
+                                          "Change Pin",
+                                          style: GoogleFonts.inter(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 1.7.h),
+                                        ),
                                       ),
                                       RichText(
                                           text: TextSpan(children: [

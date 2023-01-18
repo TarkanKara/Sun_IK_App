@@ -13,7 +13,7 @@ class PinLoginController extends GetxController {
 
   //
   RxString dropdownvalue = "Select Company".obs;
-  RxBool isPasswordHidden = false.obs;
+  RxBool isPasswordHidden = true.obs;
   RxString password = "".obs;
   RxBool switchControl = false.obs;
   RxString user_name = "".obs;

@@ -85,9 +85,10 @@ class LoginView extends GetView<LoginController> {
                       Positioned(
                         //textformfield container
                         left: 2.w,
-                        top: 22.h,
+                        top: 19.h,
+
                         child: Container(
-                          height: 63.h,
+                          height: 67.h,
                           width: 85.w,
                           decoration: BoxDecoration(
                             color: const Color(0xffef3e52),
@@ -103,7 +104,7 @@ class LoginView extends GetView<LoginController> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
-                                left: 3.w, top: 8.h, right: 3.w),
+                                left: 3.w, top: 11.h, right: 3.w),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -197,9 +198,7 @@ class LoginView extends GetView<LoginController> {
                                         print("object");
                                         controller.currentLogin();
 
-
                                         //controller.closedTextField();
-
                                       },
                                     )),
                                 Padding(

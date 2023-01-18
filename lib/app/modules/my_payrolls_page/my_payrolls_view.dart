@@ -150,7 +150,8 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                   radius: 8.5.w,
                   backgroundColor: Colors.grey.withOpacity(0.5),
                   backgroundImage: MemoryImage(controller.photoPath!),
-                )),
+                )
+                ),
           ),
         ],
       ),

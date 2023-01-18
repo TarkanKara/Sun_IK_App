@@ -22,7 +22,7 @@ abstract class Routes {
   static const REQUEST_DETAIL = "/request_detail";
   static const NOTIFICATION = "/notification";
   static const PIN_LOGIN = "/pin_login";
+  static const MY_LEAVES_DETAIL = "/my_leaves_detail";
   static const MY_JOBS_DETAIL = "/myjobsdetail";
   static const NOTIFICATION_DETAIL = "/notification_detail";
-  
 }

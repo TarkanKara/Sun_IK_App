@@ -10,6 +10,8 @@ import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
 
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
+import 'package:sun_ik_app/app/modules/my_leaves_detail/my_leaves_detail_binding.dart';
+import 'package:sun_ik_app/app/modules/my_leaves_detail/my_leaves_detail_view.dart';
 import 'package:sun_ik_app/app/modules/my_leaves_page/my_leaves.view.dart';
 import 'package:sun_ik_app/app/modules/my_leaves_page/my_leaves_binding.dart';
 import 'package:sun_ik_app/app/modules/manager_search_page/manager_search_view.dart';
@@ -145,6 +147,11 @@ class AppPages {
       name: Routes.PIN_LOGIN,
       page: () => const PinLoginView(),
       binding: PinLoginBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_LEAVES_DETAIL,
+      page: () => const MyLeavesDetailView(),
+      binding: MyLeavesDetailBinding(),
     ),
     GetPage(
       name: Routes.MY_JOBS_DETAIL,

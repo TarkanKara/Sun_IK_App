@@ -184,7 +184,6 @@ class HomeView extends GetView<HomeController> {
                     height: 41.5.h,
                     child: SizedBox(
                       width: double.infinity,
-                      height: 41.5.h,
                       child: GridView(
                         physics: const NeverScrollableScrollPhysics(),
                         padding: const EdgeInsets.all(10),
@@ -258,9 +257,94 @@ class HomeView extends GetView<HomeController> {
                             cardWidth: 38.w,
                             isBordro: true,
                           ),
+                          /*  controller.infoModel!.data!.IsManager == true
+                              ? HomeMenuCard(
+                                  cardPressed: () {
+                                    Get.toNamed(Routes.MY_PAYROLLS, arguments: {
+                                      "name":
+                                          "${controller.infoModel!.data!.NameSurname}",
+                                      "picture": controller
+                                          .myProfileModel!.data!.profilePicture
+                                          .toString()
+                                    });
+                                  },
+                                  lastBordroPressed: () {},
+                                  cardName: "Ekibim",
+                                  //controller.infoModel!.data!.menuInfo[5].MENUNAME,
+                                  cardInfo: controller.infoModel!.data!
+                                      .myLastPayroll.DocumentName,
+                                  cardIcon:
+                                      'assets/images/home_assets/ic_bordrolarim.png',
+                                  cardHeight: 20.h,
+                                  cardWidth: 38.w,
+                                  isBordro: true,
+                                )
+                              : Container() */
                         ],
                       ),
                     )),
+                controller.infoModel!.data!.IsManager == true
+                    ? GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.MY_TEAMS);
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                              bottom: 0.6.h, left: 3.w, right: 3.w),
+                          width: 95.w,
+                          height: 15.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.w),
+                              color: Const.MENUCOLOR,
+                              boxShadow: const [
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    color: Colors.grey,
+                                    spreadRadius: 0,
+                                    offset: Offset(0, 1))
+                              ]),
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 5.w),
+                            child: Row(
+                              //mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(3.w),
+                                    child: Image.asset(
+                                      'assets/images/home_assets/ic_my_teams.png',
+                                      height: 20.w,
+                                      width: 20.w,
+                                    )),
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 10.w, right: 3.5.w),
+                                  child: Text(
+                                    'Ekibim',
+                                    style: GoogleFonts.inter(
+                                        fontSize: 3.5.h,
+                                        letterSpacing: .5.w,
+                                        fontWeight: FontWeight.w600,
+                                        color: Const.BASLIKTEXTCOLOR),
+                                  ),
+                                ),
+                                Container(
+                                    width: 4.5.h,
+                                    height: 4.5.h,
+                                    margin:
+                                        EdgeInsets.only(left: 15.w, top: .2.h),
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/home_assets/ic_right-arrow.png"),
+                                          fit: BoxFit.fill),
+                                    ))
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
 
                 // Align(
                 //   alignment: Alignment.center,

@@ -23,6 +23,7 @@ import '../app/models/language/my_app_language_model.dart';
 import '../app/models/my_approve_detail/my_approve_detail.dart';
 import '../app/models/my_request/my_approve_get_pending_model.dart';
 
+import '../app/models/my_team/my_team_model.dart';
 import 'api_provider.dart';
 
 class ApiRepository {
@@ -341,6 +342,23 @@ class ApiRepository {
       if (response.statusCode == 200) {
         print(response.body);
         return MyRequestGetPending.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  //GetMyTeams
+  Future<MyTeamModel?> getMyTeam() async {
+    try {
+      var response = await apiProvider.postMethod(
+        "Team/GetMyTeam",
+        {"DATE": "2023-01-19T15:11:54.760Z", "ID_HR_EMPLOYEE": 6642},
+      );
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyTeamModel.fromJson(response.body);
       }
     } catch (e) {
       print("$e");

@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../api/api_repository.dart';
 import '../../models/home/get_landing_page_info.dart';
 import '../../models/home/my_profile_model.dart';
+import '../../routes/app_pages.dart';
 
 class HomeController extends GetxController {
   final ApiRepository apiRepository;
@@ -62,7 +63,7 @@ class HomeController extends GetxController {
         }
       }
     } else {
-      isAkademi.value = true;
+      isAkademi.value = false;
     }
   }
 
@@ -71,6 +72,8 @@ class HomeController extends GetxController {
       throw 'Could not launch $_url';
     }
   }
+
+ 
 
 
   

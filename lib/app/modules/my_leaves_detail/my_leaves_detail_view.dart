@@ -137,7 +137,7 @@ class MyLeavesDetailView extends GetView<MyLeavesDetailController> {
                       child: Padding(
                         padding: EdgeInsets.only(left: 3.5.w, top: 2.h),
                         child: Text(DateTimeConverTo.compareToDateYMD(
-                            controller.adding().toString())),
+                            controller.vacationEnd().toString())),
                       ),
                     ),
                     Padding(
@@ -159,7 +159,7 @@ class MyLeavesDetailView extends GetView<MyLeavesDetailController> {
                           borderRadius: BorderRadius.circular(1.5.w)),
                       child: Padding(
                         padding: EdgeInsets.only(left: 3.5.w, top: 2.h),
-                        child: Text(controller.day().toString()),
+                        child: Text(controller.vacationDays().toString()),
                       ),
                     ),
                     Padding(

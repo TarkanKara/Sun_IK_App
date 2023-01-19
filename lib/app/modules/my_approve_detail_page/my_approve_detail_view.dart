@@ -67,14 +67,15 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                   margin: EdgeInsets.only(left: 2.w, top: .6.h),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(2.w),
-                                    color: const Color(0xffFFCDD2),
                                   ),
                                   child: Center(
                                     child: SizedBox(
                                       height: 7.h,
-                                      width: 8.w,
+                                      width: 10.w,
                                       child: Image.asset(
-                                          "assets/images/my_approve_detail/approve_file.PNG"),
+                                        "assets/images/my_approve_detail/approve_file.PNG",
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -106,56 +107,66 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 1.h, left: 2.6.w),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 1.h),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'Talep Eden',
-                                    style: GoogleFonts.inter(
-                                        fontSize: 1.9.h,
-                                        color: Const.ACIKLAMATEXTCOLOR,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  SizedBox(width: 30.w),
-                                  Text(
-                                    'Atanan Kişi',
-                                    style: GoogleFonts.inter(
-                                        fontSize: 1.9.h,
-                                        color: Const.ACIKLAMATEXTCOLOR,
-                                        fontWeight: FontWeight.w500),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              // 1. row'un bilgileri
-                              padding: EdgeInsets.only(top: 1.h, left: 3.w),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "${controller.myApproveDetailModel.data!.reqName}",
-                                    style: GoogleFonts.inter(
-                                        color: Const.BASLIKTEXTCOLOR,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 1.6.h),
-                                  ),
-                                  SizedBox(width: 13.w),
-                                  controller.myApproveDetailModel.data!
-                                              .assignEmployee !=
-                                          null
-                                      ? Text(
-                                          controller.myApproveDetailModel.data!
-                                              .assignEmployee,
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Talep Eden",
+                                        style: GoogleFonts.inter(
+                                            fontSize: 1.9.h,
+                                            color: Const.ACIKLAMATEXTCOLOR,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 1.w),
+                                        child: Text(
+                                          "${controller.myApproveDetailModel.data!.employeeNameSurname}",
                                           style: GoogleFonts.inter(
                                               color: Const.BASLIKTEXTCOLOR,
                                               fontWeight: FontWeight.w700,
-                                              fontSize: 1.5.h),
-                                        )
-                                      : const Text("")
+                                              fontSize: 1.6.h),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Atanan Kişi',
+                                          style: GoogleFonts.inter(
+                                              fontSize: 1.9.h,
+                                              color: Const.ACIKLAMATEXTCOLOR,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        
+                                             Padding(
+                                               padding:  EdgeInsets.only(left: .5.w),
+                                               child: Text(
+                                                  controller.myApproveDetailModel
+                                                      .data!.assignEmployee ?? "",    
+                                                  style: GoogleFonts.inter(
+                                                      color:
+                                                          Const.BASLIKTEXTCOLOR,
+                                                      fontWeight: FontWeight.w700,
+                                                      fontSize: 1.6.h),
+                                                ),
+                                             )
+                                            
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),

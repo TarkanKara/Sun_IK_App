@@ -9,20 +9,18 @@ class MyLeavesDetailController extends GetxController {
   ApiRepository apiRepository;
   MyLeavesDetailController({required this.apiRepository});
 
- 
   var selectedDate = DateTime.now().obs;
   var selectedDate2 = DateTime.now().obs;
   var selectedDate3 = DateTime.now().obs;
   RxInt selectedDate4 = 0.obs;
 
 
-   adding(){
+   vacationEnd(){
     return selectedDate3 = selectedDate2.value.add(const Duration(days: 1)).obs;
   }  
-   day(){
+   vacationDays(){
     return selectedDate4.value = selectedDate3.value.difference(selectedDate.value).inDays ;
    }
-
 
   //
   @override

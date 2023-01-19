@@ -79,6 +79,93 @@ class RequestListItem extends StatelessWidget {
               ],
             ),
             Padding(
+              padding: EdgeInsets.only(top: 1.5.h, left: 2.w),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 1.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Talep No",
+                          style: GoogleFonts.inter(
+                              fontSize: 2.h,
+                              color: Const.ACIKLAMATEXTCOLOR,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 1.w),
+                          child: Text(
+                            talepNo,
+                            style: GoogleFonts.inter(
+                                color: Const.BASLIKTEXTCOLOR,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 1.9.h),
+                          ),
+                        ),
+                        Text(
+                          "Atanan Kişi",
+                          style: GoogleFonts.inter(
+                              fontSize: 2.h,
+                              color: Const.ACIKLAMATEXTCOLOR,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          atananKisi,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.inter(
+                              color: Const.BASLIKTEXTCOLOR,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 1.9.h),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 2.5.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Açıklama",
+                          style: GoogleFonts.inter(
+                              fontSize: 2.h,
+                              color: Const.ACIKLAMATEXTCOLOR,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          aciklama,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.inter(
+                              color: Const.BASLIKTEXTCOLOR,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 1.9.h),
+                        ),
+                        Text(
+                          "Durum",
+                          style: GoogleFonts.inter(
+                              fontSize: 2.h,
+                              color: Const.ACIKLAMATEXTCOLOR,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          durum,
+                          style: GoogleFonts.inter(
+                              color: Const.BASLIKTEXTCOLOR,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 1.9.h),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
+
+            /* Padding(
               //ilk row talep no olan
               padding: EdgeInsets.only(top: 1.h, left: 2.6.w),
               child: Row(
@@ -178,6 +265,7 @@ class RequestListItem extends StatelessWidget {
                 ],
               ),
             ),
+            // */
           ],
         ),
       ),

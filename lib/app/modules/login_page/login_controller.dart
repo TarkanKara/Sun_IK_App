@@ -60,10 +60,10 @@ class LoginController extends GetxController {
     if (dropdownvalue.value != "Sun") {
       return CustomDialog.getDialog("Uyarı", "Şirket Seçimi Yapnız", "Kapat");
     } else if (user.text == "") {
-      return CustomDialog.getDialog("Uyarı", "Kullanıcı Boş Girilmez", "Kapat");
+      return CustomDialog.getDialog("Uyarı", "Kullanıcının adı boş girilemez", "Kapat");
     } else if (passwordu.text == "") {
       return CustomDialog.getDialog(
-          "Uyarı", "Şifre Alanı Boş Girilmez", "Kapat");
+          "Uyarı", "Şifre alanı boş girilmez", "Kapat");
     } else {
       status.value = RxStatus.loading();
       loginModel = (await apiRepository.getLogin(user.text, passwordu.text))!;

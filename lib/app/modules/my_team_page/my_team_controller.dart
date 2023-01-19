@@ -18,8 +18,9 @@ class MyTeamController extends GetxController {
   Rx<RxStatus> status = RxStatus.empty().obs;
 
   getMyTeam() async{
-  status = RxStatus.loading().obs;
+  status.value= RxStatus.loading();
    myTeamModel = (await apiRepository.getMyTeam())!;
-  status = RxStatus.success().obs;
+  status.value= RxStatus.success();
+  //status = RxStatus.success().obs;
   }
 }

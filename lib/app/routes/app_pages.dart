@@ -1,13 +1,10 @@
 // ignore_for_file: ant_identifier_names, constant_identifier_names
 
 import 'package:get/get.dart';
-
 import 'package:sun_ik_app/app/modules/language_page/language_binding.dart';
 import 'package:sun_ik_app/app/modules/language_page/language_view.dart';
-
 import 'package:sun_ik_app/app/modules/login_page/login_binding.dart';
 import 'package:sun_ik_app/app/modules/login_page/login_view.dart';
-
 import 'package:sun_ik_app/app/modules/home_page/home_binding.dart';
 import 'package:sun_ik_app/app/modules/home_page/home_view.dart';
 import 'package:sun_ik_app/app/modules/my_leaves_detail/my_leaves_detail_binding.dart';
@@ -23,7 +20,6 @@ import 'package:sun_ik_app/app/modules/my_approve_page/my_approve_binding.dart';
 import 'package:sun_ik_app/app/modules/my_approve_page/my_approve_view.dart';
 import 'package:sun_ik_app/app/modules/my_jobs_details_page/my_jobs_details_bindings.dart';
 import 'package:sun_ik_app/app/modules/my_jobs_details_page/my_jobs_details_view.dart';
-
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_binding.dart';
 import 'package:sun_ik_app/app/modules/my_payrolls_page/my_payrolls_view.dart';
 import 'package:sun_ik_app/app/modules/my_team_page/my_team_view.dart';
@@ -33,7 +29,6 @@ import 'package:sun_ik_app/app/modules/notification_page/notification_binding.da
 import 'package:sun_ik_app/app/modules/notification_page/notification_view.dart';
 import 'package:sun_ik_app/app/modules/pdf_page/pdf_binding.dart';
 import 'package:sun_ik_app/app/modules/pdf_page/pdf_view.dart';
-
 import 'package:sun_ik_app/app/modules/pin_code_change_page/pin_code_change_view.dart';
 import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_binding.dart';
 import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_view.dart';
@@ -41,13 +36,10 @@ import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_binding.dart';
 import 'package:sun_ik_app/app/modules/pin_login_page/pin_login_view.dart';
 import 'package:sun_ik_app/app/modules/request_page/request_binding.dart';
 import 'package:sun_ik_app/app/modules/request_page/request_view.dart';
-
 import 'package:sun_ik_app/app/modules/splash_page/splash_binding.dart';
 import 'package:sun_ik_app/app/modules/splash_page/splash_view.dart';
-
 import 'package:sun_ik_app/app/modules/start_page/start_binding.dart';
 import 'package:sun_ik_app/app/modules/start_page/start_view.dart';
-
 import '../modules/manager_search_page/manager_search_binding.dart';
 import '../modules/my_team_page/my_team_binding.dart';
 import '../modules/pin_code_change_page/pin_code_change_binding.dart';

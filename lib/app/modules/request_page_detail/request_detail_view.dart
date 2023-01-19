@@ -66,14 +66,14 @@ class RequestDetailView extends GetView<RequestDetailController> {
                                   margin: EdgeInsets.only(left: 2.w, top: .6.h),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(2.w),
-                                    color: const Color(0xffFFCDD2),
+                                    color: const Color(0xffECEFF1),
                                   ),
                                   child: Center(
                                     child: SizedBox(
                                       height: 7.h,
                                       width: 8.w,
                                       child: Image.asset(
-                                          "assets/images/request_assets/ic_reddetmek.png"),
+                                          "assets/images/request_assets/ic_devam_ediyor.png"),
                                     ),
                                   ),
                                 ),

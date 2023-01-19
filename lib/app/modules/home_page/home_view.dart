@@ -207,6 +207,9 @@ class HomeView extends GetView<HomeController> {
                             cardHeight: 20.h,
                             cardWidth: 38.w,
                             isBordro: false,
+                            lastBordroPressed:() {
+                              
+                            },
                           ),
                           HomeMenuCard(
                             cardPressed: () {
@@ -221,6 +224,9 @@ class HomeView extends GetView<HomeController> {
                             cardHeight: 20.h,
                             cardWidth: 38.w,
                             isBordro: false,
+                            lastBordroPressed:() {
+                              
+                            },
                           ),
                           HomeMenuCard(
                             cardPressed: () {
@@ -235,6 +241,9 @@ class HomeView extends GetView<HomeController> {
                             cardHeight: 20.h,
                             cardWidth: 38.w,
                             isBordro: false,
+                            lastBordroPressed: () {
+                              
+                            },
                           ),
                           HomeMenuCard(
                             cardPressed: () {
@@ -246,7 +255,8 @@ class HomeView extends GetView<HomeController> {
                                     .toString()
                               });
                             },
-                            lastBordroPressed: () {},
+                            lastBordroPressed: () {
+                            },
                             cardName: "Bodrolarım",
                             //controller.infoModel!.data!.menuInfo[5].MENUNAME,
                             cardInfo: controller

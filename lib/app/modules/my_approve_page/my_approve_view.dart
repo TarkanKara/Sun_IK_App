@@ -244,7 +244,10 @@ class MyApproveView extends GetView<MyApproveController> {
                   },
                 ),
               )
-            : const Center(child: CircularProgressIndicator())),
+            : SizedBox(
+                height: 85.h,
+                width: 100.w,
+                child: Center(child: CircularProgressIndicator()))),
       ),
     );
   }

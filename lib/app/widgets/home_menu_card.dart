@@ -13,7 +13,7 @@ class HomeMenuCard extends StatelessWidget {
   String cardIcon;
   bool isBordro;
   void Function() cardPressed;
-  void Function()? lastBordroPressed;
+  void Function() lastBordroPressed;
   HomeMenuCard({
     required this.cardWidth,
     required this.cardHeight,
@@ -22,7 +22,7 @@ class HomeMenuCard extends StatelessWidget {
     required this.cardIcon,
     required this.isBordro,
     required this.cardPressed,
-    this.lastBordroPressed,
+    required this.lastBordroPressed,
     Key? key,
   }) : super(key: key);
 

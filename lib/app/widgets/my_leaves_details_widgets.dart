@@ -12,13 +12,16 @@ class LeaveTypeDropDownMenu extends GetView<MyLeavesDetailController> {
       () => Container(
         height: 6.5.h,
         width: 100.w,
-        margin: EdgeInsets.symmetric(vertical: 1.7.h),
+        margin: EdgeInsets.symmetric(
+          vertical: 1.7.h,
+        ),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(2.w),
           border: Border.all(color: const Color(0xffeeeeee), width: .6.w),
         ),
         child: DropdownButton<String>(
+          isExpanded: true,
           value: controller.leaveTypeDropdownValue.value,
           underline: const SizedBox(),
           style: const TextStyle(color: Colors.black),
@@ -61,7 +64,7 @@ class TextFormFieldLeavesWidget extends StatelessWidget {
       decoration: InputDecoration(
           border: InputBorder.none,
           filled: true,
-          fillColor:  const Color(0xffFFFFFF),
+          fillColor: const Color(0xffFFFFFF),
           enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(width: 0, color: Colors.transparent),
               borderRadius: BorderRadius.circular(2.w)),

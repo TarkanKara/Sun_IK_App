@@ -124,10 +124,10 @@ class LoginView extends GetView<LoginController> {
                                     Container(
                                       width: 60.w,
                                       margin: EdgeInsets.only(
-                                      bottom: .5.h,
-                                      left: 1.w,
-                                      right: 1.w,
-                                    ),
+                                        bottom: .5.h,
+                                        left: 1.w,
+                                        right: 1.w,
+                                      ),
                                       child: Text(
                                         "Bilgisayar şifrem yok. SMS ile şifresi almak istiyorum.",
                                         style: GoogleFonts.inter(
@@ -158,11 +158,13 @@ class LoginView extends GetView<LoginController> {
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 1.h),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 1.h, horizontal: 2.w),
                                   child: const DropDownMenu(),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(bottom: 2.h),
+                                  padding: EdgeInsets.only(
+                                      bottom: 2.h, left: 2.w, right: 2.w),
                                   child: LoginTextWidget(
                                     controllers: controller.user,
                                     obscureText: false.obs,
@@ -170,7 +172,8 @@ class LoginView extends GetView<LoginController> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(top: 1.h),
+                                  padding: EdgeInsets.only(
+                                      top: 1.h, left: 2.w, right: 2.w),
                                   child: LoginTextWidget(
                                     controllers: controller.passwordu,
                                     obscureText: controller.isPasswordHidden,
@@ -190,13 +193,13 @@ class LoginView extends GetView<LoginController> {
                                   ),
                                 ),
                                 Padding(
-                                    padding: EdgeInsets.only(top: 3.h),
+                                    padding: EdgeInsets.only(
+                                        top: 3.h, left: 2.w, right: 2.w),
                                     child: LoginButton(
                                       callback: () {
                                         print("object");
                                         controller.currentLogin();
-
-                                     },
+                                      },
                                     )),
                                 Padding(
                                   padding: EdgeInsets.only(top: 1.5.h),

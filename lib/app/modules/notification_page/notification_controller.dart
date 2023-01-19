@@ -59,7 +59,14 @@ class NotificationController extends GetxController {
                     getNotification();
                     Get.back();
                   },
-                  child: const Text('Sadece Okunanları Sil'))
+                  child: const Text('Sadece Okunanları Sil')),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  onPressed: () {
+                    getNotification();
+                    Get.back();
+                  },
+                  child: const Text('Kapat'))
             ],
           )
         ]);
@@ -75,6 +82,7 @@ class NotificationController extends GetxController {
     return CustomDialog.getDialog(
         "Uyarı", "Silmek istediğinize emin misiniz?", "Kapat",
         widget: ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             onPressed: () {
               selectedNotificationDelete(idPushNotificationDetail);
               getNotification();

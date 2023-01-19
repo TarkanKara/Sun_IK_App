@@ -45,7 +45,7 @@ class LanguagePage extends GetView<LanguageController> {
                     () => controller.status.value.isSuccess
                         ? ListView.builder(
                             padding: EdgeInsets.only(top: 3.h),
-                            itemCount: 8,
+                            itemCount: 7,
                             //controller.myAppLanguage.data!.length,
                             itemBuilder: (context, index) {
                               return Container(

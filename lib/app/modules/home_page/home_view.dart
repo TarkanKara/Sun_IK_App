@@ -165,7 +165,7 @@ class HomeView extends GetView<HomeController> {
                                     margin: EdgeInsets.only(right: 3.w),
                                     child: Image.asset(
                                       "assets/images/home_assets/ic_search.png",
-                                      scale: 0.2.h,
+                                      scale: 0.25.h,
                                       color: Colors.black.withOpacity(.6),
                                     )),
                               ),
@@ -200,7 +200,7 @@ class HomeView extends GetView<HomeController> {
                               Get.toNamed(Routes.REQUEST);
                             },
                             cardName: "Taleplerim",
-                             //controller.infoModel!.data!.menuInfo[0].MENUNAME,
+                            //controller.infoModel!.data!.menuInfo[0].MENUNAME,
                             cardInfo:
                                 "${controller.infoModel!.data!.MyRequestCount} Bildirimler",
                             cardIcon:
@@ -227,8 +227,8 @@ class HomeView extends GetView<HomeController> {
                             cardPressed: () {
                               Get.toNamed(Routes.MY_jOBS);
                             },
-                            cardName:"İşlerim",
-                             //controller                               .infoModel!.data!.menuInfo[2].MENUNAME,
+                            cardName: "İşlerim",
+                            //controller                               .infoModel!.data!.menuInfo[2].MENUNAME,
                             cardInfo:
                                 "${controller.infoModel!.data!.GetMyWorks} Bildirimler",
                             cardIcon:
@@ -247,10 +247,7 @@ class HomeView extends GetView<HomeController> {
                                     .toString()
                               });
                             },
-                            lastBordroPressed: () {
-                              
-                     
-                            },
+                            lastBordroPressed: () {},
                             cardName: "Bodrolarım",
                             //controller.infoModel!.data!.menuInfo[5].MENUNAME,
                             cardInfo: controller
@@ -314,64 +311,68 @@ class HomeView extends GetView<HomeController> {
                 //   ),
                 // ),
                 controller.isAkademi.value
-                    ? Container(margin: EdgeInsets.symmetric(vertical: 0.3.h,horizontal: 3.w),
-                            width: 95.w,
-                            height: 15.h,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4.w),
-                                color: Const.MENUCOLOR,
-                                boxShadow: const [
-                                  BoxShadow(
-                                      blurRadius: 3,
-                                      color: Colors.grey,
-                                      spreadRadius: 0,
-                                      offset: Offset(0, 1))
-                      
-                            ]
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.only(left: 5.w),
-                              child: Row(
-                                //mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  ClipRRect(
-                                      borderRadius: BorderRadius.circular(3.w),
-                                      child: Image.asset(
-                                        'assets/images/home_assets/logo_sun_akademi.png',
-                                        height: 20.w,
-                                        width: 20.w,
-                                      )),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 3.5.w, right: 3.5.w),
-                                    child: Text(
-                                      'Sun Akademi',
-                                      style: GoogleFonts.inter(
-                                          fontSize: 3.h,
-                                          letterSpacing: .5.w,
-                                          fontWeight: FontWeight.w600,
-                                          color: Const.BASLIKTEXTCOLOR),
-                                    ),
+                    ? GestureDetector(
+                        onTap: () {
+                          controller.sunAkademiUrl();
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                              bottom: 0.6.h, left: 3.w, right: 3.w),
+                          width: 95.w,
+                          height: 15.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.w),
+                              color: Const.MENUCOLOR,
+                              boxShadow: const [
+                                BoxShadow(
+                                    blurRadius: 3,
+                                    color: Colors.grey,
+                                    spreadRadius: 0,
+                                    offset: Offset(0, 1))
+                              ]),
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 5.w),
+                            child: Row(
+                              //mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(3.w),
+                                    child: Image.asset(
+                                      'assets/images/home_assets/logo_sun_akademi.png',
+                                      height: 20.w,
+                                      width: 20.w,
+                                    )),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 3.5.w, right: 3.5.w),
+                                  child: Text(
+                                    'Sun Akademi',
+                                    style: GoogleFonts.inter(
+                                        fontSize: 3.h,
+                                        letterSpacing: .5.w,
+                                        fontWeight: FontWeight.w600,
+                                        color: Const.BASLIKTEXTCOLOR),
                                   ),
-                                  Container(
-                                      width: 3.h,
-                                      height: 3.h,
-                                      margin: EdgeInsets.only(left: 7.w,top: .2.h),
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  "assets/images/home_assets/ic_forward.png"),fit: BoxFit.fill
-                                                  ),
-                                                  )
-                                                  )
-                                ],
-                              ),
+                                ),
+                                Container(
+                                    width: 3.h,
+                                    height: 3.h,
+                                    margin:
+                                        EdgeInsets.only(left: 7.w, top: .2.h),
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/home_assets/ic_forward.png"),
+                                          fit: BoxFit.fill),
+                                    ))
+                              ],
                             ),
-
-
-                            ): Container(),
-                    /* Align(
+                          ),
+                        ),
+                      )
+                    : Container(),
+                /* Align(
                         alignment: Alignment.center,
                         child: GestureDetector(
                           onTap: () {
@@ -424,7 +425,6 @@ class HomeView extends GetView<HomeController> {
                           ),
                         ),
                       ) */
-                    
 
                 Align(
                   alignment: Alignment.center,

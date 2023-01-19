@@ -20,7 +20,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      //resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 5,
         backgroundColor: const Color(0xffEF3E52),
@@ -74,7 +74,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                     children: [
                       Obx(() => controller.status.value.isSuccess
                           ? SizedBox(
-                              height: 60.h,
+                              height: 50.h,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 padding: EdgeInsets.zero,

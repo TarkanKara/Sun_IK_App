@@ -61,7 +61,7 @@ class RequestView extends GetView<RequestController> {
                     ),
                   ),
                   SizedBox(
-                    height: 85.h,
+                    height: 80.h,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,

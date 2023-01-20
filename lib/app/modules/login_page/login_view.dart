@@ -111,7 +111,7 @@ class LoginView extends GetView<LoginController> {
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      bottom: .5.h, top: 1.7.h, right: 10.w),
+                                      bottom: .5.h, top: 1.7.h, right: 8.w),
                                   child: Text(
                                       "Mobil uygulamaya ile giriş yapınız.",
                                       style: GoogleFonts.inter(

@@ -73,9 +73,9 @@ class MyLeavesView extends GetView<MyLeavesController> {
                       //TabBarView Page 1
                       Column(
                         children: [
-                          Obx(() => !controller.status.value.isSuccess
+                          Obx(() => controller.status.value.isSuccess
                               ? SizedBox(
-                                  height: 83.h,
+                                  height: 80.h,
                                   child: ListView.builder(
                                     itemCount: controller.myLeavesModel.data!
                                         .employeeLeaveList!.length,

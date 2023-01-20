@@ -47,19 +47,19 @@ class NotificationController extends GetxController {
               ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                   onPressed: () {
-                    selectedAllOrReadedNotificationDelete(2);
-                    getNotification();
-                    Get.back();
-                  },
-                  child: const Text('Hepsini Sil')),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed: () {
                     selectedAllOrReadedNotificationDelete(1);
                     getNotification();
                     Get.back();
                   },
                   child: const Text('Sadece Okunanları Sil')),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  onPressed: () {
+                    selectedAllOrReadedNotificationDelete(2);
+                    getNotification();
+                    Get.back();
+                  },
+                  child: const Text('Hepsini Sil')),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                   onPressed: () {

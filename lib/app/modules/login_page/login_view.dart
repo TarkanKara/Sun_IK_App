@@ -122,10 +122,10 @@ class LoginView extends GetView<LoginController> {
                                 Row(
                                   children: [
                                     Container(
-                                      width: 60.w,
+                                      width: 59.w,
                                       margin: EdgeInsets.only(
                                         bottom: .5.h,
-                                        left: 1.w,
+                                        left: 3.w,
                                         right: 1.w,
                                       ),
                                       child: Text(

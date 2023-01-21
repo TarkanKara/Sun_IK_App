@@ -13,6 +13,9 @@ class RequestDetailController extends GetxController {
   final ApiRepository apiRepository;
   RequestDetailController({required this.apiRepository});
 
+  int detailType = 0;
+  int idMaster = 0;
+
   RequestController requestController =
       Get.put(RequestController(apiRepository: Get.find()));
 
@@ -25,11 +28,10 @@ class RequestDetailController extends GetxController {
   //
   @override
   void onInit() {
-    getMyRequestDetail(
-        requestController.myRequestModel.data!
-            .myRequestList![requestController.index.value].iDMASTER,
-        requestController.myRequestModel.data!
-            .myRequestList![requestController.index.value].rEQTYPE);
+    idMaster = Get.arguments["IdMaster"];
+    detailType = Get.arguments["DetailType"];
+    print("objecasdasddadt");
+    getMyRequestDetail(idMaster, detailType);
     print("Request Detail View Yüklendi");
     super.onInit();
   }

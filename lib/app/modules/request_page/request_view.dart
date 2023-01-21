@@ -71,7 +71,10 @@ class RequestView extends GetView<RequestController> {
                         return GestureDetector(
                           onTap: () {
                             controller.index.value = index;
-                            Get.toNamed(Routes.REQUEST_DETAIL);
+                            Get.toNamed(Routes.REQUEST_DETAIL,arguments: {
+                          "IdMaster": controller.myRequestModel.data!.myRequestList![index].iDMASTER,
+                          "DetailType": controller.myRequestModel.data!.myRequestList![index].rEQTYPE,
+                        });
                           },
                           child: Padding(
                             padding: EdgeInsets.only(top: 3.w),

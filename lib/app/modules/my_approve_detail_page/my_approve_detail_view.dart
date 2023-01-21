@@ -372,7 +372,6 @@ class MyApproveDetailView extends GetView<MyApproveDetailController> {
                                 children: [
                                   FittedBox(
                                     child: SizedBox(
-                                      width: 55.w,
                                       child: Text(
                                         'İzin Tipi',
                                         maxLines: 2,

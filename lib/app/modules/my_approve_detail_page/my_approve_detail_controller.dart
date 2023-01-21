@@ -9,7 +9,8 @@ import '../../models/my_approve_detail/my_approve_detail.dart';
 class MyApproveDetailController extends GetxController {
   final ApiRepository apiRepository;
   MyApproveDetailController({required this.apiRepository});
-
+  int detailType = 0;
+  int idMaster = 0;
   //
   MyApproveDetailModel myApproveDetailModel = MyApproveDetailModel();
   //
@@ -22,11 +23,9 @@ class MyApproveDetailController extends GetxController {
   //
   @override
   void onInit() {
-    getMyApproveDetail(
-        myApproveController.myRwquestGetPending.data!
-            .pendingRequestList![myApproveController.index.value].iDMASTER,
-        myApproveController.myRwquestGetPending.data!
-            .pendingRequestList![myApproveController.index.value].rEQTYPE);
+    idMaster = Get.arguments["IdMaster"];
+    detailType = Get.arguments["DetailType"];
+    getMyApproveDetail(idMaster, detailType);
     print("MyApproveDetail View Yüklendi");
     super.onInit();
   }

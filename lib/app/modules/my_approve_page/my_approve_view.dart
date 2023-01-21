@@ -44,7 +44,12 @@ class MyApproveView extends GetView<MyApproveController> {
                     return GestureDetector(
                       onTap: () {
                         // controller.index.value = index;
-                        Get.toNamed(Routes.MY_APPROVE_DETAIL);
+                        Get.toNamed(Routes.MY_APPROVE_DETAIL, arguments: {
+                          "IdMaster": controller.myRwquestGetPending.data!
+                              .pendingRequestList![index].iDMASTER,
+                              "DetailType": controller.myRwquestGetPending.data!
+                              .pendingRequestList![index].rEQTYPE,
+                        });
                       },
                       child: Container(
                         height: 22.h,

@@ -96,35 +96,41 @@ class RequestListItem extends StatelessWidget {
                               fontWeight: FontWeight.w500),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 1.w),
+                          padding: EdgeInsets.only(top: .9.h,bottom: .7.h,left: 5.5.w),
                           child: Text(
                             talepNo,
                             style: GoogleFonts.inter(
                                 color: Const.BASLIKTEXTCOLOR,
                                 fontWeight: FontWeight.w700,
-                                fontSize: 1.9.h),
+                                fontSize: 1.8.h),
                           ),
                         ),
-                        Text(
-                          "Atanan Kişi",
-                          style: GoogleFonts.inter(
-                              fontSize: 2.h,
-                              color: Const.ACIKLAMATEXTCOLOR,
-                              fontWeight: FontWeight.w500),
+                        Padding(
+                          padding: EdgeInsets.only(top: .3.h),
+                          child: Text(
+                            "Atanan Kişi",
+                            style: GoogleFonts.inter(
+                                fontSize: 2.h,
+                                color: Const.ACIKLAMATEXTCOLOR,
+                                fontWeight: FontWeight.w500),
+                          ),
                         ),
-                        Text(
-                          atananKisi,
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.inter(
-                              color: Const.BASLIKTEXTCOLOR,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 1.9.h),
+                        Padding(
+                          padding: EdgeInsets.only(top: .9.h,bottom: .7.h,left: .5.w),
+                          child: Text(
+                            atananKisi,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.inter(
+                                color: Const.BASLIKTEXTCOLOR,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 1.7.h),
+                          ),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 2.5.w),
+                    padding: EdgeInsets.only(left: 18.w,bottom: .7.h),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,13 +142,16 @@ class RequestListItem extends StatelessWidget {
                               color: Const.ACIKLAMATEXTCOLOR,
                               fontWeight: FontWeight.w500),
                         ),
-                        Text(
-                          aciklama,
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.inter(
-                              color: Const.BASLIKTEXTCOLOR,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 1.9.h),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: .7.h),
+                          child: Text(
+                            aciklama,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.inter(
+                                color: Const.BASLIKTEXTCOLOR,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 1.7.h),
+                          ),
                         ),
                         Text(
                           "Durum",
@@ -151,12 +160,15 @@ class RequestListItem extends StatelessWidget {
                               color: Const.ACIKLAMATEXTCOLOR,
                               fontWeight: FontWeight.w500),
                         ),
-                        Text(
-                          durum,
-                          style: GoogleFonts.inter(
-                              color: Const.BASLIKTEXTCOLOR,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 1.9.h),
+                        Padding(
+                          padding: EdgeInsets.only(top: 1.h),
+                          child: Text(
+                            durum,
+                            style: GoogleFonts.inter(
+                                color: Const.BASLIKTEXTCOLOR,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 1.7.h),
+                          ),
                         ),
                       ],
                     ),
@@ -165,107 +177,6 @@ class RequestListItem extends StatelessWidget {
               ),
             )
 
-            /* Padding(
-              //ilk row talep no olan
-              padding: EdgeInsets.only(top: 1.h, left: 2.6.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Talep No',
-                    style: GoogleFonts.inter(
-                        fontSize: 2.h,
-                        color: Const.ACIKLAMATEXTCOLOR,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(width: 10.w),
-                  Text(
-                    'Açıklama',
-                    style: GoogleFonts.inter(
-                        fontSize: 2.h,
-                        color: Const.ACIKLAMATEXTCOLOR,
-                        fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              // 1. row'un bilgileri
-              padding: EdgeInsets.only(top: 1.h, left: 5.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    talepNo,
-                    style: GoogleFonts.inter(
-                        color: Const.BASLIKTEXTCOLOR,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 1.9.h),
-                  ),
-                  SizedBox(width: 19.w),
-                  Text(
-                    aciklama,
-                    style: GoogleFonts.inter(
-                        color: Const.BASLIKTEXTCOLOR,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 1.9.h),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              //atan kişi row
-              padding: EdgeInsets.only(top: 1.h, left: 2.6.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Atanan Kişi',
-                    style: GoogleFonts.inter(
-                        fontSize: 2.h,
-                        color: Const.ACIKLAMATEXTCOLOR,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(width: 5.w),
-                  Text(
-                    'Durum',
-                    style: GoogleFonts.inter(
-                        fontSize: 2.h,
-                        color: Const.ACIKLAMATEXTCOLOR,
-                        fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              // 2. row'un bilgileri
-              padding: EdgeInsets.only(top: .5.h, left: 5.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    atananKisi,
-                    style: GoogleFonts.inter(
-                        color: Const.BASLIKTEXTCOLOR,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 1.9.h),
-                  ),
-                  SizedBox(width: 26.w),
-                  Text(
-                    durum,
-                    style: GoogleFonts.inter(
-                        color: Const.BASLIKTEXTCOLOR,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 1.9.h),
-                  )
-                ],
-              ),
-            ),
-            // */
           ],
         ),
       ),

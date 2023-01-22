@@ -163,7 +163,7 @@ class MyApproveView extends GetView<MyApproveController> {
                                             Text(
                                               'Talep No',
                                               style: GoogleFonts.inter(
-                                                  fontSize: 1.7.h,
+                                                  fontSize: 1.9.h,
                                                   color: Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -175,13 +175,13 @@ class MyApproveView extends GetView<MyApproveController> {
                                                 style: GoogleFonts.inter(
                                                     color: Const.BASLIKTEXTCOLOR,
                                                     fontWeight: FontWeight.w700,
-                                                    fontSize: 1.6.h),
+                                                    fontSize: 1.8.h),
                                               ),
                                             ),
                                             Text(
                                               'Atanan Kişi',
                                               style: GoogleFonts.inter(
-                                                  fontSize: 1.7.h,
+                                                  fontSize: 1.9.h,
                                                   color: Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -216,7 +216,7 @@ class MyApproveView extends GetView<MyApproveController> {
                                             Text(
                                               "Açıklama",
                                               style: GoogleFonts.inter(
-                                                  fontSize: 1.7.h,
+                                                  fontSize: 1.9.h,
                                                   color: Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -234,7 +234,7 @@ class MyApproveView extends GetView<MyApproveController> {
                                                         color:
                                                             Const.BASLIKTEXTCOLOR,
                                                         fontWeight: FontWeight.w700,
-                                                        fontSize: 1.6.h),
+                                                        fontSize: 1.8.h),
                                                   ),
                                                 ),
                                               ),
@@ -242,7 +242,7 @@ class MyApproveView extends GetView<MyApproveController> {
                                             Text(
                                               'Talep Eden',
                                               style: GoogleFonts.inter(
-                                                  fontSize: 1.6.h,
+                                                  fontSize: 1.9.h,
                                                   color: Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -254,13 +254,16 @@ class MyApproveView extends GetView<MyApproveController> {
                                                   height: 3.h,
                                                   width: 40.w,
                                                   child: Text(
-                                                    "${controller.myRwquestGetPending.data!.pendingRequestList![index].rEQEMPLOYEE}",
+                                                    controller.myRwquestGetPending.data!.pendingRequestList![index].rEQEMPLOYEE != null
+                                                    ? "${controller.myRwquestGetPending.data!.pendingRequestList![index].rEQEMPLOYEE}"
+                                                    : ""
+                                                    ,
                                                     overflow: TextOverflow.ellipsis,
                                                     style: GoogleFonts.inter(
                                                         color:
                                                             Const.BASLIKTEXTCOLOR,
                                                         fontWeight: FontWeight.w700,
-                                                        fontSize: 1.6.h),
+                                                        fontSize: 1.8.h),
                                                   ),
                                                 ),
                                               ),

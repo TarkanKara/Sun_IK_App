@@ -20,6 +20,27 @@ class RequestController extends GetxController {
   Rx<RxStatus> status = RxStatus.empty().obs;
   RxInt index = 0.obs;
 
+  @override
+  void onInit() {
+    postMyRequest();
+    print("My Request View Yüklendi");
+    super.onInit();
+  }
+
+  //postMyRequest
+  postMyRequest() async {
+    status.value = RxStatus.loading();
+    myRequestModel = (await apiRepository.getMyRequest())!;
+    status.value = RxStatus.success();
+  }
+
+  //MyFilterRequest
+  myFilterRequest(String query) async {
+    status.value = RxStatus.loading();
+    myRequestModel = (await apiRepository.getFilterRequests(query))!;
+    status.value = RxStatus.success();
+  }
+
   getFilter() {
     Get.defaultDialog(
         contentPadding: EdgeInsets.only(bottom: 2.5.h),
@@ -33,6 +54,7 @@ class RequestController extends GetxController {
               TextButton(
                   onPressed: () {
                     filterIsim.value = "Tümü";
+                    myFilterRequest("-1");
                     Get.back();
                   },
                   child: Text(
@@ -49,10 +71,11 @@ class RequestController extends GetxController {
               ),
               TextButton(
                   onPressed: () {
-                    filterIsim.value = "Süreç Devam Ediyor / Revize Edildi";
+                    filterIsim.value = "Süreç Devam Ediyor/Revize Edildi";
+                    myFilterRequest("0");
                     Get.back();
                   },
-                  child: Text('Süreç Devam Ediyor / Revize Edildi',
+                  child: Text('Süreç Devam Ediyor/Revize Edildi',
                       style: GoogleFonts.inter(
                           color: Const.BASLIKTEXTCOLOR,
                           fontWeight: FontWeight.w500))),
@@ -65,6 +88,7 @@ class RequestController extends GetxController {
               TextButton(
                   onPressed: () {
                     filterIsim.value = "Süreç Devam Ediyor";
+                    myFilterRequest("0");
                     Get.back();
                   },
                   child: Text('Süreç Devam Ediyor',
@@ -80,6 +104,7 @@ class RequestController extends GetxController {
               TextButton(
                   onPressed: () {
                     filterIsim.value = "Onaylandı";
+                    myFilterRequest("1");
                     Get.back();
                   },
                   child: Text('Onaylandı',
@@ -95,6 +120,8 @@ class RequestController extends GetxController {
               TextButton(
                   onPressed: () {
                     filterIsim.value = "Reddedildi";
+                    myFilterRequest("2");
+
                     Get.back();
                   },
                   child: Text('Reddedildi',
@@ -110,6 +137,8 @@ class RequestController extends GetxController {
               TextButton(
                   onPressed: () {
                     filterIsim.value = "Revize Edildi";
+                    myFilterRequest("4");
+
                     Get.back();
                   },
                   child: Text('Revize Edildi',
@@ -125,9 +154,10 @@ class RequestController extends GetxController {
               TextButton(
                   onPressed: () {
                     filterIsim.value = "Geri Gönderildi";
+                    myFilterRequest("6");
                     Get.back();
                   },
-                  child: Text('Geri Gönderildi',
+                  child: Text("Geri Gönderildi",
                       style: GoogleFonts.inter(
                           color: Const.BASLIKTEXTCOLOR,
                           fontWeight: FontWeight.w500))),
@@ -150,20 +180,6 @@ class RequestController extends GetxController {
         ]);
   }
 
-  @override
-  void onInit() {
-    postMyRequest();
-    print("My Request View Yüklendi");
-    super.onInit();
-  }
-
-  //postMyRequest
-  postMyRequest() async {
-    status.value = RxStatus.loading();
-    myRequestModel = (await apiRepository.getMyRequest())!;
-    status.value = RxStatus.success();
-  }
-
   /*  //myRequestIcon
   myRequestIcon(int index) {
     switch (myRequestModel.data!.myRequestList![index].sTATUNAME) {
@@ -172,5 +188,4 @@ class RequestController extends GetxController {
       default:
     }
   } */
-
 }

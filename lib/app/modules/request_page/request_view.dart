@@ -48,18 +48,21 @@ class RequestView extends GetView<RequestController> {
         () => controller.status.value.isSuccess
             ? Column(
                 children: [
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 100.w,
-                    height: 3.h,
-                    child: Text(
-                      controller.filterIsim.value,
-                      style: GoogleFonts.inter(color: Const.BASLIKTEXTCOLOR),
-                    ),
-                  ),
+                 Container(
+                          height: 3.5.h,
+                          width: double.infinity,
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: .7.h),
+                            child: Text(
+                              controller.filterIsim.value,
+                              style: GoogleFonts.inter(
+                                  color: Const.BASLIKTEXTCOLOR,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 2.3.h),
+                            ),
+                          ),
+                        ),
                   SizedBox(
                     height: 80.h,
                     child: ListView.builder(

@@ -30,7 +30,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
           },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
-        actions: [
+        /* actions: [
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.menu),
@@ -41,8 +41,9 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
             },
             icon: const Icon(Icons.date_range_outlined),
           ),
-        ],
-        title: const Text("Bodrolarım"),
+        ], */
+        title: const Text("BORDROLARIM"),
+        centerTitle: true,
       ),
       body: Stack(
         children: [
@@ -74,7 +75,7 @@ class MyPayrollsView extends GetView<MyPayrollsController> {
                     children: [
                       Obx(() => controller.status.value.isSuccess
                           ? SizedBox(
-                              height: 50.h,
+                              height: 55.h,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 padding: EdgeInsets.zero,

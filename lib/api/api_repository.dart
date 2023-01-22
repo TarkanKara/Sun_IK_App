@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps, body_might_complete_normally_nullable
 
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:pdf/widgets.dart';
@@ -377,6 +378,42 @@ class ApiRepository {
       if (response.statusCode == 200) {
         print(response.body);
         return MyPendingJobs.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  //getFilterRequests
+  Future<MyRequestModel?> getFilterRequests(String query) async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetMyRequestMasterMobile?statuArray=$query",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyRequestModel.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+  
+  //getFilterPendingApprove
+  Future<MyRequestGetPending?> getFilterPendingApprove(int query) async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetPendingRequestMasterMobile?statu=$query",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyRequestGetPending.fromJson(response.body);
       }
     } catch (e) {
       print("$e");

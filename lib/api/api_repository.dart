@@ -365,4 +365,24 @@ class ApiRepository {
     }
     return null;
   }
+
+  //getFilterJobs
+  Future<MyPendingJobs?> getFilterJobs(String query) async {
+    try {
+      var response = await apiProvider.postMethod(
+        "RequestManagement/GetPendingJobs?ID_WORK_STATUS_ARRAY=$query",
+        {},
+      );
+
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MyPendingJobs.fromJson(response.body);
+      }
+    } catch (e) {
+      print("$e");
+    }
+    return null;
+  }
+
+  
 }

@@ -7,7 +7,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../utils/const.dart';
 import '../../widgets/pin_widgets/pin_button.dart';
-import '../../widgets/pin_widgets/pin_textformfield.dart';
+import '../../widgets/pin_widgets/pin_textform_field.dart';
 import 'pin_code_change_controller.dart';
 
 class PinCodeChangeView extends GetView<PinCodeChangeController> {

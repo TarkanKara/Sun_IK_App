@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/pin_code_create_page/pin_code_create_controller.dart';
 import 'package:sun_ik_app/app/widgets/pin_widgets/pin_button.dart';
-import 'package:sun_ik_app/app/widgets/pin_widgets/pin_textformfield.dart';
+import 'package:sun_ik_app/app/widgets/pin_widgets/pin_textform_field.dart';
 import 'package:sun_ik_app/utils/const.dart';
 
 class PinCodeCreateView extends GetView<PinCodeCreateController> {

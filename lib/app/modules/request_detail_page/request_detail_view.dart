@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:sun_ik_app/app/modules/request_page_detail/request_detail_controller.dart';
+import 'package:sun_ik_app/app/modules/request_detail_page/request_detail_controller.dart';
 import 'package:sun_ik_app/utils/const.dart';
 import 'package:sun_ik_app/utils/date_convert.dart';
 

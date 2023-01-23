@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:sun_ik_app/app/modules/request_page_detail/request_detail_controller.dart';
+import 'package:sun_ik_app/app/modules/request_detail_page/request_detail_controller.dart';
 
 class RequestDetailBinding implements Bindings {
   //

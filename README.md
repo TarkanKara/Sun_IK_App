@@ -273,11 +273,11 @@
 |
 ![6_home](https://user-images.githubusercontent.com/59411109/214141693-da6b1e0b-5331-4187-9efa-66e81541a314.gif) |![7_myPayrolls](https://user-images.githubusercontent.com/59411109/214142104-4b294721-31fd-4340-910d-97a6107bd4ab.gif)|
 
-
-| MyRequestsPage | MyApprovePage |  
+| MyRequestsPage | MyApprovePage  | 
 | ------------ | ------------ | 
-|![8_myRequests](https://user-images.githubusercontent.com/59411109/214142255-4b5e0919-eb30-407d-a94c-6cffb0fb191a.gif)|
-![9_myApprove](https://user-images.githubusercontent.com/59411109/214142313-513ceb15-a59a-4a62-a773-c4c1000645bc.gif) |
+|
+![8_myRequests](https://user-images.githubusercontent.com/59411109/214142255-4b5e0919-eb30-407d-a94c-6cffb0fb191a.gif) |![9_myApprove](https://user-images.githubusercontent.com/59411109/214142313-513ceb15-a59a-4a62-a773-c4c1000645bc.gif)|
+
 
 | NotificationPage | MyLeavesPage | 
 | ------------ | ------------ | 

@@ -260,6 +260,27 @@
 * **[open_file_plus: ^3.3.0](https://pub.dev/packages/open_file_plus)**
 * **[url_launcher: ^6.1.7](https://pub.dev/packages/url_launcher)**
 
+| SplashPage   |  LoginPage | PinLoginPage  |  
+| ------------ | ------------ | ------------ | 
+| ![1_splash](https://user-images.githubusercontent.com/59411109/214139967-abb6fe8a-ab04-493f-92d1-ebf26a499d1e.gif) | ![2_login](https://user-images.githubusercontent.com/59411109/214140105-ac9c4846-5143-4ff8-8097-43da60f46c37.gif)   |![3_pinLogin](https://user-images.githubusercontent.com/59411109/214140204-5b1fce2f-4378-49ea-ba03-0840177fd7ac.gif)  |
+
+|PinChangeLoginPage | UserToUser | HomePage|  
+| ------------ | ------------ | ------------ | 
+| 
+![4_pinChangeLogin](https://user-images.githubusercontent.com/59411109/214140984-aeacfbb5-3449-494d-acab-f8dbed38bde3.gif) |![5_userTouser](https://user-images.githubusercontent.com/59411109/214141541-9eb2746c-41d6-4c7c-a19f-98f8908740ce.gif)|
+![6_home](https://user-images.githubusercontent.com/59411109/214141693-da6b1e0b-5331-4187-9efa-66e81541a314.gif)|
+
+|MyPayrollPage | MyRequestsPage | MyApprovePage |  
+| ------------ | ------------ | ------------ | 
+|![7_myPayrolls](https://user-images.githubusercontent.com/59411109/214142104-4b294721-31fd-4340-910d-97a6107bd4ab.gif) |![8_myRequests](https://user-images.githubusercontent.com/59411109/214142255-4b5e0919-eb30-407d-a94c-6cffb0fb191a.gif)|
+![9_myApprove](https://user-images.githubusercontent.com/59411109/214142313-513ceb15-a59a-4a62-a773-c4c1000645bc.gif)|
+
+| NotificationPage | MyLeavesPage | 
+| ------------ | ------------ | 
+|![10_notification](https://user-images.githubusercontent.com/59411109/214142555-fb742b41-c821-4821-beb1-25dc6206df98.gif) |![11_myLeaves](https://user-images.githubusercontent.com/59411109/214142605-d9bd8282-9fb3-4f98-b63d-67196f298e9d.gif)|
+
+
+
 
 ## **Screenshots:**
 

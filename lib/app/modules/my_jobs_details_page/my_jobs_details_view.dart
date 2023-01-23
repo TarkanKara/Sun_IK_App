@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sun_ik_app/app/modules/my_jobs_details_page/my_jobs_details_controller.dart';
 
-import '../../../utils/base64_convert_picture.dart';
 import '../../../utils/date_convert.dart';
 
 class MyJobsDetailsView extends GetView<MyJobsDetailsController> {
@@ -176,10 +175,10 @@ class MyJobsDetailsView extends GetView<MyJobsDetailsController> {
                 ),
               )
             : SingleChildScrollView(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 child: Column(
                   children: [
-                    LinearProgressIndicator(),
+                    const LinearProgressIndicator(),
                     Container(
                       height: 90.h,
                       width: 100.w,

@@ -1,16 +1,30 @@
 # **Sun_IK_App**
+:v: Yeni Sun_Ik_App uygulaması ile tanışın :v:
 
 ## **Collaborators**
 * **[Tarkan Kara](https://github.com/TarkanKara)**
 * **[Yasin Yavuz](https://github.com/YasinYavuzz)**
 * **[Onur Arda Karakum](https://github.com/oakarakum)**
 
+## **App Features**
+- Login Giriş Sayfası (User to user)
+- Pin Code oluşturma,Değiştirme ve login
+- Ana Sayfa
+- Taleplerim, Onaylarım ve İşlerim Sayfaları
+- Taleplerim, Onaylarım ve İşlerim Detay Sayfaları
+- Maaş Bordrolarım Listeleme, Paylaşma ve İndirme Özelliği
+- Anasayfada Bildirimlerleri Görüntüleme, okuma ve silme özelliği
+- Sun Akademi (Çalışanlar için) Web Sayfasına Yönlendirme
+- Ekiplerim Sayfası (Yöneticiler için), Çalışanları Listeleme
+- Arama Sayfası (Yöneticiler için)
+- İzinlerim Sayfası, Kullanılan izinleri Listeleme
+
+
 ## **Master Branch Directory Structure**
 ```
 📂lib
  |
  │───📂api
- |   │
  |   │───📂interceptors
  |   |   │───request_interceptor.dart
  |   |   │───response_interceptor.dart
@@ -22,9 +36,7 @@
  |   │───base_provider.dart
  │
  │
- │
  │───📂app 
- |   |
  |   │───📂models
  |   |   |
  |   |   │───📂home
@@ -64,10 +76,8 @@
  |   |   |   
  |   |   │───models.dart
  |   |
- |   |
- |   |   
+ |   | 
  |   │───📂modules
- |   |   │
  |   |   │───📂home_page
  |   |   |   │───home_binding.dart
  |   |   |   │───home_controller.dart
@@ -179,21 +189,17 @@
  |   |   |   │───start_view.dart
  |   |  
  |   |
- |   | 
  |   │───📂routes
  |   |   │───app_pages.dart
  |   |   │───app_routes.dart
  |   |   │───routes.dart 
  |   |
  |   |
- |   |
  |   │───📂translation
  |   |   │───translation.dart
  |   |
  |   |
- |   |
  |   │───📂widgets
- |   |   │
  |   |   │───📂pin_widgets
  |   |   |   │───pin_button.dart
  |   |   |   │───pin_textform_field.dart
@@ -213,14 +219,12 @@
  |   |   │───pin_login_widget.dart
  |   |   │───start_widget.dart
  |
- |
  |   
  │───📂shared
  |   │───📂services 
  |   |   │───sun_ik_service.dart
  |
- |
- |   
+ |  
  │───📂utils
  |   │───base64_convert_picture.dart
  |   │───const.dart
@@ -228,7 +232,6 @@
  |   │───dialog.dart
  |   │───null_widget.dart
  |   │───pdf_share.dart
- |
  |
  |
  │───app_binding.dart

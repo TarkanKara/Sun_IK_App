@@ -96,7 +96,8 @@ class RequestListItem extends StatelessWidget {
                               fontWeight: FontWeight.w500),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: .9.h,bottom: .7.h,left: 5.5.w),
+                          padding: EdgeInsets.only(
+                              top: .9.h, bottom: .7.h, left: 5.5.w),
                           child: Text(
                             talepNo,
                             style: GoogleFonts.inter(
@@ -116,7 +117,8 @@ class RequestListItem extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: .9.h,bottom: .7.h,left: .5.w),
+                          padding: EdgeInsets.only(
+                              top: .9.h, bottom: .7.h, left: .5.w),
                           child: Text(
                             atananKisi,
                             overflow: TextOverflow.ellipsis,
@@ -130,7 +132,7 @@ class RequestListItem extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 18.w,bottom: .7.h),
+                    padding: EdgeInsets.only(left: 18.w, bottom: .7.h),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,13 +146,16 @@ class RequestListItem extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(vertical: .7.h),
-                          child: Text(
-                            aciklama,
-                            overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.inter(
-                                color: Const.BASLIKTEXTCOLOR,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 1.7.h),
+                          child: SizedBox(
+                            width: 35.w,
+                            child: Text(
+                              aciklama,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.inter(
+                                  color: Const.BASLIKTEXTCOLOR,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 1.7.h),
+                            ),
                           ),
                         ),
                         Text(
@@ -176,7 +181,6 @@ class RequestListItem extends StatelessWidget {
                 ],
               ),
             )
-
           ],
         ),
       ),

@@ -1,9 +1,7 @@
 // ignore_for_file: avoid_print, unused_local_variable, non_constant_identifier_names, unnecessary_brace_in_string_interps, body_might_complete_normally_nullable
 
-import 'dart:ffi';
 import 'dart:io';
 
-import 'package:pdf/widgets.dart';
 import 'package:sun_ik_app/app/models/home/get_landing_page_info.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_delete_model.dart';
 import 'package:sun_ik_app/app/models/home/notification/notification_model.dart';
@@ -201,7 +199,7 @@ class ApiRepository {
 
         return MyRequestDetailModel.fromJson(response.body);
       }
-    } on SocketException catch (e) {
+    } on SocketException {
       return NullWidget.isNull();
     }
     return null;
@@ -402,7 +400,7 @@ class ApiRepository {
     }
     return null;
   }
-  
+
   //getFilterPendingApprove
   Future<MyRequestGetPending?> getFilterPendingApprove(int query) async {
     try {
@@ -420,6 +418,4 @@ class ApiRepository {
     }
     return null;
   }
-
-  
 }

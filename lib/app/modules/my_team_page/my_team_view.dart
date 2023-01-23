@@ -123,7 +123,7 @@ class MyTeamView extends GetView<MyTeamController> {
                 : SizedBox(
                     height: 80.h,
                     width: 100.w,
-                    child: Center(child: const CircularProgressIndicator())),
+                    child: const Center(child: CircularProgressIndicator())),
           )
         ],
       ),

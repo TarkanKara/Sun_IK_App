@@ -68,9 +68,7 @@ class Data {
   }
 } */
 
-
-
- class MyTeamModel {
+class MyTeamModel {
   String? refreshToken;
   String? token;
   List<Data>? data;
@@ -83,15 +81,15 @@ class Data {
     if (json['Data'] != null) {
       data = <Data>[];
       json['Data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['RefreshToken'] = this.refreshToken;
-    data['Token'] = this.token;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['RefreshToken'] = refreshToken;
+    data['Token'] = token;
     if (this.data != null) {
       data['Data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -128,14 +126,14 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['ID_HR_EMPLOYEE'] = this.iDHREMPLOYEE;
-    data['EMPLOYEE_NAME'] = this.eMPLOYEENAME;
-    data['EMPLOYEE_SURNAME'] = this.eMPLOYEESURNAME;
-    data['POSITION_NAME'] = this.pOSITIONNAME;
-    data['PHOTO_ADDRESS'] = this.pHOTOADDRESS;
-    data['IS_HEAD'] = this.iSHEAD;
-    data['UID'] = this.uID;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ID_HR_EMPLOYEE'] = iDHREMPLOYEE;
+    data['EMPLOYEE_NAME'] = eMPLOYEENAME;
+    data['EMPLOYEE_SURNAME'] = eMPLOYEESURNAME;
+    data['POSITION_NAME'] = pOSITIONNAME;
+    data['PHOTO_ADDRESS'] = pHOTOADDRESS;
+    data['IS_HEAD'] = iSHEAD;
+    data['UID'] = uID;
     return data;
   }
 }

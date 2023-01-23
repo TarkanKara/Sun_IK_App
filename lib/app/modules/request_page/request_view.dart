@@ -48,21 +48,21 @@ class RequestView extends GetView<RequestController> {
         () => controller.status.value.isSuccess
             ? Column(
                 children: [
-                 Container(
-                          height: 3.5.h,
-                          width: double.infinity,
-                          alignment: Alignment.center,
-                          child: Padding(
-                            padding: EdgeInsets.only(top: .7.h),
-                            child: Text(
-                              controller.filterIsim.value,
-                              style: GoogleFonts.inter(
-                                  color: Const.BASLIKTEXTCOLOR,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 2.3.h),
-                            ),
-                          ),
-                        ),
+                  Container(
+                    height: 3.5.h,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: .7.h),
+                      child: Text(
+                        controller.filterIsim.value,
+                        style: GoogleFonts.inter(
+                            color: Const.BASLIKTEXTCOLOR,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 2.3.h),
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     height: 80.h,
                     child: ListView.builder(
@@ -74,10 +74,12 @@ class RequestView extends GetView<RequestController> {
                         return GestureDetector(
                           onTap: () {
                             controller.index.value = index;
-                            Get.toNamed(Routes.REQUEST_DETAIL,arguments: {
-                          "IdMaster": controller.myRequestModel.data!.myRequestList![index].iDMASTER,
-                          "DetailType": controller.myRequestModel.data!.myRequestList![index].rEQTYPE,
-                        });
+                            Get.toNamed(Routes.REQUEST_DETAIL, arguments: {
+                              "IdMaster": controller.myRequestModel.data!
+                                  .myRequestList![index].iDMASTER,
+                              "DetailType": controller.myRequestModel.data!
+                                  .myRequestList![index].rEQTYPE,
+                            });
                           },
                           child: Padding(
                             padding: EdgeInsets.only(top: 3.w),
@@ -110,10 +112,10 @@ class RequestView extends GetView<RequestController> {
                   ),
                 ],
               )
-            :  SizedBox(
-              height: 85.h,
-              width: 100.w,
-              child: Center(child: CircularProgressIndicator())),
+            : SizedBox(
+                height: 85.h,
+                width: 100.w,
+                child: const Center(child: CircularProgressIndicator())),
       ),
     );
   }

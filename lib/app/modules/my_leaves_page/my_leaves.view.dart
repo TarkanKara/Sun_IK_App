@@ -95,9 +95,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
                                           subTitleText:
                                               "${controller.myLeavesModel.data!.employeeLeaveList![index].eMPLOYEENAME} ${controller.myLeavesModel.data!.employeeLeaveList![index].eMPLOYEESURNAME}",
                                           dataText:
-                                              "${controller.myLeavesModel.data!.employeeLeaveList![index].dAY}"
-                                                      .split(".")[0] +
-                                                  " Gün",
+                                              "${"${controller.myLeavesModel.data!.employeeLeaveList![index].dAY}".split(".")[0]} Gün",
                                         ),
                                       );
                                     },

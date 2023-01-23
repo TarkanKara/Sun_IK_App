@@ -25,17 +25,17 @@ class MyApproveView extends GetView<MyApproveController> {
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
         actions: [
-            IconButton(
-              onPressed: () {
-                controller.getFilter();
-              },
-              icon: Image.asset(
-                'assets/images/request_assets/ic_filter.png',
-                color: Colors.white,
-                scale: .5.h,
-              ),
-            )
-          ],
+          IconButton(
+            onPressed: () {
+              controller.getFilter();
+            },
+            icon: Image.asset(
+              'assets/images/request_assets/ic_filter.png',
+              color: Colors.white,
+              scale: .5.h,
+            ),
+          )
+        ],
         title: Text(
           'Onaylarım',
           style: GoogleFonts.inter(
@@ -47,23 +47,23 @@ class MyApproveView extends GetView<MyApproveController> {
       body: Center(
         child: Obx(() => controller.status.value.isSuccess
             ? Column(
-              children: [
-                Container(
-                          height: 3.5.h,
-                          width: double.infinity,
-                          alignment: Alignment.center,
-                          child: Padding(
-                            padding: EdgeInsets.only(top: .7.h),
-                            child: Text(
-                              controller.filterIsim.value,
-                              style: GoogleFonts.inter(
-                                  color: Const.BASLIKTEXTCOLOR,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 2.3.h),
-                            ),
-                          ),
-                        ),
-                SizedBox(
+                children: [
+                  Container(
+                    height: 3.5.h,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: .7.h),
+                      child: Text(
+                        controller.filterIsim.value,
+                        style: GoogleFonts.inter(
+                            color: Const.BASLIKTEXTCOLOR,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 2.3.h),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
                     height: 85.h,
                     width: 100.w,
                     child: ListView.builder(
@@ -76,7 +76,7 @@ class MyApproveView extends GetView<MyApproveController> {
                             Get.toNamed(Routes.MY_APPROVE_DETAIL, arguments: {
                               "IdMaster": controller.myRwquestGetPending.data!
                                   .pendingRequestList![index].iDMASTER,
-                                  "DetailType": controller.myRwquestGetPending.data!
+                              "DetailType": controller.myRwquestGetPending.data!
                                   .pendingRequestList![index].rEQTYPE,
                             });
                           },
@@ -106,8 +106,8 @@ class MyApproveView extends GetView<MyApproveController> {
                                       Container(
                                           height: 5.h,
                                           width: 10.w,
-                                          margin:
-                                              EdgeInsets.only(top: 1.h, left: 2.w),
+                                          margin: EdgeInsets.only(
+                                              top: 1.h, left: 2.w),
                                           child: Image.asset(
                                             "assets/images/my_approve/green_tick.png",
                                             fit: BoxFit.cover,
@@ -116,22 +116,26 @@ class MyApproveView extends GetView<MyApproveController> {
                                         width: 2.w,
                                       ),
                                       Column(
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.only(top: 1.2.h),
+                                            padding:
+                                                EdgeInsets.only(top: 1.2.h),
                                             child: Text(
-                                                DateTimeConverTo.compareToDateTime(
-                                                    controller
+                                                DateTimeConverTo
+                                                    .compareToDateTime(controller
                                                         .myRwquestGetPending
                                                         .data!
-                                                        .pendingRequestList![index]
+                                                        .pendingRequestList![
+                                                            index]
                                                         .rEQDATE
                                                         .toString()),
                                                 style: GoogleFonts.inter(
-                                                    color: Const.ACIKLAMATEXTCOLOR,
+                                                    color:
+                                                        Const.ACIKLAMATEXTCOLOR,
                                                     fontSize: 1.7.h)),
                                           ),
                                           Padding(
@@ -139,19 +143,24 @@ class MyApproveView extends GetView<MyApproveController> {
                                             child: Text(
                                                 "${controller.myRwquestGetPending.data!.pendingRequestList![index].rEQNAME}",
                                                 style: GoogleFonts.inter(
-                                                    color: Const.BASLIKTEXTCOLOR,
+                                                    color:
+                                                        Const.BASLIKTEXTCOLOR,
                                                     fontSize: 1.9.h,
-                                                    fontWeight: FontWeight.w600)),
+                                                    fontWeight:
+                                                        FontWeight.w600)),
                                           ),
                                         ],
                                       )
                                     ],
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 2.w, top: 1.h),
+                                    padding:
+                                        EdgeInsets.only(left: 2.w, top: 1.h),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Column(
                                           //talep no  column'ı
@@ -164,16 +173,20 @@ class MyApproveView extends GetView<MyApproveController> {
                                               'Talep No',
                                               style: GoogleFonts.inter(
                                                   fontSize: 1.9.h,
-                                                  color: Const.ACIKLAMATEXTCOLOR,
+                                                  color:
+                                                      Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.only(
-                                                  top: 1.h, bottom: 1.h, left: 4.w),
+                                                  top: 1.h,
+                                                  bottom: 1.h,
+                                                  left: 4.w),
                                               child: Text(
                                                 "${controller.myRwquestGetPending.data!.pendingRequestList![index].iDMASTER}",
                                                 style: GoogleFonts.inter(
-                                                    color: Const.BASLIKTEXTCOLOR,
+                                                    color:
+                                                        Const.BASLIKTEXTCOLOR,
                                                     fontWeight: FontWeight.w700,
                                                     fontSize: 1.8.h),
                                               ),
@@ -182,22 +195,27 @@ class MyApproveView extends GetView<MyApproveController> {
                                               'Atanan Kişi',
                                               style: GoogleFonts.inter(
                                                   fontSize: 1.9.h,
-                                                  color: Const.ACIKLAMATEXTCOLOR,
+                                                  color:
+                                                      Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.symmetric(
-                                                  vertical: 1.h, horizontal: .8.w),
+                                                  vertical: 1.h,
+                                                  horizontal: .8.w),
                                               child: FittedBox(
                                                 child: SizedBox(
                                                   height: 3.h,
                                                   width: 45.w,
                                                   child: Text(
                                                     "${controller.myRwquestGetPending.data!.pendingRequestList![index].aSSIGNEMPLOYEE}",
-                                                    overflow: TextOverflow.ellipsis,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                     style: GoogleFonts.inter(
-                                                      color: Const.BASLIKTEXTCOLOR,
-                                                      fontWeight: FontWeight.w700,
+                                                      color:
+                                                          Const.BASLIKTEXTCOLOR,
+                                                      fontWeight:
+                                                          FontWeight.w700,
                                                       fontSize: 1.7.h,
                                                     ),
                                                   ),
@@ -217,23 +235,27 @@ class MyApproveView extends GetView<MyApproveController> {
                                               "Açıklama",
                                               style: GoogleFonts.inter(
                                                   fontSize: 1.9.h,
-                                                  color: Const.ACIKLAMATEXTCOLOR,
+                                                  color:
+                                                      Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.symmetric(
-                                                  vertical: 1.h, horizontal: .8.w),
+                                                  vertical: 1.h,
+                                                  horizontal: .8.w),
                                               child: FittedBox(
                                                 child: SizedBox(
                                                   height: 2.h,
                                                   width: 40.w,
                                                   child: Text(
                                                     "${controller.myRwquestGetPending.data!.pendingRequestList![index].eMPLOYEENAMESURNAME}",
-                                                    overflow: TextOverflow.ellipsis,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                     style: GoogleFonts.inter(
-                                                        color:
-                                                            Const.BASLIKTEXTCOLOR,
-                                                        fontWeight: FontWeight.w700,
+                                                        color: Const
+                                                            .BASLIKTEXTCOLOR,
+                                                        fontWeight:
+                                                            FontWeight.w700,
                                                         fontSize: 1.8.h),
                                                   ),
                                                 ),
@@ -243,26 +265,35 @@ class MyApproveView extends GetView<MyApproveController> {
                                               'Talep Eden',
                                               style: GoogleFonts.inter(
                                                   fontSize: 1.9.h,
-                                                  color: Const.ACIKLAMATEXTCOLOR,
+                                                  color:
+                                                      Const.ACIKLAMATEXTCOLOR,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.symmetric(
-                                                  vertical: 1.h, horizontal: .8.w),
+                                                  vertical: 1.h,
+                                                  horizontal: .8.w),
                                               child: FittedBox(
                                                 child: SizedBox(
                                                   height: 3.h,
                                                   width: 40.w,
                                                   child: Text(
-                                                    controller.myRwquestGetPending.data!.pendingRequestList![index].rEQEMPLOYEE != null
-                                                    ? "${controller.myRwquestGetPending.data!.pendingRequestList![index].rEQEMPLOYEE}"
-                                                    : ""
-                                                    ,
-                                                    overflow: TextOverflow.ellipsis,
+                                                    controller
+                                                                .myRwquestGetPending
+                                                                .data!
+                                                                .pendingRequestList![
+                                                                    index]
+                                                                .rEQEMPLOYEE !=
+                                                            null
+                                                        ? "${controller.myRwquestGetPending.data!.pendingRequestList![index].rEQEMPLOYEE}"
+                                                        : "",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                     style: GoogleFonts.inter(
-                                                        color:
-                                                            Const.BASLIKTEXTCOLOR,
-                                                        fontWeight: FontWeight.w700,
+                                                        color: Const
+                                                            .BASLIKTEXTCOLOR,
+                                                        fontWeight:
+                                                            FontWeight.w700,
                                                         fontSize: 1.8.h),
                                                   ),
                                                 ),
@@ -281,12 +312,12 @@ class MyApproveView extends GetView<MyApproveController> {
                       },
                     ),
                   ),
-              ],
-            )
+                ],
+              )
             : SizedBox(
                 height: 85.h,
                 width: 100.w,
-                child: Center(child: CircularProgressIndicator()))),
+                child: const Center(child: CircularProgressIndicator()))),
       ),
     );
   }

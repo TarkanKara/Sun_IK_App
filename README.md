@@ -262,12 +262,11 @@
 
 | SplashPage   |  LoginPage | PinLoginPage  |  
 | ------------ | ------------ | ------------ | 
-| ![1_splash](https://user-images.githubusercontent.com/59411109/214139967-abb6fe8a-ab04-493f-92d1-ebf26a499d1e.gif) | ![2_login](https://user-images.githubusercontent.com/59411109/214140105-ac9c4846-5143-4ff8-8097-43da60f46c37.gif)   |![3_pinLogin](https://user-images.githubusercontent.com/59411109/214140204-5b1fce2f-4378-49ea-ba03-0840177fd7ac.gif)  |
+| ![1_splash](https://user-images.githubusercontent.com/59411109/214139967-abb6fe8a-ab04-493f-92d1-ebf26a499d1e.gif)| ![2_login](https://user-images.githubusercontent.com/59411109/214140105-ac9c4846-5143-4ff8-8097-43da60f46c37.gif) |![3_pinLogin](https://user-images.githubusercontent.com/59411109/214140204-5b1fce2f-4378-49ea-ba03-0840177fd7ac.gif) |
 
 |PinChangeLoginPage | UserToUser | HomePage|  
 | ------------ | ------------ | ------------ | 
-| 
-![4_pinChangeLogin](https://user-images.githubusercontent.com/59411109/214140984-aeacfbb5-3449-494d-acab-f8dbed38bde3.gif) |![5_userTouser](https://user-images.githubusercontent.com/59411109/214141541-9eb2746c-41d6-4c7c-a19f-98f8908740ce.gif)|
+|![4_pinChangeLogin](https://user-images.githubusercontent.com/59411109/214140984-aeacfbb5-3449-494d-acab-f8dbed38bde3.gif) |![5_userTouser](https://user-images.githubusercontent.com/59411109/214141541-9eb2746c-41d6-4c7c-a19f-98f8908740ce.gif)|
 ![6_home](https://user-images.githubusercontent.com/59411109/214141693-da6b1e0b-5331-4187-9efa-66e81541a314.gif)|
 
 |MyPayrollPage | MyRequestsPage | MyApprovePage |  

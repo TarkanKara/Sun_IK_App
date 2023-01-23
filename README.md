@@ -261,7 +261,35 @@
 * **[url_launcher: ^6.1.7](https://pub.dev/packages/url_launcher)**
 
 
+## **Screenshots:**
 
+<p align="center">
+<img src="screenshots/1_splash.png" width="20%">
+<img src="screenshots/2_login.png" width="20%">
+<img src="screenshots/3_languages.png" width="20%">
+<img src="screenshots/4_pinCode.png" width="20%">
+</p>
+
+<p align="center">
+<img src="screenshots/5_ChangePinCode.png" width="20%">
+<img src="screenshots/6_home.png" width="20%">
+<img src="screenshots/7_notification.png" width="20%">
+<img src="screenshots/8_myRequests.png" width="20%">
+</p>
+
+<p align="center">
+<img src="screenshots/9_myApprove.png" width="20%">
+<img src="screenshots/10_myPayrolls.png" width="20%">
+<img src="screenshots/11_myPayrollsDetail.png" width="20%">
+<img src="screenshots/12_MyTeam.png" width="20%">
+</p>
+
+<p align="center">
+<img src="screenshots/13_myLeaves.png" width="20%">
+<img src="screenshots/14_myLeavesDetail.png" width="20%">
+<img src="screenshots/15_myLeavesDetail2.png" width="20%">
+<img src="screenshots/16_logout.png" width="20%">
+</p>
   
   
   
